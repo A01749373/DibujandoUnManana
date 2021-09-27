@@ -9,8 +9,8 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import mx.itesm.dibujandounmaana.R
-import mx.itesm.dibujandounmaana.databinding.FragmentSlideshowBinding
-
+//import mx.itesm.dibujandounmaana.databinding.FragmentSlideshowBinding
+/*
 class SlideshowFragment : Fragment() {
 
     private lateinit var slideshowViewModel: SlideshowViewModel
@@ -43,3 +43,4 @@ class SlideshowFragment : Fragment() {
         _binding = null
     }
 }
+ */

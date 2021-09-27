@@ -9,8 +9,8 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import mx.itesm.dibujandounmaana.R
-import mx.itesm.dibujandounmaana.databinding.FragmentGalleryBinding
-
+//import mx.itesm.dibujandounmaana.databinding.FragmentGalleryBinding
+/*
 class GalleryFragment : Fragment() {
 
     private lateinit var galleryViewModel: GalleryViewModel
@@ -43,3 +43,4 @@ class GalleryFragment : Fragment() {
         _binding = null
     }
 }
+*/

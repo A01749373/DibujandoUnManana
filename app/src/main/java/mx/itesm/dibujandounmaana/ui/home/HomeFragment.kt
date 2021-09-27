@@ -9,8 +9,8 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import mx.itesm.dibujandounmaana.R
-import mx.itesm.dibujandounmaana.databinding.FragmentHomeBinding
-
+//import mx.itesm.dibujandounmaana.databinding.FragmentHomeBinding
+/*
 class HomeFragment : Fragment() {
 
     private lateinit var homeViewModel: HomeViewModel
@@ -43,3 +43,4 @@ class HomeFragment : Fragment() {
         _binding = null
     }
 }
+ */
