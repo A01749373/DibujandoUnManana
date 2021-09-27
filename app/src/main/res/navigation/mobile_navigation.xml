@@ -22,4 +22,9 @@
         android:name="mx.itesm.dibujandounmaana.ui.slideshow.SlideshowFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_slideshow" />
+    <fragment
+        android:id="@+id/crear_cuenta"
+        android:name="mx.itesm.dibujandounmaana.CrearCuenta"
+        android:label="nav_crear_cuenta"
+        tools:layout="@layout/nav_crear_cuenta" />
 </navigation>
