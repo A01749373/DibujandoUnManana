@@ -3,7 +3,7 @@ package mx.itesm.dibujandounmaana.ui.home
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-/*
+
 class HomeViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
@@ -11,4 +11,3 @@ class HomeViewModel : ViewModel() {
     }
     val text: LiveData<String> = _text
 }
- */
