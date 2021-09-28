@@ -3,28 +3,32 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_home">
+    app:startDestination="@id/nav_contactanos">
 
     <fragment
-        android:id="@+id/nav_home"
+        android:id="@+id/nav_donaciones"
         android:name="mx.itesm.dibujandounmaana.ui.home.HomeFragment"
         android:label="@string/menu_home"
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/nav_gallery"
+        android:id="@+id/nav_quienes"
         android:name="mx.itesm.dibujandounmaana.ui.gallery.GalleryFragment"
         android:label="@string/menu_gallery"
         tools:layout="@layout/fragment_gallery" />
 
     <fragment
-        android:id="@+id/nav_slideshow"
+        android:id="@+id/nav_regalos"
         android:name="mx.itesm.dibujandounmaana.ui.slideshow.SlideshowFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_slideshow" />
     <fragment
-        android:id="@+id/crear_cuenta"
+        android:id="@+id/nav_proyectos"
         android:name="mx.itesm.dibujandounmaana.CrearCuenta"
         android:label="nav_crear_cuenta"
         tools:layout="@layout/nav_crear_cuenta" />
+    <fragment
+        android:id="@+id/nav_contactanos"
+        android:name="mx.itesm.dibujandounmaana.Contactanos"
+        android:label="@string/menu_slideshow" />
 </navigation>
