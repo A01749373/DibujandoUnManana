@@ -6,20 +6,31 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_home"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="@string/menu_home" />
+            android:id="@+id/nav_donar"
+            android:title="Donaciones" />
         <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="@string/menu_gallery" />
+            android:id="@+id/nav_quienes"
+            android:title="¿Quiénes somos?" />
         <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="@string/menu_slideshow" />
+            android:id="@+id/nav_regalos"
+            android:title="Regalos con causa" />
+        <item
+            android:id="@+id/nav_proyectos"
+            android:title="Nuestros proyectos" />
+        <item
+            android:id="@+id/nav_contactanos"
+            android:title="Contáctanos" />
+        <item
+            android:id="@+id/nav_ayuda"
+            android:title="Ayuda" />
+        <item
+            android:id="@+id/nav_configuracion"
+            android:title="Configuación" />
+        <item
+            android:id="@+id/nav_logout"
+            android:title="Cerrar sesión" />
         <item
             android:id="@+id/crear_cuenta"
-            android:icon="@android:drawable/ic_dialog_info"
             android:title="Crear Cuenta" />
     </group>
 </menu>
