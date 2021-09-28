@@ -2,33 +2,24 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:showIn="navigation_view"
-    >
+    tools:showIn="navigation_view">
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_donaciones"
-            android:title="Donaciones" />
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="@string/menu_home" />
         <item
-            android:id="@+id/nav_quienes"
-            android:title="¿Quiénes somos?" />
+            android:id="@+id/nav_gallery"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="@string/menu_gallery" />
         <item
-            android:id="@+id/nav_regalos"
-            android:title="Regalos con causa" />
+            android:id="@+id/nav_slideshow"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="@string/menu_slideshow" />
         <item
-            android:id="@+id/nav_proyectos"
-            android:title="Nuestros proyectos" />
-        <item
-            android:id="@+id/nav_contactanos"
-            android:title="Contáctanos" />
-        <item
-            android:id="@+id/nav_ayuda"
-            android:title="Ayuda" />
-        <item
-            android:id="@+id/nav_configuracion"
-            android:title="Configuración" />
-        <item
-            android:id="@+id/nav_logout"
-            android:title="Cerrar sesión" />
+            android:id="@+id/crear_cuenta"
+            android:icon="@android:drawable/ic_dialog_info"
+            android:title="Crear Cuenta" />
     </group>
 </menu>
