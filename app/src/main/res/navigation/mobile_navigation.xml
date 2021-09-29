@@ -24,8 +24,9 @@
         tools:layout="@layout/fragment_slideshow" />
     <fragment
         android:id="@+id/crear_cuenta"
-        android:name="mx.itesm.dibujandounmaana.ui.CrearCuenta"
-        android:label="Crear Cuenta" />
+        android:name="mx.itesm.dibujandounmaana.CrearCuenta"
+        android:label="Crear Cuenta"
+        tools:layout="@layout/nav_crear_cuenta" />
     <fragment
         android:id="@+id/donar"
         android:name="mx.itesm.dibujandounmaana.Donar"
