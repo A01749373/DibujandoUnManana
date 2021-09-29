@@ -31,4 +31,9 @@
         android:name="mx.itesm.dibujandounmaana.Donar"
         android:label="donar_fragment"
         tools:layout="@layout/donar_fragment" />
+    <fragment
+        android:id="@+id/nav_contactanos"
+        android:name="mx.itesm.dibujandounmaana.Contactanos"
+        android:label="nav_contactanos_fragment"
+        tools:layout="@layout/nav_contactanos_fragment" />
 </navigation>
