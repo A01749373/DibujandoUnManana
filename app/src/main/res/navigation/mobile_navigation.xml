@@ -37,4 +37,9 @@
         android:name="mx.itesm.dibujandounmaana.Contactanos"
         android:label="nav_contactanos_fragment"
         tools:layout="@layout/nav_contactanos_fragment" />
+    <fragment
+        android:id="@+id/iniciarSesion"
+        android:name="mx.itesm.dibujandounmaana.IniciarSesion"
+        android:label="iniciar_sesion_fragment"
+        tools:layout="@layout/iniciar_sesion_fragment" />
 </navigation>
