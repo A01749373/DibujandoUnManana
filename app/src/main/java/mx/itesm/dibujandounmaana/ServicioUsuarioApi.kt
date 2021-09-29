@@ -9,5 +9,5 @@ import retrofit2.http.PUT
 interface ServicioUsuarioApi
 {
     @POST("retrofit/alumno_post.php")
-    fun enviarUsuario(@Body alumno: JsonAlumno) : Call<String>
+    fun enviarUsuario(@Body alumno: JsonUsuario) : Call<String>
 }
