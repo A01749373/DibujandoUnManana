@@ -8,7 +8,7 @@ object RetrofitInstance {
     private val retrofit: Retrofit by lazy {
 
         Retrofit.Builder()
-            .baseUrl("http://localhost:8080")     // Localhost de la máquina donde corre el simulador
+            .baseUrl("http://172.17.80.1:8080")     // Localhost de la máquina donde corre el simulador
             .addConverterFactory(ScalarsConverterFactory.create())      // String. Int, etc
             .addConverterFactory(GsonConverterFactory.create())         // Json
             .build()

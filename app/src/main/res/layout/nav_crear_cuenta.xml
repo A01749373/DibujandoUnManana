@@ -20,6 +20,7 @@
             android:backgroundTint="#FFFFFF">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etCorreo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#FFFFFF"
@@ -80,6 +81,12 @@
             android:background="@color/white"
             android:backgroundTint="#FF0000"
             android:text="Button" />
+
+        <TextView
+            android:id="@+id/tvEstado"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

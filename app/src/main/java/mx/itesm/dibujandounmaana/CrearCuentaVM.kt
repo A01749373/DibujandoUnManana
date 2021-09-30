@@ -11,7 +11,7 @@ class CrearCuentaVM : ViewModel()
 {
     val respuesta = MutableLiveData<String>()
 
-    fun enviarAlumno(usuario: Usuario) {
+    fun enviarUsuario(usuario: Usuario) {
         println(Gson().toJson(JsonUsuario(usuario)))
         val call = RetrofitInstance.servicioUsuarioApi.enviarUsuario(JsonUsuario(usuario))
         call.enqueue(object: Callback<String> {
