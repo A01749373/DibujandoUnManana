@@ -42,4 +42,9 @@
         android:name="mx.itesm.dibujandounmaana.IniciarSesion"
         android:label="iniciar_sesion_fragment"
         tools:layout="@layout/iniciar_sesion_fragment" />
+    <fragment
+        android:id="@+id/perfilUsuario"
+        android:name="mx.itesm.dibujandounmaana.perfilUsuario"
+        android:label="perfil_usuario_fragment"
+        tools:layout="@layout/perfil_usuario_fragment" />
 </navigation>
