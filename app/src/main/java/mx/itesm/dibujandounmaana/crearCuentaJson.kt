@@ -4,12 +4,8 @@ import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 data class Usuario (
-    @SerializedName("matricula")
-    val matricula: String,
-    @SerializedName("nombre")
-    val nombre: String,
-    @SerializedName("semestre")
-    val semestre: Int) : Serializable
+    @SerializedName("CorreoElectronico")
+    val correo: String) : Serializable
 
 
 data class JsonUsuario(

@@ -8,6 +8,6 @@ import retrofit2.http.PUT
 // Servicios
 interface ServicioUsuarioApi
 {
-    @POST("retrofit/alumno_post.php")
-    fun enviarUsuario(@Body alumno: JsonUsuario) : Call<String>
+    @POST("/Usuario/CrearCuenta")
+    fun enviarUsuario(@Body usuario: JsonUsuario) : Call<String>
 }
