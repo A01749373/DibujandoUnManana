@@ -31,7 +31,9 @@ class CrearCuenta: Fragment() {
 
     private fun configurarEventos() {
         binding.btnEnviar.setOnClickListener {
-            val nuevoUsuario = Usuario(binding.etCorreo.text.toString())
+            val nuevoUsuario = Usuario(binding.etCorreo.text.toString(),
+                binding.etNombreUsuario.text.toString(),
+                binding.etContrsena.text.toString())
 
             viewModel.enviarUsuario(nuevoUsuario)
         }

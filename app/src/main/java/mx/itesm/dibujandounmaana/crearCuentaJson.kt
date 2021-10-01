@@ -5,10 +5,14 @@ import java.io.Serializable
 
 data class Usuario (
     @SerializedName("CorreoElectronico")
-    val correo: String) : Serializable
+    val correo: String,
+    @SerializedName("nombre")
+    val nombre: String,
+    @SerializedName("contrasena")
+    val contrasena: String) : Serializable
 
 
 data class JsonUsuario(
-    @SerializedName("alumno")
+    @SerializedName("usuario")
     val usuario: Usuario
 ) : Serializable

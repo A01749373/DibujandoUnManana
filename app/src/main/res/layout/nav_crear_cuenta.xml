@@ -36,6 +36,7 @@
             android:backgroundTint="#FFFFFF">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etNombreUsuario"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#FFFFFF"
@@ -51,6 +52,7 @@
             android:backgroundTint="#FFFFFF">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etContrsena"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#FFFFFF"
