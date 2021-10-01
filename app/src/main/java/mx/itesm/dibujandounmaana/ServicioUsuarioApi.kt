@@ -10,4 +10,7 @@ interface ServicioUsuarioApi
 {
     @POST("/Usuario/CrearCuenta")
     fun enviarUsuario(@Body usuario: JsonUsuario) : Call<String>
+
+    @POST("/Usuario/VerUsuario")
+    fun verUsuario(@Body correo: Usuario): Call<String>
 }
