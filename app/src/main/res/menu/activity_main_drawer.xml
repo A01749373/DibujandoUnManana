@@ -6,6 +6,9 @@
     android:background="@color/design_default_color_error">
 
     <group android:checkableBehavior="single">
+        <item
+            android:id= "@+id/nav_perfil"
+            android:title = "Perfil" />
 
         <item
             android:id="@+id/nav_donar"
@@ -31,6 +34,9 @@
         <item
             android:id="@+id/nav_logout"
             android:title="Cerrar sesión" />
+        <item
+            android:id="@+id/iniciar_sesion"
+            android:title="Iniciar sesión" />
         <item
             android:id="@+id/crear_cuenta"
             android:title="Crear Cuenta" />

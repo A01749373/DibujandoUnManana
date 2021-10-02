@@ -8,48 +8,55 @@
     <fragment
         android:id="@+id/nav_donar"
         android:name="mx.itesm.dibujandounmaana.ui.home.HomeFragment"
-        android:label="@string/menu_home"
+        android:label="Donaciones"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/nav_quienes"
         android:name="mx.itesm.dibujandounmaana.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
+        android:label="¿Quiénes somos?"
         tools:layout="@layout/fragment_gallery" />
 
     <fragment
         android:id="@+id/nav_regalos"
         android:name="mx.itesm.dibujandounmaana.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
+        android:label="Regalos con causa"
         tools:layout="@layout/fragment_slideshow" />
     <fragment
         android:id="@+id/crear_cuenta"
         android:name="mx.itesm.dibujandounmaana.CrearCuenta"
         android:label="Crear Cuenta"
         tools:layout="@layout/nav_crear_cuenta" />
+
+    <fragment
+        android:id="@+id/iniciar_sesion"
+        android:name="mx.itesm.dibujandounmaana.IniciarSesion"
+        android:label="Iniciar sesion"
+        tools:layout="@layout/iniciar_sesion_fragment" />
+
     <fragment
         android:id="@+id/donar"
         android:name="mx.itesm.dibujandounmaana.Donar"
-        android:label="donar_fragment"
+        android:label="Donar"
         tools:layout="@layout/donar_fragment" />
     <fragment
         android:id="@+id/nav_contactanos"
         android:name="mx.itesm.dibujandounmaana.Contactanos"
-        android:label="nav_contactanos_fragment"
+        android:label="Contáctanos"
         tools:layout="@layout/nav_contactanos_fragment" />
     <fragment
         android:id="@+id/iniciarSesion"
         android:name="mx.itesm.dibujandounmaana.IniciarSesion"
-        android:label="iniciar_sesion_fragment"
+        android:label="Iniciar sesión"
         tools:layout="@layout/iniciar_sesion_fragment" />
     <fragment
-        android:id="@+id/perfilUsuario"
+        android:id="@+id/nav_perfil"
         android:name="mx.itesm.dibujandounmaana.perfilUsuario"
-        android:label="perfil_usuario_fragment"
+        android:label="Perfil"
         tools:layout="@layout/perfil_usuario_fragment" />
     <fragment
         android:id="@+id/nav_proyectos"
         android:name="mx.itesm.dibujandounmaana.Proyectos"
-        android:label="Listado de Proyectos"
+        android:label="Nuestros proyectos"
         tools:layout="@layout/nav_proyectos" />
 </navigation>
