@@ -1,6 +1,6 @@
 # DibujandoUnManana
 ## Integrantes: 
-Ariadna Jocelyn Guzmán Jiménez A01749373>
+Ariadna Jocelyn Guzmán Jiménez A01749373 <br />
 Andrea Vianey Díaz Álvarez A01750147
 Jorge Chávez Badillo A01749448
 Amy Murakami Tsutsumi A01750185
