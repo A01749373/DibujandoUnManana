@@ -1,7 +1,7 @@
-package mx.itesm.dibujandounmaana
+package mx.itesm.dibujandounmaana.viewmodel
 
 import androidx.lifecycle.ViewModel
 
-class ProyectosVM : ViewModel() {
+class DonarVM : ViewModel() {
     // TODO: Implement the ViewModel
 }

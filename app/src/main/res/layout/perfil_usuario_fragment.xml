@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#BCABAB"
-    tools:context=".perfilUsuario">
+    tools:context=".view.perfilUsuario">
 
     <TextView
         android:id="@+id/tvnombre"

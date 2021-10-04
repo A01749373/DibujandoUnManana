@@ -24,43 +24,43 @@
         tools:layout="@layout/fragment_slideshow" />
     <fragment
         android:id="@+id/crear_cuenta"
-        android:name="mx.itesm.dibujandounmaana.CrearCuenta"
+        android:name="mx.itesm.dibujandounmaana.view.CrearCuenta"
         android:label="Crear Cuenta"
         tools:layout="@layout/nav_crear_cuenta" />
 
     <fragment
         android:id="@+id/donar"
-        android:name="mx.itesm.dibujandounmaana.Donar"
+        android:name="mx.itesm.dibujandounmaana.view.Donar"
         android:label="Donar"
         tools:layout="@layout/donar_fragment" />
     <fragment
         android:id="@+id/nav_contactanos"
-        android:name="mx.itesm.dibujandounmaana.Contactanos"
+        android:name="mx.itesm.dibujandounmaana.view.Contactanos"
         android:label="Contáctanos"
         tools:layout="@layout/nav_contactanos_fragment" />
     <fragment
         android:id="@+id/iniciarSesion"
-        android:name="mx.itesm.dibujandounmaana.IniciarSesion"
+        android:name="mx.itesm.dibujandounmaana.view.IniciarSesion"
         android:label="Iniciar sesión"
         tools:layout="@layout/iniciar_sesion_fragment" />
     <fragment
         android:id="@+id/nav_perfil"
-        android:name="mx.itesm.dibujandounmaana.perfilUsuario"
+        android:name="mx.itesm.dibujandounmaana.view.perfilUsuario"
         android:label="Perfil"
         tools:layout="@layout/perfil_usuario_fragment" />
     <fragment
         android:id="@+id/nav_proyectos"
-        android:name="mx.itesm.dibujandounmaana.Proyectos"
+        android:name="mx.itesm.dibujandounmaana.view.Proyectos"
         android:label="Nuestros proyectos"
         tools:layout="@layout/nav_proyectos" />
     <fragment
         android:id="@+id/tipoUsuario"
-        android:name="mx.itesm.dibujandounmaana.TipoUsuario"
+        android:name="mx.itesm.dibujandounmaana.view.TipoUsuario"
         android:label="Elige Tipo Usuario"
         tools:layout="@layout/tipo_usuario_fragment" />
     <fragment
         android:id="@+id/ayuda"
-        android:name="mx.itesm.dibujandounmaana.Ayuda"
+        android:name="mx.itesm.dibujandounmaana.view.Ayuda"
         android:label="Ayuda"
         tools:layout="@layout/ayuda_fragment" />
 </navigation>

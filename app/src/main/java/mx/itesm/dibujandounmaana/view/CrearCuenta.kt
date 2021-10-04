@@ -1,4 +1,4 @@
-package mx.itesm.dibujandounmaana
+package mx.itesm.dibujandounmaana.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,7 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import mx.itesm.dibujandounmaana.Usuario
 import mx.itesm.dibujandounmaana.databinding.NavCrearCuentaBinding
+import mx.itesm.dibujandounmaana.viewmodel.CrearCuentaVM
 
 class CrearCuenta: Fragment() {
 

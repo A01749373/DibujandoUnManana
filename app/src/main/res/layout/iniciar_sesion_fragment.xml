@@ -5,7 +5,7 @@
     android:id="@+id/frameLayout3"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".IniciarSesion">
+    tools:context=".view.IniciarSesion">
 
     <LinearLayout
         android:layout_width="0dp"

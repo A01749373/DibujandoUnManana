@@ -1,4 +1,4 @@
-package mx.itesm.dibujandounmaana
+package mx.itesm.dibujandounmaana.viewmodel
 
 import androidx.lifecycle.ViewModel
 
