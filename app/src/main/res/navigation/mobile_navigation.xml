@@ -29,12 +29,6 @@
         tools:layout="@layout/nav_crear_cuenta" />
 
     <fragment
-        android:id="@+id/iniciar_sesion"
-        android:name="mx.itesm.dibujandounmaana.IniciarSesion"
-        android:label="Iniciar sesion"
-        tools:layout="@layout/iniciar_sesion_fragment" />
-
-    <fragment
         android:id="@+id/donar"
         android:name="mx.itesm.dibujandounmaana.Donar"
         android:label="Donar"
@@ -59,4 +53,14 @@
         android:name="mx.itesm.dibujandounmaana.Proyectos"
         android:label="Nuestros proyectos"
         tools:layout="@layout/nav_proyectos" />
+    <fragment
+        android:id="@+id/tipoUsuario"
+        android:name="mx.itesm.dibujandounmaana.TipoUsuario"
+        android:label="Elige Tipo Usuario"
+        tools:layout="@layout/tipo_usuario_fragment" />
+    <fragment
+        android:id="@+id/ayuda"
+        android:name="mx.itesm.dibujandounmaana.Ayuda"
+        android:label="Ayuda"
+        tools:layout="@layout/ayuda_fragment" />
 </navigation>

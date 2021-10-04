@@ -26,7 +26,7 @@
             android:id="@+id/nav_contactanos"
             android:title="Contáctanos" />
         <item
-            android:id="@+id/nav_ayuda"
+            android:id="@+id/ayuda"
             android:title="Ayuda" />
         <item
             android:id="@+id/nav_configuracion"
@@ -35,10 +35,13 @@
             android:id="@+id/nav_logout"
             android:title="Cerrar sesión" />
         <item
-            android:id="@+id/iniciar_sesion"
+            android:id="@+id/iniciarSesion"
             android:title="Iniciar sesión" />
         <item
             android:id="@+id/crear_cuenta"
             android:title="Crear Cuenta" />
+        <item
+            android:id="@+id/tipoUsuario"
+            android:title="Elige tipo usuario" />
     </group>
 </menu>
