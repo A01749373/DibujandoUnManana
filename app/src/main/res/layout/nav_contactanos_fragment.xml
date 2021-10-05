@@ -28,7 +28,6 @@
             android:layout_marginTop="24dp"
             android:layout_marginBottom="16dp"
             android:fontFamily="casual"
-            android:textColor="@color/black"
             android:text="Contáctanos por alguno de nuestros canales de comunicación"
             android:textAlignment="center"
             android:textSize="25sp"
@@ -44,33 +43,34 @@
                 android:id="@+id/ivFB"
                 android:layout_width="90dp"
                 android:layout_height="100dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="6dp"
                 android:layout_weight="1"
                 android:scaleType="fitXY"
-                android:background="@color/white"
                 android:src="@drawable/fb"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="6dp"/>
+                android:background="@null"/>
 
             <ImageButton
                 android:id="@+id/ivTW"
                 android:layout_width="90dp"
                 android:layout_height="100dp"
+                android:layout_marginLeft="6dp"
+                android:layout_marginRight="6dp"
                 android:layout_weight="1"
                 android:scaleType="fitXY"
-                android:background="@color/white"
                 android:src="@drawable/tw"
-                android:layout_marginLeft="6dp"
-                android:layout_marginRight="6dp"/>
+                android:background="@null"/>
+
             <ImageButton
                 android:id="@+id/ivIG"
                 android:layout_width="90dp"
                 android:layout_height="100dp"
+                android:layout_marginLeft="6dp"
+                android:layout_marginRight="6dp"
                 android:layout_weight="1"
                 android:scaleType="fitXY"
-                android:background="@color/white"
                 android:src="@drawable/ig"
-                android:layout_marginLeft="6dp"
-                android:layout_marginRight="6dp"/>
+                android:background="@null"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="wrap_content"
@@ -85,9 +85,10 @@
                 android:layout_marginLeft="40dp"
                 android:layout_marginRight="12dp"
                 android:layout_weight="1"
-                android:background="@color/white"
                 android:scaleType="fitXY"
-                android:src="@drawable/li" />
+                android:src="@drawable/li"
+                android:background="@null"/>
+
             <ImageButton
                 android:id="@+id/ivYT"
                 android:layout_width="115dp"
@@ -95,9 +96,9 @@
                 android:layout_marginLeft="40dp"
                 android:layout_marginRight="12dp"
                 android:layout_weight="1"
-                android:background="@color/white"
                 android:scaleType="fitXY"
-                android:src="@drawable/yt" />
+                android:src="@drawable/yt"
+                android:background="@null"/>
 
         </LinearLayout>
 

@@ -24,7 +24,8 @@ class Contactanos : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.nav_contactanos_fragment, container, false)
+        binding= NavContactanosFragmentBinding.inflate(layoutInflater)
+        return binding.root
     }
 
 

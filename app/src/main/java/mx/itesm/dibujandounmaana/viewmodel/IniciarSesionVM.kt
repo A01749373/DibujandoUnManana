@@ -3,9 +3,9 @@ package mx.itesm.dibujandounmaana.viewmodel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.google.gson.Gson
-import mx.itesm.dibujandounmaana.JsonSesionUsuario
+import mx.itesm.dibujandounmaana.model.JsonSesionUsuario
 import mx.itesm.dibujandounmaana.RetrofitInstance
-import mx.itesm.dibujandounmaana.SesionUsuario
+import mx.itesm.dibujandounmaana.model.SesionUsuario
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

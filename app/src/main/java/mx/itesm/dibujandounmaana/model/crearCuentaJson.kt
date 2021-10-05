@@ -1,4 +1,4 @@
-package mx.itesm.dibujandounmaana
+package mx.itesm.dibujandounmaana.model
 
 import com.google.gson.annotations.SerializedName
 import java.io.Serializable

@@ -1,16 +1,12 @@
 package mx.itesm.dibujandounmaana.view
 
-import android.os.Binder
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
-import mx.itesm.dibujandounmaana.R
-import mx.itesm.dibujandounmaana.SesionUsuario
-import mx.itesm.dibujandounmaana.databinding.ActivityMainBinding
+import mx.itesm.dibujandounmaana.model.SesionUsuario
 import mx.itesm.dibujandounmaana.databinding.IniciarSesionFragmentBinding
 import mx.itesm.dibujandounmaana.viewmodel.IniciarSesionVM
 

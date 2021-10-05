@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import mx.itesm.dibujandounmaana.Usuario
+import mx.itesm.dibujandounmaana.model.Usuario
 import mx.itesm.dibujandounmaana.databinding.NavCrearCuentaBinding
 import mx.itesm.dibujandounmaana.viewmodel.CrearCuentaVM
 
