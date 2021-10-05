@@ -20,15 +20,15 @@ class IniciarSesionVM : ViewModel() {
         call.enqueue(object: Callback<String> {
             override fun onResponse(call: Call<String>, response: Response<String>) {
                 if(response.isSuccessful) {
-                    respuesta.value = "Correcto: , ${response.body()}"
+                    respuesta.value = "${response.body()}"
                 } else {
-                    respuesta.value = "Error:-> , [${response.body()}] ${response.errorBody()}"
+                    respuesta.value = "[${response.body()}] ${response.errorBody()}"
                     println(respuesta.value)
                 }
             }
 
             override fun onFailure(call: Call<String>, t: Throwable) {
-                respuesta.value = "Error 0_0, ${t.localizedMessage}"
+                respuesta.value = "Error :(, ${t.localizedMessage}"
                 println(respuesta.value)
             }
         })
