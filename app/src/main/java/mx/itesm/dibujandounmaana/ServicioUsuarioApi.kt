@@ -15,6 +15,6 @@ interface ServicioUsuarioApi
     @POST("/Usuario/VerUsuario")
     fun verUsuario(@Body correo: Usuario): Call<String>
 
-    @GET("/Sesion/BuscarUsuario")
-    fun iniciarSesion(@Body correo: Usuario): Call<String>
+    @POST("/Sesion/BuscarUsuario")
+    fun iniciarSesion(@Body sesionUsuario: JsonSesionUsuario): Call<String>
 }

@@ -5,11 +5,11 @@ import java.io.Serializable
 
 data class SesionUsuario (
     @SerializedName("correoElectronico")
-    val usuario: String,
+    val correoElectronico: String,
     @SerializedName("contrasena")
     val contrasena: String): Serializable
 
 data class JsonSesionUsuario(
-    @SerializedName("usuario")
-    val usuario: SesionUsuario
+    @SerializedName("sesionUsuario")
+    val sesionUsuario: SesionUsuario
 ) : Serializable
