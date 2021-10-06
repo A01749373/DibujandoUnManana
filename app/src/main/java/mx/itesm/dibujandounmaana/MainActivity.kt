@@ -55,7 +55,7 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
-
+        /*
         val  payPalButton = findViewById<PayPalButton>(R.id.payPalButton)
 
         payPalButton.setup(
@@ -84,7 +84,7 @@ class MainActivity : AppCompatActivity() {
                     println("CaptureOrderResult: $captureOrderResult")
                 }
             }
-        )
+        )*/
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
