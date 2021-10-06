@@ -3,13 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_donar">
+    app:startDestination="@+id/nav_quienes">
 
     <fragment
         android:id="@+id/nav_donar"
         android:name="mx.itesm.dibujandounmaana.ui.home.HomeFragment"
         android:label="Donaciones"
         tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_configuracion"
+        android:name="mx.itesm.dibujandounmaana.ui.home.HomeFragment"
+        android:label="Configuración"
+        tools:layout="@layout/nav_configuracion" />
 
     <fragment
         android:id="@+id/nav_quienes"
@@ -19,9 +25,9 @@
 
     <fragment
         android:id="@+id/nav_regalos"
-        android:name="mx.itesm.dibujandounmaana.ui.slideshow.SlideshowFragment"
+        android:name="mx.itesm.dibujandounmaana.view.Regalos"
         android:label="Regalos con causa"
-        tools:layout="@layout/fragment_slideshow" />
+        tools:layout="@layout/fragment_regalos" />
     <fragment
         android:id="@+id/crear_cuenta"
         android:name="mx.itesm.dibujandounmaana.view.CrearCuenta"
@@ -63,4 +69,10 @@
         android:name="mx.itesm.dibujandounmaana.view.Ayuda"
         android:label="Ayuda"
         tools:layout="@layout/ayuda_fragment" />
+
+    <fragment
+        android:id="@+id/nav_logout"
+        android:name="mx.itesm.dibujandounmaana.ui.home.HomeFragment"
+        android:label=" "
+        tools:layout="@layout/nav_cerrarsesion" />
 </navigation>

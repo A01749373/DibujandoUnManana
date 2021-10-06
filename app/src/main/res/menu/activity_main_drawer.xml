@@ -30,7 +30,7 @@
             android:title="Ayuda" />
         <item
             android:id="@+id/nav_configuracion"
-            android:title="Configuación" />
+            android:title="Configuración" />
         <item
             android:id="@+id/nav_logout"
             android:title="Cerrar sesión" />
