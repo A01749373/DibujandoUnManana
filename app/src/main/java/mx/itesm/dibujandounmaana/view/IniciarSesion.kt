@@ -6,6 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
+import mx.itesm.dibujandounmaana.R
 import mx.itesm.dibujandounmaana.model.SesionUsuario
 import mx.itesm.dibujandounmaana.databinding.IniciarSesionFragmentBinding
 import mx.itesm.dibujandounmaana.viewmodel.IniciarSesionVM
@@ -38,6 +40,10 @@ class IniciarSesion : Fragment() {
                 binding.etContrasena.text.toString())
 
             viewModel.verificaUsuario(usuarioRegistrado)
+        }
+
+        binding.btnCrearCuenta.setOnClickListener {
+            findNavController().navigate(R.id.action_iniciarSesion_to_crear_cuenta)
         }
     }
 

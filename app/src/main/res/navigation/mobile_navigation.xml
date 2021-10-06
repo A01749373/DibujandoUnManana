@@ -48,7 +48,14 @@
         android:id="@+id/iniciarSesion"
         android:name="mx.itesm.dibujandounmaana.view.IniciarSesion"
         android:label="Iniciar sesión"
-        tools:layout="@layout/iniciar_sesion_fragment" />
+        tools:layout="@layout/iniciar_sesion_fragment" >
+        <action
+            android:id="@+id/action_iniciarSesion_to_crear_cuenta"
+            app:destination="@id/crear_cuenta" />
+        <action
+            android:id="@+id/action_iniciarSesion_to_ayuda"
+            app:destination="@id/ayuda" />
+    </fragment>
     <fragment
         android:id="@+id/nav_perfil"
         android:name="mx.itesm.dibujandounmaana.view.perfilUsuario"
