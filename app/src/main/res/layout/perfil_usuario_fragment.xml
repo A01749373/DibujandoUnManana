@@ -23,7 +23,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/textView4"
+            android:id="@+id/tvNombre"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -31,17 +31,24 @@
             android:textSize="20sp"
             android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/textView5"
+        <EditText
+            android:id="@+id/tvCorreo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Correo"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Correo" />
+
+        <Button
+            android:id="@+id/tvBoton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Enviar" />
 
         <TextView
-            android:id="@+id/textView6"
+            android:id="@+id/tvHistorial"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
