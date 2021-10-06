@@ -18,14 +18,12 @@ import com.facebook.login.LoginResult
 import com.facebook.FacebookCallback
 import android.content.Intent
 import com.facebook.AccessToken
+import com.facebook.GraphResponse
 
+import org.json.JSONObject
 
-
-
-
-
-
-
+import com.facebook.GraphRequest
+import com.facebook.GraphRequest.GraphJSONObjectCallback
 
 
 class CrearCuenta: Fragment() {
@@ -49,9 +47,10 @@ class CrearCuenta: Fragment() {
 
         configurarObservadores()
         configurarEventos()
+        //Email
+        binding.loginButton.setReadPermissions("email")
 
         //saber si hay un token de login
-
         val accessToken = AccessToken.getCurrentAccessToken()
         val isLoggedIn = accessToken != null && !accessToken.isExpired
         println("logeado $isLoggedIn")
@@ -63,6 +62,7 @@ class CrearCuenta: Fragment() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         callbackManager.onActivityResult(requestCode, resultCode, data)
         super.onActivityResult(requestCode, resultCode, data)
+
     }
 
     private fun configurarEventos() {
@@ -94,6 +94,8 @@ class CrearCuenta: Fragment() {
                 println("Firma no exitosa")
             }
         })
+
+
     }
 
     private fun configurarObservadores() {
