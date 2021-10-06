@@ -1,7 +1,6 @@
 package mx.itesm.dibujandounmaana
 
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.navigation.NavigationView
@@ -12,16 +11,6 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
-import com.paypal.checkout.approve.OnApprove
-import com.paypal.checkout.createorder.CreateOrder
-import com.paypal.checkout.createorder.CurrencyCode
-import com.paypal.checkout.createorder.OrderIntent
-import com.paypal.checkout.createorder.UserAction
-import com.paypal.checkout.order.Amount
-import com.paypal.checkout.order.AppContext
-import com.paypal.checkout.order.Order
-import com.paypal.checkout.order.PurchaseUnit
-import com.paypal.checkout.paymentbutton.PayPalButton
 import mx.itesm.dibujandounmaana.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -55,36 +44,6 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
-        /*
-        val  payPalButton = findViewById<PayPalButton>(R.id.payPalButton)
-
-        payPalButton.setup(
-            createOrder = CreateOrder { createOrderActions ->
-                val order = Order(
-                    intent = OrderIntent.CAPTURE,
-                    appContext = AppContext(
-                        userAction = UserAction.PAY_NOW
-                    ),
-
-                    purchaseUnitList = listOf(
-                        PurchaseUnit(
-                            amount = Amount(
-                                currencyCode = CurrencyCode.USD,
-                                value = "10.00"
-                            )
-                        )
-                    )
-                )
-
-                createOrderActions.create(order)
-            },
-            onApprove = OnApprove { approval ->
-                approval.orderActions.capture { captureOrderResult ->
-                    Log.i("CaptureOrder", "CaptureOrderResult: $captureOrderResult")
-                    println("CaptureOrderResult: $captureOrderResult")
-                }
-            }
-        )*/
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
