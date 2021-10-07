@@ -49,7 +49,7 @@ class CrearCuenta: Fragment() {
         //Email
         binding.loginButton.setReadPermissions("email")
         binding.loginButton.setReadPermissions("user_gender")
-        binding.loginButton.setReadPermissions("user_birthday")
+        //binding.loginButton.setReadPermissions("user_birthday")
 
         //saber si hay un token de login
         val accessToken = AccessToken.getCurrentAccessToken()
@@ -93,14 +93,14 @@ class CrearCuenta: Fragment() {
                             //println(objeto?.get("name"))
                             //println(response.toString())
                             val name= objeto?.get("name"); val correo=objeto?.get("email")
-                            val genero = objeto?.get("gender"); val birthday = objeto?.get("birthday")
+                            val genero = objeto?.get("gender"); //val birthday = objeto?.get("birthday")
                             viewModel.enviarUsuario(Usuario(correo.toString(),name.toString(),
                                 genero.toString()," "," "))
                         }
                     })
 
                 val parameters = Bundle()
-                parameters.putString("fields", "email, name, gender,birthday")
+                parameters.putString("fields", "email, name, gender")//birthday)
                 //println(parameters)
                 request.setParameters(parameters)
                 request.executeAsync()
