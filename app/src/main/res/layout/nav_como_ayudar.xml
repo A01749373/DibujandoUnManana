@@ -72,9 +72,10 @@
             android:textSize="16sp" />
 
         <ImageView
-            android:id="@+id/imageView5"
+            android:id="@+id/imageView6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/imgComoAyudar" />
+            android:src="@drawable/comoayudar" />
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
