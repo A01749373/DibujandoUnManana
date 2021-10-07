@@ -15,7 +15,7 @@
         android:background="@drawable/send_round_box"
         android:backgroundTint="#969595"
         android:padding="14dp"
-        android:text="This is a sample message that will appear"
+        android:text="Este es un mensaje de muestra del usuario"
         android:textColor="@android:color/white"
         android:textSize="14sp" />
 
@@ -31,7 +31,7 @@
         android:background="@drawable/receive_round_box"
         android:backgroundTint="#DA291C"
         android:padding="14dp"
-        android:text="This is a sample message that will appear"
+        android:text="Este es un mensaje de muestra del bot"
         android:textColor="@android:color/white"
         android:textSize="14sp"
         android:visibility="visible" />
