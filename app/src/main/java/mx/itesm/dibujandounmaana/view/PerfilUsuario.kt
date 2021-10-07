@@ -1,23 +1,23 @@
 package mx.itesm.dibujandounmaana.view
 
-import androidx.lifecycle.ViewModelProvider
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.edit
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import mx.itesm.dibujandounmaana.R
-import mx.itesm.dibujandounmaana.databinding.ActivityMainBinding
-import mx.itesm.dibujandounmaana.databinding.IniciarSesionFragmentBinding
 import mx.itesm.dibujandounmaana.databinding.PerfilUsuarioFragmentBinding
-import mx.itesm.dibujandounmaana.model.CorreoUsuario
-import mx.itesm.dibujandounmaana.model.SesionUsuario
 import mx.itesm.dibujandounmaana.viewmodel.PerfilUsuarioVM
+import mx.itesm.dibujandounmaana.R
 
 class perfilUsuario : Fragment() {
 
+    companion object{
+        fun newInstance() = perfilUsuario()
+    }
 
     private val viewModel: PerfilUsuarioVM by viewModels()
 
@@ -27,26 +27,53 @@ class perfilUsuario : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        //return inflater.inflate(R.layout.iniciar_sesion_fragment, container, false)
         binding = PerfilUsuarioFragmentBinding.inflate(layoutInflater)
         return binding.root
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        //configurarObservadores()
+        cargarPreferencias()
+        configurarObservadores()
         configurarEventos()
+
     }
-    private fun configurarEventos() {
-        binding.tvBoton.setOnClickListener {
-            val correo = binding.tvCorreo.text.toString()
-            viewModel.descargarDatosUsuario(correo)
+
+    private fun cargarPreferencias() {
+        val preferencias = this.requireContext().getSharedPreferences("Usuario", Context.MODE_PRIVATE)
+        val favorito = preferencias.getString("Correo", "-1")
+        if (favorito != "-1") {
+            println("$favorito")
+        } else {
+            println("No funciono")
         }
     }
 
-    //private fun configurarObservadores() {
-    //    viewModel.respuesta.observe(viewLifecycleOwner) { respuesta ->
-    //        binding.tvNombre.text =
-    //    }
-    //}
+    private fun configurarEventos() {
+        binding.tvBoton.setOnClickListener {
+            val correo = binding.tvCorreo.text.toString()
+            val preferencias = this.requireContext().getSharedPreferences("Usuario", Context.MODE_PRIVATE)
+            preferencias.edit {
+                putString("Correo", correo)
+                commit()
+            }
+            viewModel.descargarDatosUsuario(correo)
 
+            // Ver Datos de preferencias
+            val favorito = preferencias.getString("Correo", "-1")
+            if (favorito != "-1") {
+                println("Este es el correo del usuario: $favorito")
+            } else {
+                println("No funciono")
+            }
+        }
+        binding.btnDonacion.setOnClickListener {
+            findNavController().navigate(R.id.action_nav_perfil_to_lista_donaciones)
+        }
+    }
+
+    private fun configurarObservadores() {
+        viewModel.respuesta.observe(viewLifecycleOwner) { respuesta ->
+            binding.tvNombre.text = respuesta.nombre
+        }
+    }
 }

@@ -12,7 +12,10 @@ interface ServicioUsuarioApi
     fun enviarUsuario(@Body usuario: JsonUsuario) : Call<String>
 
     @POST("/crearPerfilUsuario/PerfilUsuario")
-    fun verUsuario(@Body correo: CorreoUsuario): Call<String>
+    fun verUsuario(@Body correo: CorreoUsuario): Call<crearPefilUsuario>
+
+    @POST("/crearPerfilUsuario/EnviarDonaciones")
+    fun verDonaciones(@Body correo: CorreoUsuario): Call<List<Donacion>>
 
     @POST("/Sesion/BuscarUsuario")
     fun iniciarSesion(@Body sesionUsuario: JsonSesionUsuario): Call<String>
