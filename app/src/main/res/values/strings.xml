@@ -15,4 +15,12 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="facebook_app_id">379802597123232</string>
     <string name="fb_login_protocol_scheme">fb379802597123232</string>
+
+    //Para Spinner
+    <string-array name="arrProyectos">
+        <item>Educación</item>
+        <item>Salud</item>
+        <item>Protección</item>
+        <item>Género</item>
+    </string-array>
 </resources>

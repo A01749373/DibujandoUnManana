@@ -63,7 +63,14 @@
         android:id="@+id/nav_proyectos"
         android:name="mx.itesm.dibujandounmaana.view.Proyectos"
         android:label="Nuestros proyectos"
-        tools:layout="@layout/nav_proyectos" />
+        tools:layout="@layout/nav_proyectos" >
+        <action
+            android:id="@+id/action_nav_proyectos_to_donar"
+            app:destination="@id/donar" />
+        <action
+            android:id="@+id/action_nav_proyectos_to_sumate"
+            app:destination="@id/sumate" />
+    </fragment>
     <fragment
         android:id="@+id/tipoUsuario"
         android:name="mx.itesm.dibujandounmaana.view.TipoUsuario"
@@ -75,4 +82,14 @@
         android:name="mx.itesm.dibujandounmaana.ui.home.HomeFragment"
         android:label=" "
         tools:layout="@layout/nav_cerrarsesion" />
+    <fragment
+        android:id="@+id/sumate"
+        android:name="mx.itesm.dibujandounmaana.view.Sumate"
+        android:label="Súmate al proyecto"
+        tools:layout="@layout/nav_sumate" />
+    <fragment
+        android:id="@+id/comoAyudar"
+        android:name="mx.itesm.dibujandounmaana.view.ComoAyudar"
+        android:label="nav_como_ayudar"
+        tools:layout="@layout/nav_como_ayudar" />
 </navigation>
