@@ -5,12 +5,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import mx.itesm.dibujandounmaana.R
 import mx.itesm.dibujandounmaana.model.SesionUsuario
 import mx.itesm.dibujandounmaana.databinding.IniciarSesionFragmentBinding
 import mx.itesm.dibujandounmaana.viewmodel.IniciarSesionVM
+import kotlinx.coroutines.delay as delay
 
 class IniciarSesion : Fragment() {
 
@@ -40,6 +42,8 @@ class IniciarSesion : Fragment() {
                 binding.etContrasena.text.toString())
 
             viewModel.verificaUsuario(usuarioRegistrado)
+            //delay(2000)
+            findNavController().navigate(R.id.action_iniciarSesion_to_nav_quienes)
         }
 
         binding.btnCrearCuenta.setOnClickListener {
