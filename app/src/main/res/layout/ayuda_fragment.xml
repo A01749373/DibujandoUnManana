@@ -55,5 +55,4 @@
         android:background="#42A5F5"
         android:id="@+id/dark_divider"/>
 
-
 </RelativeLayout>

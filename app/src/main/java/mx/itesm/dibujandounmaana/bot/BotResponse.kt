@@ -13,7 +13,7 @@ object BotResponse {
 
         return when {
 
-            //Flips a coin
+            // Flips a coin
             message.contains("flip") && message.contains("coin") -> {
                 val r = (0..1).random()
                 val result = if (r == 0) "heads" else "tails"
@@ -21,7 +21,7 @@ object BotResponse {
                 "I flipped a coin and it landed on $result"
             }
 
-            //Math calculations
+            // Math calculations
             message.contains("solve") -> {
                 val equation: String? = message.substringAfterLast("solve")
                 return try {
@@ -33,7 +33,7 @@ object BotResponse {
                 }
             }
 
-            //Hello
+            // Hello
             message.contains("hello") -> {
                 when (random) {
                     0 -> "Hello there!"
@@ -42,7 +42,7 @@ object BotResponse {
                     else -> "error" }
             }
 
-            //How are you?
+            // How are you?
             message.contains("how are you") -> {
                 when (random) {
                     0 -> "I'm doing fine, thanks!"
@@ -52,7 +52,7 @@ object BotResponse {
                 }
             }
 
-            //What time is it?
+            // What time is it?
             message.contains("time") && message.contains("?") -> {
                 val timeStamp = Timestamp(System.currentTimeMillis())
                 val sdf = SimpleDateFormat("dd/MM/yyyy HH:mm")
@@ -61,7 +61,7 @@ object BotResponse {
                 date.toString()
             }
 
-            //Hola
+            // Hola
             message.contains("hola") -> {
                 when (random) {
                     0 -> "¡Hola! 😃"
@@ -71,17 +71,28 @@ object BotResponse {
                 }
             }
 
-            //Open Google
+            // ¿Cómo puedo donar?
+            message.contains("¿cómo puedo donar?") -> {
+                when (0) {
+                    0 -> "Dirígete hacia el menú deslizable del lado izquierdo\n" +
+                            "y selecciona la sección de donaciones, posteriormente selecciona\n" +
+                            "el proyecto al que deseas apoyar y por medio de paypal se \n" +
+                            "se realiza el cargo de tu donación"
+                    else -> "error"
+                }
+            }
+
+            // Open Google
             message.contains("open") && message.contains("google") -> {
                 OPEN_GOOGLE
             }
 
-            //Search on the internet
+            // Search on the internet
             message.contains("search") -> {
                 OPEN_SEARCH
             }
 
-            //When the programme doesn't understand...
+            // When the programme doesn't understand...
             else -> {
                 when (random) {
                     0 -> "I don't understand..."
