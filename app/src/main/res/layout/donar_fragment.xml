@@ -39,9 +39,11 @@
             android:layout_marginTop="20dp">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etCantidad"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Cantidad" />
+                android:hint="Cantidad"
+                android:inputType="number|numberDecimal" />
         </com.google.android.material.textfield.TextInputLayout>
 
     </LinearLayout>
