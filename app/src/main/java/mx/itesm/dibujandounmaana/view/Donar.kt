@@ -61,9 +61,7 @@ class Donar : Fragment() {
                         PurchaseUnit(
                             amount = Amount(
                                 currencyCode = CurrencyCode.USD,
-                                value = "20.00"
-                                //value = R.id.etCantidad.toString()
-                                //value = binding.etCantidad.toString()
+                                value = binding.etCantidad.text.toString()
                             )
                         )
                     )
