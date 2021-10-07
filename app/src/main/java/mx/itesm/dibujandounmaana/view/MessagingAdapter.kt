@@ -1,15 +1,14 @@
-package mx.itesm.dibujandounmaana
+package mx.itesm.dibujandounmaana.view
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.appcompat.view.menu.ActionMenuItemView
 import androidx.recyclerview.widget.RecyclerView
-import mx.itesm.dibujandounmaana.Constants.RECEIVE_ID
-import mx.itesm.dibujandounmaana.Constants.SEND_ID
-import okhttp3.internal.notify
-import org.w3c.dom.Text
+import mx.itesm.dibujandounmaana.R
+import mx.itesm.dibujandounmaana.bot.Constants.RECEIVE_ID
+import mx.itesm.dibujandounmaana.bot.Constants.SEND_ID
+import mx.itesm.dibujandounmaana.model.Message
 
 private val View.tv_message: Unit
     get() {}

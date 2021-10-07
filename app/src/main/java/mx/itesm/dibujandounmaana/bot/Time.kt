@@ -1,4 +1,4 @@
-package mx.itesm.dibujandounmaana
+package mx.itesm.dibujandounmaana.bot
 
 import java.sql.Timestamp
 import java.text.SimpleDateFormat

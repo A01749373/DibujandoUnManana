@@ -1,4 +1,4 @@
-package mx.itesm.dibujandounmaana
+package mx.itesm.dibujandounmaana.bot
 
 object Constants {
     const val SEND_ID = "SEND_ID"

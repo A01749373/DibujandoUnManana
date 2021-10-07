@@ -1,14 +1,8 @@
 package mx.itesm.dibujandounmaana.view
 
-import android.app.Activity
 import android.content.Intent
 import android.net.Uri
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
@@ -16,10 +10,13 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.coroutines.*
 import mx.itesm.dibujandounmaana.*
-import mx.itesm.dibujandounmaana.Constants.OPEN_GOOGLE
-import mx.itesm.dibujandounmaana.Constants.OPEN_SEARCH
-import mx.itesm.dibujandounmaana.Constants.RECEIVE_ID
-import mx.itesm.dibujandounmaana.Constants.SEND_ID
+import mx.itesm.dibujandounmaana.bot.Constants.OPEN_GOOGLE
+import mx.itesm.dibujandounmaana.bot.Constants.OPEN_SEARCH
+import mx.itesm.dibujandounmaana.bot.Constants.RECEIVE_ID
+import mx.itesm.dibujandounmaana.bot.Constants.SEND_ID
+import mx.itesm.dibujandounmaana.bot.BotResponse
+import mx.itesm.dibujandounmaana.bot.Time
+import mx.itesm.dibujandounmaana.model.Message
 import mx.itesm.dibujandounmaana.viewmodel.AyudaVM
 
 class Ayuda : AppCompatActivity() {

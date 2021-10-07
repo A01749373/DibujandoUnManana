@@ -1,7 +1,7 @@
-package mx.itesm.dibujandounmaana
+package mx.itesm.dibujandounmaana.bot
 
-import mx.itesm.dibujandounmaana.Constants.OPEN_GOOGLE
-import mx.itesm.dibujandounmaana.Constants.OPEN_SEARCH
+import mx.itesm.dibujandounmaana.bot.Constants.OPEN_GOOGLE
+import mx.itesm.dibujandounmaana.bot.Constants.OPEN_SEARCH
 import java.sql.Timestamp
 import java.text.SimpleDateFormat
 import java.util.*
