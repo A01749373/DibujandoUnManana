@@ -17,14 +17,14 @@
 
         <EditText
             android:id="@+id/et_message"
-            android:inputType="textShortMessage"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:layout_weight=".5"
             android:background="@drawable/round_button"
             android:backgroundTint="@android:color/white"
-            android:hint="Type a message..."
+            android:hint="Escribe un mensaje..."
+            android:inputType="textShortMessage"
             android:padding="10dp"
             android:singleLine="true" />
 
@@ -36,7 +36,7 @@
             android:layout_weight="1"
             android:background="@drawable/round_button"
             android:backgroundTint="#26A69A"
-            android:text="Send"
+            android:text="Enviar"
             android:textColor="@android:color/white" />
 
     </LinearLayout>
