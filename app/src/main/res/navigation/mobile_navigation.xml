@@ -94,4 +94,9 @@
         android:name="mx.itesm.dibujandounmaana.view.Sumate"
         android:label="Súmate al proyecto"
         tools:layout="@layout/nav_sumate" />
+    <fragment
+        android:id="@+id/comoAyudar"
+        android:name="mx.itesm.dibujandounmaana.view.ComoAyudar"
+        android:label="nav_como_ayudar"
+        tools:layout="@layout/nav_como_ayudar" />
 </navigation>

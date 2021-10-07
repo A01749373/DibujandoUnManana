@@ -45,6 +45,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Educación"
+                android:textColor="#000000"
                 android:textStyle="bold" />
 
             <TextView
@@ -52,7 +53,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="3"
-                android:text="Lograr una educación inclusiva y de calidad, como herramienta que les permita contar con las competencias necesarias para un desarrollo sostenible." />
+                android:text="Lograr una educación inclusiva y de calidad, como herramienta que les permita contar con las competencias necesarias para un desarrollo sostenible."
+                android:textColor="#000000" />
         </LinearLayout>
     </LinearLayout>
 
@@ -94,6 +96,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Salud"
+                android:textColor="#000000"
                 android:textStyle="bold" />
 
             <TextView
@@ -101,7 +104,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Garantizarles una vida sana y ejercer su bienestar físico y mental, mediante la inversión en proyectos de salud y discapacidad." />
+                android:text="Garantizarles una vida sana y ejercer su bienestar físico y mental, mediante la inversión en proyectos de salud y discapacidad."
+                android:textColor="#000000" />
         </LinearLayout>
     </LinearLayout>
 
@@ -143,6 +147,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Protección"
+                android:textColor="#000000"
                 android:textStyle="bold" />
 
             <TextView
@@ -150,7 +155,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Proporcionar protección especial, mediante cuidados especializados a las niñas, niños y adolescentes víctimas de omisión de cuidados, abandono, maltrato infantil y violencia." />
+                android:text="Proporcionar protección especial, mediante cuidados especializados a las niñas, niños y adolescentes víctimas de omisión de cuidados, abandono, maltrato infantil y violencia."
+                android:textColor="#000000" />
 
         </LinearLayout>
     </LinearLayout>
@@ -192,6 +198,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Género"
+                android:textColor="#000000"
                 android:textStyle="bold" />
 
             <TextView
@@ -199,7 +206,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Empoderar a todas las niñas, así como promover la igualdad de las niñas, adolescentes y jóvenes mujeres. Esta causa engloba todas las anteriores." />
+                android:text="Empoderar a todas las niñas, así como promover la igualdad de las niñas, adolescentes y jóvenes mujeres. Esta causa engloba todas las anteriores."
+                android:textColor="#000000" />
         </LinearLayout>
     </LinearLayout>
 
