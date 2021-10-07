@@ -41,7 +41,7 @@ class Ayuda : AppCompatActivity() {
         clickEvents()
 
         val random = (0..3).random()
-        customMessage("Hello! Today you're speaking with ${botList[random]}, how may I help?")
+        customMessage("Hola! Estás hablando con ${botList[random]}, ¿cómo puedo ayudarte?")
     }
 
     private fun clickEvents() {
