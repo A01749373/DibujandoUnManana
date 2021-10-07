@@ -12,12 +12,16 @@ import mx.itesm.dibujandounmaana.model.Usuario
 import mx.itesm.dibujandounmaana.databinding.NavCrearCuentaBinding
 import mx.itesm.dibujandounmaana.viewmodel.CrearCuentaVM
 import com.facebook.FacebookException
-
+import com.facebook.GraphRequest
 import com.facebook.login.LoginResult
-
+import com.facebook.GraphResponse
 import com.facebook.FacebookCallback
 import android.content.Intent
 import com.facebook.AccessToken
+import org.json.JSONObject
+
+
+
 
 
 class CrearCuenta: Fragment() {
@@ -42,7 +46,7 @@ class CrearCuenta: Fragment() {
         configurarObservadores()
         configurarEventos()
         //Email
-        //binding.loginButton.setReadPermissions("email")
+        binding.loginButton.setReadPermissions("email")
 
         //saber si hay un token de login
         val accessToken = AccessToken.getCurrentAccessToken()
@@ -78,6 +82,19 @@ class CrearCuenta: Fragment() {
         binding.loginButton.registerCallback(callbackManager, object : FacebookCallback<LoginResult?> {
             override fun onSuccess(loginResult: LoginResult?) {
                 println("Firma Exitosa")
+                val request: GraphRequest = GraphRequest.newMeRequest(
+                    loginResult?.getAccessToken(),
+                    object : GraphRequest.GraphJSONObjectCallback {
+                        override fun onCompleted(objeto: JSONObject?, response: GraphResponse?) {
+                            println(objeto.toString())
+                            println(response.toString())
+                        }
+                    })
+
+                val parameters = Bundle()
+                parameters.putString("fields", "id,email")
+                request.setParameters(parameters)
+                request.executeAsync()
             }
 
             override fun onCancel() {

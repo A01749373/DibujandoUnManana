@@ -26,9 +26,6 @@
             android:id="@+id/nav_contactanos"
             android:title="Contáctanos" />
         <item
-            android:id="@+id/ayuda"
-            android:title="Ayuda" />
-        <item
             android:id="@+id/nav_configuracion"
             android:title="Configuración" />
         <item

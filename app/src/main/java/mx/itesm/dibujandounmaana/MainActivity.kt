@@ -1,5 +1,6 @@
 package mx.itesm.dibujandounmaana
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import com.google.android.material.snackbar.Snackbar
@@ -12,6 +13,8 @@ import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import mx.itesm.dibujandounmaana.databinding.ActivityMainBinding
+import mx.itesm.dibujandounmaana.view.Ayuda
+import mx.itesm.dibujandounmaana.viewmodel.AyudaVM
 
 class MainActivity : AppCompatActivity() {
 
@@ -26,9 +29,9 @@ class MainActivity : AppCompatActivity() {
 
         setSupportActionBar(binding.appBarMain.toolbar)
 
-        binding.appBarMain.fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
+        binding.appBarMain.fab.setOnClickListener {
+            val intent = Intent(this, Ayuda::class.java)
+            startActivity(intent)
         }
         val drawerLayout: DrawerLayout = binding.drawerLayout
         val navView: NavigationView = binding.navView
@@ -39,7 +42,7 @@ class MainActivity : AppCompatActivity() {
             setOf(
                 R.id.nav_donar, R.id.nav_quienes, R.id.nav_regalos,
                 R.id.nav_perfil, R.id.nav_contactanos, R.id.nav_proyectos,
-                R.id.iniciarSesion, R.id.ayuda, R.id.tipoUsuario, R.id.nav_configuracion
+                R.id.iniciarSesion, R.id.tipoUsuario, R.id.nav_configuracion
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)

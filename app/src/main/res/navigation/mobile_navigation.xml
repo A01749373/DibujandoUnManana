@@ -52,9 +52,7 @@
         <action
             android:id="@+id/action_iniciarSesion_to_crear_cuenta"
             app:destination="@id/crear_cuenta" />
-        <action
-            android:id="@+id/action_iniciarSesion_to_ayuda"
-            app:destination="@id/ayuda" />
+
     </fragment>
     <fragment
         android:id="@+id/nav_perfil"
@@ -71,11 +69,6 @@
         android:name="mx.itesm.dibujandounmaana.view.TipoUsuario"
         android:label="Elige Tipo Usuario"
         tools:layout="@layout/tipo_usuario_fragment" />
-    <fragment
-        android:id="@+id/ayuda"
-        android:name="mx.itesm.dibujandounmaana.view.Ayuda"
-        android:label="Ayuda"
-        tools:layout="@layout/ayuda_fragment" />
 
     <fragment
         android:id="@+id/nav_logout"
