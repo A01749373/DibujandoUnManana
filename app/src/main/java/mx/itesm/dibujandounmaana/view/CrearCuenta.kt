@@ -18,6 +18,7 @@ import com.facebook.GraphResponse
 import com.facebook.FacebookCallback
 import android.content.Intent
 import com.facebook.AccessToken
+import com.google.gson.JsonElement
 import org.json.JSONObject
 
 
@@ -47,6 +48,8 @@ class CrearCuenta: Fragment() {
         configurarEventos()
         //Email
         binding.loginButton.setReadPermissions("email")
+        binding.loginButton.setReadPermissions("user_gender")
+        binding.loginButton.setReadPermissions("user_birthday")
 
         //saber si hay un token de login
         val accessToken = AccessToken.getCurrentAccessToken()
@@ -86,13 +89,19 @@ class CrearCuenta: Fragment() {
                     loginResult?.getAccessToken(),
                     object : GraphRequest.GraphJSONObjectCallback {
                         override fun onCompleted(objeto: JSONObject?, response: GraphResponse?) {
-                            println(objeto.toString())
-                            println(response.toString())
+                            //println(objeto.toString())
+                            //println(objeto?.get("name"))
+                            //println(response.toString())
+                            val name= objeto?.get("name"); val correo=objeto?.get("email")
+                            val genero = objeto?.get("gender"); val birthday = objeto?.get("birthday")
+                            viewModel.enviarUsuario(Usuario(correo.toString(),name.toString(),
+                                genero.toString()," "," "))
                         }
                     })
 
                 val parameters = Bundle()
-                parameters.putString("fields", "id,email")
+                parameters.putString("fields", "email, name, gender,birthday")
+                //println(parameters)
                 request.setParameters(parameters)
                 request.executeAsync()
             }
