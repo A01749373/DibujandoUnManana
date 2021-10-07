@@ -49,23 +49,10 @@ class perfilUsuario : Fragment() {
     }
 
     private fun configurarEventos() {
-        binding.tvBoton.setOnClickListener {
-            val correo = binding.tvCorreo.text.toString()
-            val preferencias = this.requireContext().getSharedPreferences("Usuario", Context.MODE_PRIVATE)
-            preferencias.edit {
-                putString("Correo", correo)
-                commit()
-            }
-            viewModel.descargarDatosUsuario(correo)
+        val preferencias = this.requireContext().getSharedPreferences("Usuario", Context.MODE_PRIVATE)
+        val correo = preferencias.getString("Correo","-1")
+        viewModel.descargarDatosUsuario(correo.toString())
 
-            // Ver Datos de preferencias
-            val favorito = preferencias.getString("Correo", "-1")
-            if (favorito != "-1") {
-                println("Este es el correo del usuario: $favorito")
-            } else {
-                println("No funciono")
-            }
-        }
         binding.btnDonacion.setOnClickListener {
             findNavController().navigate(R.id.action_nav_perfil_to_lista_donaciones)
         }
@@ -74,6 +61,7 @@ class perfilUsuario : Fragment() {
     private fun configurarObservadores() {
         viewModel.respuesta.observe(viewLifecycleOwner) { respuesta ->
             binding.tvNombre.text = respuesta.nombre
+            binding.tvCorreo.text = respuesta.correo
         }
     }
 }

@@ -1,11 +1,13 @@
 package mx.itesm.dibujandounmaana.view
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.content.edit
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import mx.itesm.dibujandounmaana.R
@@ -40,11 +42,23 @@ class IniciarSesion : Fragment() {
             val usuarioRegistrado = SesionUsuario(
                 binding.etUsuario.text.toString(),
                 binding.etContrasena.text.toString())
-
+            val preferencias = this.requireContext().getSharedPreferences("Usuario", Context.MODE_PRIVATE)
+            preferencias.edit {
+                putString("Correo", binding.etUsuario.text.toString())
+                commit()
+            }
+            // Ver Datos de preferencias
+            val favorito = preferencias.getString("Correo", "-1")
+            if (favorito != "-1") {
+                println("Este es el correo del usuario: $favorito")
+            } else {
+                println("No funciono")
+            }
             viewModel.verificaUsuario(usuarioRegistrado)
             //delay(2000)
             findNavController().navigate(R.id.action_iniciarSesion_to_nav_quienes)
         }
+
 
         binding.btnCrearCuenta.setOnClickListener {
             findNavController().navigate(R.id.action_iniciarSesion_to_crear_cuenta)
