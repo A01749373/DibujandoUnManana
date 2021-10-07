@@ -32,7 +32,7 @@ class Ayuda : AppCompatActivity() {
     private lateinit var adapter: MessagingAdapter
     private val botList = listOf("Jorge", "Amy", "Ariadna", "Andrea", "Liam")
 
-    override fun onCreate( savedInstanceState: Bundle?){
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.ayuda_fragment)
 
@@ -42,7 +42,6 @@ class Ayuda : AppCompatActivity() {
 
         val random = (0..3).random()
         customMessage("Hello! Today you're speaking with ${botList[random]}, how may I help?")
-
     }
 
     private fun clickEvents() {
@@ -61,7 +60,6 @@ class Ayuda : AppCompatActivity() {
                 }
             }
         }
-    }
     }
 
     private fun recyclerView() {
@@ -114,13 +112,14 @@ class Ayuda : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
-
         GlobalScope.launch {
             delay(1000)
             withContext(Dispatchers.Main) {
                 findViewById<RecyclerView>(R.id.rv_messages).scrollToPosition(adapter.itemCount-1)
             }
+        }
     }
+
 
     private fun customMessage(message: String) {
         GlobalScope.launch {

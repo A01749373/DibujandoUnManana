@@ -61,6 +61,16 @@ object BotResponse {
                 date.toString()
             }
 
+            //Hola
+            message.contains("hola") -> {
+                when (random) {
+                    0 -> "¡Hola! 😃"
+                    1 -> "Saludos..."
+                    2 -> "Bienvenido al chat de Fundación DUM, ¿En qué puedo ayudarte?"
+                    else -> "error"
+                }
+            }
+
             //Open Google
             message.contains("open") && message.contains("google") -> {
                 OPEN_GOOGLE
