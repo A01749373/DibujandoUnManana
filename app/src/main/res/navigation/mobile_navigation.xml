@@ -19,9 +19,13 @@
 
     <fragment
         android:id="@+id/nav_quienes"
-        android:name="mx.itesm.dibujandounmaana.ui.gallery.GalleryFragment"
+        android:name="mx.itesm.dibujandounmaana.view.Quienes"
         android:label="¿Quiénes somos?"
-        tools:layout="@layout/fragment_gallery" />
+        tools:layout="@layout/quienes_fragment" >
+        <action
+            android:id="@+id/action_nav_quienes_to_comoAyudar"
+            app:destination="@id/comoAyudar" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_regalos"
@@ -90,6 +94,6 @@
     <fragment
         android:id="@+id/comoAyudar"
         android:name="mx.itesm.dibujandounmaana.view.ComoAyudar"
-        android:label="nav_como_ayudar"
+        android:label="¿Cómo ayudar?"
         tools:layout="@layout/nav_como_ayudar" />
 </navigation>
