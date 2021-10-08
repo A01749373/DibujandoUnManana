@@ -33,8 +33,19 @@ class IniciarSesion : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        cargarPreferencias()
         configurarObservadores()
         configurarEventos()
+    }
+
+    private fun cargarPreferencias() {
+        val preferencias = this.requireContext().getSharedPreferences("Usuario", Context.MODE_PRIVATE)
+        val favorito = preferencias.getString("Correo", "-1")
+        if (favorito != "-1") {
+            println("$favorito")
+        } else {
+            println("No funciono")
+        }
     }
 
     private fun configurarEventos() {
