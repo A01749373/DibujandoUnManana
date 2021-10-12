@@ -40,5 +40,8 @@
         <item
             android:id="@+id/tipoUsuario"
             android:title="Elige tipo usuario" />
+        <item
+            android:id="@+id/chats"
+            android:title="chats" />
     </group>
 </menu>

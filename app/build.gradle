@@ -81,6 +81,12 @@ dependencies {
     implementation 'com.google.firebase:firebase-database-ktx:20.0.2'
 
     //Firestore
+    // Import the BoM for the Firebase platform
+    implementation platform('com.google.firebase:firebase-bom:28.4.1')
+
+    // Declare the dependency for the Cloud Firestore library
+    // When using the BoM, you don't specify versions in Firebase library dependencies
+    implementation 'com.google.firebase:firebase-firestore-ktx'
 
 
     testImplementation 'junit:junit:4.+'

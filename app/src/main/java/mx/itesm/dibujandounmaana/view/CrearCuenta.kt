@@ -39,6 +39,7 @@ class CrearCuenta: Fragment() {
     ): View? {
         binding = NavCrearCuentaBinding.inflate(layoutInflater)
         return binding.root
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
