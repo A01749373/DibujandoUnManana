@@ -10,6 +10,9 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
 import mx.itesm.dibujandounmaana.R
 import mx.itesm.dibujandounmaana.databinding.NavContactanosFragmentBinding
 import mx.itesm.dibujandounmaana.databinding.QuienesFragmentBinding
