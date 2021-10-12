@@ -112,4 +112,14 @@
         android:name="mx.itesm.dibujandounmaana.view.listaDonaciones"
         android:label="lista_donaciones_fragment"
         tools:layout="@layout/lista_donaciones_fragment" />
+    <fragment
+        android:id="@+id/mensaje"
+        android:name="mx.itesm.dibujandounmaana.Mensaje"
+        android:label="nav_mensaje"
+        tools:layout="@layout/nav_mensaje" />
+    <fragment
+        android:id="@+id/chats"
+        android:name="mx.itesm.dibujandounmaana.chats"
+        android:label="nav_chats"
+        tools:layout="@layout/nav_chats" />
 </navigation>

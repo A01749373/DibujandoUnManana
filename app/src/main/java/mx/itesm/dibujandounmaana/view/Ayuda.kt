@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.coroutines.*
 import mx.itesm.dibujandounmaana.*
+import mx.itesm.dibujandounmaana.Adaptadores.MessagingAdapter
 import mx.itesm.dibujandounmaana.bot.Constants.OPEN_GOOGLE
 import mx.itesm.dibujandounmaana.bot.Constants.OPEN_SEARCH
 import mx.itesm.dibujandounmaana.bot.Constants.RECEIVE_ID
