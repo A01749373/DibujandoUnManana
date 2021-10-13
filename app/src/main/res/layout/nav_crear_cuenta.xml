@@ -127,6 +127,28 @@
                 android:text="Crear cuenta"
                 android:textAlignment="center" />
 
+            <com.facebook.login.widget.LoginButton
+                android:id="@+id/loginButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="64dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginRight="64dp"
+                android:textSize="14sp" />
+
+            <com.google.android.gms.common.SignInButton
+                android:id="@+id/btnSignInGoogle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="64dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginRight="64dp"
+                app:buttonSize="wide"
+                app:layout_constraintBottom_toTopOf="@+id/btnSignOut"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:ignore="MissingConstraints" />
+
             <TextView
                 android:id="@+id/tvEstado"
                 android:layout_width="match_parent"
@@ -136,13 +158,6 @@
                 android:textAlignment="center"
                 android:textAllCaps="false"
                 android:textStyle="bold" />
-            <com.facebook.login.widget.LoginButton
-                android:id="@+id/loginButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="30dp"
-                android:layout_marginBottom="30dp" />
         </LinearLayout>
     </ScrollView>
 

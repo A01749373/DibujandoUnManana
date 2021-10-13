@@ -23,13 +23,10 @@ class IniciarSesion : Fragment() {
 
     private lateinit var binding: IniciarSesionFragmentBinding
 
-    private var anuncioRespuesta: String = ""
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        //return inflater.inflate(R.layout.iniciar_sesion_fragment, container, false)
         binding = IniciarSesionFragmentBinding.inflate(layoutInflater)
         return binding.root
     }
@@ -51,7 +48,15 @@ class IniciarSesion : Fragment() {
         }
     }
 
-    //if (binding.etUsuario.text.toString().isNotEmpty() && binding.etContrasena.text.isNotEmpty()) {
+    private fun cambiarPantalla(respuesta: String) {
+        if (respuesta == "Lo sentimos: Usuario o contraseña no válidos") {
+            Toast.makeText(activity, respuesta + " 😭", Toast.LENGTH_SHORT).show()
+        } else {
+            Toast.makeText(activity, respuesta + " 😃", Toast.LENGTH_SHORT).show()
+            findNavController().navigate(R.id.action_iniciarSesion_to_nav_quienes)
+        }
+    }
+
     private fun configurarEventos() {
         binding.btnIniciarSesion.setOnClickListener {
             val usuarioRegistrado = SesionUsuario(
@@ -72,15 +77,6 @@ class IniciarSesion : Fragment() {
                 println("No funciono")
             }
             viewModel.verificaUsuario(usuarioRegistrado)
-            if (viewModel.respuesta.value == "Lo sentimos: Usuario o contraseña no válidos") {
-                //Toast.makeText(activity, "${viewModel.respuesta.value}" + " 😭", Toast.LENGTH_SHORT).show()
-                Toast.makeText(activity, anuncioRespuesta + " 😭", Toast.LENGTH_SHORT).show()
-                //println(viewModel.respuesta.value)
-            } else {
-                //Toast.makeText(activity, "${viewModel.respuesta.value}" + " 😃", Toast.LENGTH_SHORT).show()
-                Toast.makeText(activity, anuncioRespuesta + " 😃", Toast.LENGTH_SHORT).show()
-                findNavController().navigate(R.id.action_iniciarSesion_to_nav_quienes)
-            }
         }
         binding.btnCrearCuenta.setOnClickListener {
             findNavController().navigate(R.id.action_iniciarSesion_to_crear_cuenta)
@@ -90,7 +86,7 @@ class IniciarSesion : Fragment() {
     private fun configurarObservadores() {
         viewModel.respuesta.observe(viewLifecycleOwner) { respuesta ->
             binding.tvEstado.text = respuesta
-            anuncioRespuesta = respuesta.toString()
+            cambiarPantalla(respuesta)
         }
     }
 }
