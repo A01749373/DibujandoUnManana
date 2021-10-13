@@ -110,7 +110,7 @@
     <fragment
         android:id="@+id/lista_donaciones"
         android:name="mx.itesm.dibujandounmaana.view.listaDonaciones"
-        android:label="lista_donaciones_fragment"
+        android:label="Mis donaciones"
         tools:layout="@layout/lista_donaciones_fragment" />
     <fragment
         android:id="@+id/mensaje"

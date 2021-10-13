@@ -74,11 +74,41 @@ object BotResponse {
                 }
             }
 
-            // ¿Cómo puedo ponerme en contacto?
-            mensaje.contains("¿cómo puedo ponerme en contacto?" ) -> {
+            // ¿Cómo puedo comprar regalos?
+            mensaje.contains("¿cómo puedo comprar regalos con causa?") -> {
                 when (0) {
-                    0 -> "Correo electrónico de DUM: \ngdi.mty@dibujando.org.mx\n" +
-                            "Número: 55 2122 5286"
+                    0 -> "Ingresa a nuestra página https://dibujando.org.mx/regalos-con-causa/\n" +
+                            "ó comunicate con Alicia Chapa: achapa@dibujando.org.mx\n" +
+                            "María Fernanda Ladrón de Guevara: desarrollo@dibujando.org.mx"
+                    else -> "error"
+                }
+            }
+
+
+            // ¿Cómo puedo comprar ver donaciones?
+            mensaje.contains("¿dónde puedo ver mis donaciones?") -> {
+                when (0) {
+                    0 ->    "Dirígete hacia el menú deslizable del lado izquierdo y selecciona \n" +
+                            "la sección de perfil, posteriormente selecciona *mis donaciones*,\n" +
+                            "en esta sección aparecerá tu historial."
+                    else -> "error"
+                }
+            }
+
+            //Otra forma
+            mensaje.contains("¿de qué otra manera puedo apoyar?") -> {
+                when (0) {
+                    0 -> "Puedes ayudarnos con voluntariados o donaciones materiales.\n" +
+                            "Cuéntanos tu propuesta en Nuestros proyectos -> Mejorar un proyecto.\n"
+                    else -> "error"
+                }
+            }
+
+            // ¿Cómo puedo ponerme en contacto?
+            mensaje.contains("¿dónde puedo tener asistencia personal?" ) -> {
+                when (0) {
+                    0 -> "Mándanos un correo electrónico a DUM: \ngdi.mty@dibujando.org.mx\n" +
+                            "o llámanos al 55 2122 5286"
                     else -> "error"
                 }
             }
