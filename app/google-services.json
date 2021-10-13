@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "191421458931",
+    "firebase_url": "https://prender-led-93534.firebaseio.com",
+    "project_id": "prender-led-93534",
+    "storage_bucket": "prender-led-93534.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:191421458931:android:12adc663b1ab6669bfca86",
+        "android_client_info": {
+          "package_name": "mx.itesm.dibujandounmaana"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "191421458931-6seh3orvemhss5kku7p57rk494iled5e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDpW7dt0pfFx2nBsHvIjqWX-cEC2M8dB5A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "191421458931-6seh3orvemhss5kku7p57rk494iled5e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:191421458931:android:032675f790b9aaabbfca86",
+        "android_client_info": {
+          "package_name": "mx.itesm.rt_ariadna"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "191421458931-6seh3orvemhss5kku7p57rk494iled5e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDpW7dt0pfFx2nBsHvIjqWX-cEC2M8dB5A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "191421458931-6seh3orvemhss5kku7p57rk494iled5e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
