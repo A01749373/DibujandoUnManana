@@ -56,15 +56,27 @@ object BotResponse {
             // Hola
             mensaje.contains("hola") -> {
                 when (random) {
-                    0 -> "¡Hola! 😃, Bienvenido a la app de Fundación Dibujando un Mañana"
-                    1 -> "Hola, ¿Cómo puedo ayudarte?"
-                    2 -> "Bienvenido al chat de Fundación DUM, ¿En qué puedo ayudarte?"
+                    0 -> "¡Hola! 😃, Bienvenido a la app de Fundación Dibujando un Mañana\n\n" +
+                            "Envía el número de la pregunta que necesites realizar:\n" +
+                            "1. ¿Cómo puedo donar?\n 2. ¿Dónde puedo ver mis donaciones?\n" +
+                            "3. ¿De qué otra manera puedo apoyar?\n 4. ¿Cómo puedo comprar regalos con causa?\n" +
+                            "5. ¿Dónde puedo tener asistencia personal?"
+                    1 -> "Hola, ¿Cómo puedo ayudarte?\n\n" +
+                            "Envía el número de la pregunta que necesites realizar:\n" +
+                            "1. ¿Cómo puedo donar?\n 2. ¿Dónde puedo ver mis donaciones?\n" +
+                            "3. ¿De qué otra manera puedo apoyar?\n 4. ¿Cómo puedo comprar regalos con causa?\n" +
+                            "5. ¿Dónde puedo tener asistencia personal?"
+                    2 -> "Bienvenido al chat de Fundación DUM, ¿En qué puedo ayudarte?\n\n" +
+                            "Envía el número de la pregunta que necesites realizar:\n" +
+                            "1. ¿Cómo puedo donar?\n 2. ¿Dónde puedo ver mis donaciones?\n" +
+                            "3. ¿De qué otra manera puedo apoyar?\n 4. ¿Cómo puedo comprar regalos con causa?\n" +
+                            "5. ¿Dónde puedo tener asistencia personal?"
                     else -> "error"
                 }
             }
 
             // ¿Cómo puedo donar?
-            mensaje.contains("¿cómo puedo donar?") -> {
+            mensaje.contains("1") -> {
                 when (0) {
                     0 -> "Dirígete hacia el menú deslizable del lado izquierdo\n" +
                             "y selecciona la sección de donaciones, posteriormente selecciona\n" +
@@ -74,8 +86,28 @@ object BotResponse {
                 }
             }
 
+            // ¿Cómo puedo ver mis donaciones?
+            mensaje.contains("2") -> {
+                when (0) {
+                    0 ->    "Dirígete hacia el menú deslizable del lado izquierdo y selecciona \n" +
+                            "la sección de perfil, posteriormente selecciona *mis donaciones*,\n" +
+                            "en esta sección aparecerá tu historial."
+                    else -> "error"
+                }
+            }
+
+
+            //Otra forma
+            mensaje.contains("3") -> {
+                when (0) {
+                    0 -> "Puedes ayudarnos con voluntariados o donaciones materiales.\n" +
+                            "Cuéntanos tu propuesta en Nuestros proyectos -> Mejorar un proyecto.\n"
+                    else -> "error"
+                }
+            }
+
             // ¿Cómo puedo comprar regalos?
-            mensaje.contains("¿cómo puedo comprar regalos con causa?") -> {
+            mensaje.contains("4") -> {
                 when (0) {
                     0 -> "Ingresa a nuestra página https://dibujando.org.mx/regalos-con-causa/\n" +
                             "ó comunicate con Alicia Chapa: achapa@dibujando.org.mx\n" +
@@ -85,27 +117,8 @@ object BotResponse {
             }
 
 
-            // ¿Cómo puedo comprar ver donaciones?
-            mensaje.contains("¿dónde puedo ver mis donaciones?") -> {
-                when (0) {
-                    0 ->    "Dirígete hacia el menú deslizable del lado izquierdo y selecciona \n" +
-                            "la sección de perfil, posteriormente selecciona *mis donaciones*,\n" +
-                            "en esta sección aparecerá tu historial."
-                    else -> "error"
-                }
-            }
-
-            //Otra forma
-            mensaje.contains("¿de qué otra manera puedo apoyar?") -> {
-                when (0) {
-                    0 -> "Puedes ayudarnos con voluntariados o donaciones materiales.\n" +
-                            "Cuéntanos tu propuesta en Nuestros proyectos -> Mejorar un proyecto.\n"
-                    else -> "error"
-                }
-            }
-
             // ¿Cómo puedo ponerme en contacto?
-            mensaje.contains("¿dónde puedo tener asistencia personal?" ) -> {
+            mensaje.contains("5" ) -> {
                 when (0) {
                     0 -> "Mándanos un correo electrónico a DUM: \ngdi.mty@dibujando.org.mx\n" +
                             "o llámanos al 55 2122 5286"

@@ -40,6 +40,10 @@ class Ayuda : AppCompatActivity() {
 
         val random = (0..3).random()
         customMessage("Hola! Estás hablando con ${botList[random]}, ¿cómo puedo ayudarte?")
+        customMessage("Envía el número de la pregunta que necesites realizar:\n" +
+                "1. ¿Cómo puedo donar?\n 2. ¿Dónde puedo ver mis donaciones?\n" +
+                "3. ¿De qué otra manera puedo apoyar?\n 4. ¿Cómo puedo comprar regalos con causa?\n" +
+                "5. ¿Dónde puedo tener asistencia personal?")
     }
 
     private fun clickEvents() {
