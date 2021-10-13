@@ -7,23 +7,15 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 object BotResponse {
-    fun basicResponses(_message: String): String {
+    fun basicResponses(_mensaje: String): String {
         val random = (0..2).random()
-        val message = _message.lowercase()
+        val mensaje = _mensaje.lowercase()
 
         return when {
 
-            // Flips a coin
-            message.contains("flip") && message.contains("coin") -> {
-                val r = (0..1).random()
-                val result = if (r == 0) "heads" else "tails"
-
-                "I flipped a coin and it landed on $result"
-            }
-
             // Math calculations
-            message.contains("solve") -> {
-                val equation: String? = message.substringAfterLast("solve")
+            mensaje.contains("solve") -> {
+                val equation: String? = mensaje.substringAfterLast("solve")
                 return try {
                     val answer = SolveMath.solveMath(equation ?: "0")
                     "$answer"
@@ -34,7 +26,7 @@ object BotResponse {
             }
 
             // Hello
-            message.contains("hello") -> {
+            mensaje.contains("hello") -> {
                 when (random) {
                     0 -> "Hello there!"
                     1 -> "Sup"
@@ -43,7 +35,7 @@ object BotResponse {
             }
 
             // How are you?
-            message.contains("how are you") -> {
+            mensaje.contains("how are you") -> {
                 when (random) {
                     0 -> "I'm doing fine, thanks!"
                     1 -> "I'm hungry..."
@@ -53,7 +45,7 @@ object BotResponse {
             }
 
             // What time is it?
-            message.contains("time") && message.contains("?") -> {
+            mensaje.contains("time") && mensaje.contains("?") -> {
                 val timeStamp = Timestamp(System.currentTimeMillis())
                 val sdf = SimpleDateFormat("dd/MM/yyyy HH:mm")
                 val date = sdf.format(Date(timeStamp.time))
@@ -62,17 +54,17 @@ object BotResponse {
             }
 
             // Hola
-            message.contains("hola") -> {
+            mensaje.contains("hola") -> {
                 when (random) {
-                    0 -> "¡Hola! 😃"
-                    1 -> "Saludos..."
+                    0 -> "¡Hola! 😃, Bienvenido a la app de Fundación Dibujando un Mañana"
+                    1 -> "Hola, ¿Cómo puedo ayudarte?"
                     2 -> "Bienvenido al chat de Fundación DUM, ¿En qué puedo ayudarte?"
                     else -> "error"
                 }
             }
 
             // ¿Cómo puedo donar?
-            message.contains("¿cómo puedo donar?") -> {
+            mensaje.contains("¿cómo puedo donar?") -> {
                 when (0) {
                     0 -> "Dirígete hacia el menú deslizable del lado izquierdo\n" +
                             "y selecciona la sección de donaciones, posteriormente selecciona\n" +
@@ -82,22 +74,31 @@ object BotResponse {
                 }
             }
 
+            // ¿Cómo puedo ponerme en contacto?
+            mensaje.contains("¿cómo puedo ponerme en contacto?" ) -> {
+                when (0) {
+                    0 -> "Correo electrónico de DUM: \ngdi.mty@dibujando.org.mx\n" +
+                            "Número: 55 2122 5286"
+                    else -> "error"
+                }
+            }
+
             // Open Google
-            message.contains("open") && message.contains("google") -> {
+            mensaje.contains("open") && mensaje.contains("google") -> {
                 OPEN_GOOGLE
             }
 
             // Search on the internet
-            message.contains("search") -> {
+            mensaje.contains("search") -> {
                 OPEN_SEARCH
             }
 
-            // When the programme doesn't understand...
+            // Cuando el programa no entiende la entrada de texto
             else -> {
                 when (random) {
-                    0 -> "I don't understand..."
-                    1 -> "Try asking me something different"
-                    2 -> "Idk"
+                    0 -> "Lo siento, no entiendo..."
+                    1 -> "Intenta preguntar algo diferente"
+                    2 -> "No se como resolver tu duda :("
                     else -> "error"
                 }
             }

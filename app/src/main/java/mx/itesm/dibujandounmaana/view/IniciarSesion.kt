@@ -70,7 +70,6 @@ class IniciarSesion : Fragment() {
             findNavController().navigate(R.id.action_iniciarSesion_to_nav_quienes)
         }
 
-
         binding.btnCrearCuenta.setOnClickListener {
             findNavController().navigate(R.id.action_iniciarSesion_to_crear_cuenta)
         }

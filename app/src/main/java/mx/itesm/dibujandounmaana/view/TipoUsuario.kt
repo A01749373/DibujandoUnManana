@@ -1,5 +1,7 @@
 package mx.itesm.dibujandounmaana.view
 
+import android.content.Intent
+import android.net.Uri
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -38,6 +40,13 @@ class TipoUsuario : Fragment() {
     private fun configurarEventos() {
         binding.btnTipoDonante.setOnClickListener {
             findNavController().navigate(R.id.action_tipoUsuario_to_iniciarSesion)
+        }
+        binding.btnTipoEmpresa.setOnClickListener {
+            val urlEmpresa = "https://www.dibujando.org.mx/en/enterprises/"
+            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(urlEmpresa)))
+        }
+        binding.btnTipoAdministrador.setOnClickListener {
+            findNavController().navigate((R.id.action_tipoUsuario_to_iniciarSesion))
         }
     }
 
