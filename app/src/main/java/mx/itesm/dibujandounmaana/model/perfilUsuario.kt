@@ -7,7 +7,7 @@ data class crearPefilUsuario(
     @SerializedName("nombre")
     val nombre: String,
     @SerializedName("historial")
-    val historial: String,
+    val historial: Int,
     @SerializedName("usuarioCorreo")
     val correo: String
 ) :Serializable

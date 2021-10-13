@@ -85,6 +85,7 @@ class perfilUsuario : Fragment() {
         viewModel.respuesta.observe(viewLifecycleOwner) { respuesta ->
             binding.tvNombre.text = respuesta.nombre
             binding.tvCorreo.text = respuesta.correo
+            binding.tvHistorial.text = respuesta.historial.toString()
         }
     }
 }
