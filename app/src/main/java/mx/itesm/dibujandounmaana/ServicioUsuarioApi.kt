@@ -19,4 +19,7 @@ interface ServicioUsuarioApi
 
     @POST("/Sesion/BuscarUsuario")
     fun iniciarSesion(@Body sesionUsuario: JsonSesionUsuario): Call<String>
+
+    @POST("/proyectos/Proyectos")
+    fun verProyecto(): Call<List<Proyecto>>
 }
