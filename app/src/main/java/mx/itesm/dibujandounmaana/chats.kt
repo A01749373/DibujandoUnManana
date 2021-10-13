@@ -12,10 +12,13 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.setFragmentResult
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.firebase.FirebaseApp
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import mx.itesm.dibujandounmaana.Adaptadores.ChatAdapter
 import mx.itesm.dibujandounmaana.databinding.NavChatsBinding
+import mx.itesm.dibujandounmaana.databinding.NavMensajeBinding
 import mx.itesm.dibujandounmaana.model.Chat
 import mx.itesm.dibujandounmaana.view.Mensaje
 import java.util.*
@@ -30,13 +33,15 @@ class chats : Fragment() {
     private lateinit var binding: NavChatsBinding
 
     private var user: String = ""
-    private var db = Firebase.firestore
+    private lateinit var db: FirebaseFirestore
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         binding = NavChatsBinding.inflate(layoutInflater)
+        FirebaseApp.initializeApp(this.requireContext())
+        db = Firebase.firestore
         return binding.root
     }
 
@@ -102,8 +107,11 @@ class chats : Fragment() {
 
         println("si me imprimo $chatId")
 
-        //val accion = chatsDirections.actionChatsToMensaje(chatid)
-
          */
+
+        val accion = chatsDirections.actionChatsToMensaje(chatId,user)
+        findNavController().navigate(accion)
+
+
     }
 }

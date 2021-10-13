@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.setFragmentResultListener
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.ktx.firestore
@@ -23,6 +24,9 @@ class Mensaje : Fragment() {
 
     private lateinit var binding: NavMensajeBinding
 
+    //Recibir el dato de la primer pantalla
+    val args: MensajeArgs by navArgs()
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -33,13 +37,9 @@ class Mensaje : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        /*  Preguntar cómo llega
-        setFragmentResultListener("ChatUsuario"){requestKey, bundle ->
-        user = bundle.getString("usuario")!!
-        chatId = bundle.getString("chatId")!!}
-        println("si estoy $user")
+        chatId = args.chatId
+        user = args.user
         initViews()
-         */
     }
 
     private fun initViews(){

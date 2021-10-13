@@ -115,7 +115,14 @@
     <fragment
         android:id="@+id/mensaje"
         android:name="mx.itesm.dibujandounmaana.view.Mensaje"
-        android:label="nav_mensaje" />
+        android:label="nav_mensaje" >
+        <argument
+            android:name="chatId"
+            app:argType="string" />
+        <argument
+            android:name="user"
+            app:argType="string" />
+    </fragment>
     <fragment
         android:id="@+id/chats"
         android:name="mx.itesm.dibujandounmaana.chats"
