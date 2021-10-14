@@ -5,60 +5,35 @@
     android:id="@+id/frameLayout4"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#D1CECE"
     tools:context=".view.perfilUsuario">
 
     <LinearLayout
         android:id="@+id/linearLayout4"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="32dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="horizontal">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <Button
-                    android:id="@+id/btnEditarFoto"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:textAlignment="viewStart"
-                    android:textSize="10sp"
-                    app:icon="@drawable/ic_menu_gallery" />
-
-            </LinearLayout>
-        </LinearLayout>
-
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/imgPerfil"
             android:layout_width="match_parent"
             android:layout_height="159dp"
             android:layout_weight="1"
-            android:src="@drawable/icono" />
+            android:background="#B7504B4B"
+            android:src="@drawable/icono"
+            app:civ_border_color="#000"
+            app:civ_border_width="5dp" />
 
         <TextView
             android:id="@+id/tvNombre"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:fontFamily="sans-serif-condensed-medium"
+            android:background="#B7504B4B"
+            android:fontFamily="sans-serif-smallcaps"
             android:text="Nombre"
             android:textAlignment="center"
             android:textSize="34sp"
@@ -69,45 +44,78 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:fontFamily="sans-serif-condensed-medium"
+            android:background="#B7504B4B"
+            android:fontFamily="sans-serif-smallcaps"
             android:text="Correo"
             android:textAlignment="center"
-            android:textSize="20sp"
+            android:textSize="24sp"
             android:textStyle="bold" />
 
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/textView22"
-                android:layout_width="344dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:fontFamily="sans-serif-condensed-medium"
-                android:text="Mis donaciones Totales: "
-                android:textAlignment="textEnd" />
+            <Space
+                android:layout_width="10dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
 
-            <TextView
-                android:id="@+id/tvHistorial"
-                android:layout_width="230dp"
+            <Button
+                android:id="@+id/btnEditarFoto"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:fontFamily="sans-serif-condensed-medium"
-                android:text="Total Donaciones"
-                android:textAlignment="center"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                android:background="@color/fui_linkColor"
+                android:text="Cambiar foto"
+                app:icon="@drawable/ic_menu_gallery" />
+
+            <Space
+                android:layout_width="10dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/btnDonacion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/fui_linkColor"
+                android:text="Ver mis donaciones :)"
+                android:textAlignment="center" />
+
+            <Space
+                android:layout_width="10dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
         </LinearLayout>
 
-        <Button
-            android:id="@+id/btnDonacion"
+        <TextView
+            android:id="@+id/textView22"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Ver mis donaciones :)" />
+            android:fontFamily="sans-serif-smallcaps"
+            android:text="Donaciones Totales: "
+            android:textAlignment="viewStart"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvHistorial"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="sans-serif-smallcaps"
+            android:text="Total Donaciones"
+            android:textAlignment="center"
+            android:textSize="24sp" />
 
     </LinearLayout>
 
