@@ -80,6 +80,7 @@ dependencies {
 
     // Firebase
     implementation 'com.google.firebase:firebase-database-ktx:20.0.2'
+    implementation 'com.google.firebase:firebase-storage-ktx:20.0.0'
 
     //Firestore
     // Import the BoM for the Firebase platform
