@@ -92,6 +92,10 @@ dependencies {
     //Regresar un dato al fragmeto que llamó
     implementation "androidx.fragment:fragment-ktx:1.3.6"
 
+    //Autenticacion google
+    implementation 'com.firebaseui:firebase-ui-auth:7.2.0'
+    implementation 'com.google.firebase:firebase-auth-ktx:21.0.1'
+
 
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'

@@ -39,11 +39,11 @@ class Ayuda : AppCompatActivity() {
         clickEvents()
 
         val random = (0..3).random()
-        customMessage("Hola! Estás hablando con ${botList[random]}, ¿cómo puedo ayudarte?")
+        customMessage("Hola! Estás hablando con ${botList[random]}, ¿cómo puedo ayudarte?", 500)
         customMessage("Envía el número de la pregunta que necesites realizar:\n" +
                 "1. ¿Cómo puedo donar?\n 2. ¿Dónde puedo ver mis donaciones?\n" +
                 "3. ¿De qué otra manera puedo apoyar?\n 4. ¿Cómo puedo comprar regalos con causa?\n" +
-                "5. ¿Dónde puedo tener asistencia personal?")
+                "5. ¿Dónde puedo tener asistencia personal?", 1000)
     }
 
     private fun clickEvents() {
@@ -123,9 +123,9 @@ class Ayuda : AppCompatActivity() {
     }
 
 
-    private fun customMessage(message: String) {
+    private fun customMessage(message: String, retardo: Long) {
         GlobalScope.launch {
-            delay(1000)
+            delay(retardo)
             withContext(Dispatchers.Main) {
                 val timeStamp = Time.timeStamp()
                 adapter.insertMessage(Message(message, RECEIVE_ID, timeStamp))

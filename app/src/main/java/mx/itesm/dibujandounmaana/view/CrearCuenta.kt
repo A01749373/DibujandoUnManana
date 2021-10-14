@@ -1,5 +1,7 @@
 package mx.itesm.dibujandounmaana.view
 
+import android.app.Activity.RESULT_CANCELED
+import android.app.Activity.RESULT_OK
 import android.os.Bundle
 import android.os.ProxyFileDescriptorCallback
 import android.view.LayoutInflater
@@ -18,6 +20,9 @@ import com.facebook.GraphResponse
 import com.facebook.FacebookCallback
 import android.content.Intent
 import com.facebook.AccessToken
+import com.firebase.ui.auth.AuthUI
+import com.firebase.ui.auth.IdpResponse
+import com.google.firebase.auth.FirebaseAuth
 import com.google.gson.JsonElement
 import org.json.JSONObject
 
@@ -27,6 +32,7 @@ import org.json.JSONObject
 
 class CrearCuenta: Fragment() {
 
+    private val CODIGO_SIGNIN =500
     private val viewModel: CrearCuentaVM by viewModels()
 
     private lateinit var binding: NavCrearCuentaBinding
@@ -61,12 +67,41 @@ class CrearCuenta: Fragment() {
     }
 
     // Resultado del callbackmanager
+    /*
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         callbackManager.onActivityResult(requestCode, resultCode, data)
         super.onActivityResult(requestCode, resultCode, data)
 
-    }
+    }*/
 
+
+    override fun onActivityResult(requestCode: Int, resultCode:
+    Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == CODIGO_SIGNIN) {
+            when (resultCode) {
+                RESULT_OK -> {
+                    val usuario =
+                        FirebaseAuth.getInstance().currentUser
+                    println("Bienvenido: ${usuario?.displayName}")
+                    println("Correo: ${usuario?.email}")
+                    println("Correo: ${usuario?.uid}")
+                    // Lanzar otra actividad
+                }
+                RESULT_CANCELED -> {
+                    println("Cancelado...")
+                    val response =
+                        IdpResponse.fromResultIntent(data)
+                    println("Error: ${response?.error?.localizedMessage}")
+                }
+                else -> {
+                    val response =
+                        IdpResponse.fromResultIntent(data)
+                    println("Error: ${response?.error?.errorCode}")
+                }
+            }
+        }
+    }
     private fun configurarEventos() {
         binding.btnEnviar.setOnClickListener {
             val nuevoUsuario = Usuario(binding.etCorreo.text.toString(),
@@ -77,6 +112,13 @@ class CrearCuenta: Fragment() {
 
             viewModel.enviarUsuario(nuevoUsuario)
         }
+
+        binding.btnSignInGoogle.setOnClickListener{
+            autenticar()
+
+        }
+
+
         //Registra el callback de facebook
         callbackManager = CallbackManager.Factory.create()
 
@@ -114,10 +156,27 @@ class CrearCuenta: Fragment() {
             override fun onError(exception: FacebookException) {
                 println("Firma no exitosa")
             }
+
+
         })
 
 
+
     }
+
+    private fun autenticar() {
+        val providers =
+            arrayListOf(AuthUI.IdpConfig.GoogleBuilder().build())
+        startActivityForResult(
+            AuthUI.getInstance()
+                .createSignInIntentBuilder()
+                .setAvailableProviders(providers)
+                .build(),
+            CODIGO_SIGNIN
+        )
+    }
+
+
 
     private fun configurarObservadores() {
         viewModel.respuesta.observe(viewLifecycleOwner) { respuesta ->
