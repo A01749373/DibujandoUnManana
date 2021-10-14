@@ -15,22 +15,15 @@
         android:theme="@style/Theme.DibujandoUnMañana"
         android:usesCleartextTraffic="true">
 
-        <!---<meta-data tools:replace="@string/facebook_application_id"
-            android:name="com.facebook.sdk.ApplicationId"
-            android:value="@string/facebook_app_id"/>-->
-
         <meta-data android:name="com.facebook.sdk.ApplicationId"
         tools:replace="android:value"
             android:value="@string/facebook_app_id"/>
 
         <activity
             android:name=".MainActivity"
-            android:exported="true"
-            android:label="Fundación DUM"
-            android:theme="@style/Theme.DibujandoUnMañana.NoActionBar">
+            android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
