@@ -27,9 +27,6 @@ import com.google.gson.JsonElement
 import org.json.JSONObject
 
 
-
-
-
 class CrearCuenta: Fragment() {
 
     private val CODIGO_SIGNIN =500
@@ -85,7 +82,10 @@ class CrearCuenta: Fragment() {
                         FirebaseAuth.getInstance().currentUser
                     println("Bienvenido: ${usuario?.displayName}")
                     println("Correo: ${usuario?.email}")
-                    println("Correo: ${usuario?.uid}")
+                    println("UID: ${usuario?.uid}")
+                    println("Nombre: ${usuario?.displayName}")
+                    viewModel.enviarUsuario(Usuario(usuario?.email.toString(), usuario?.displayName.toString(),
+                    "", "", ""))
                     // Lanzar otra actividad
                 }
                 RESULT_CANCELED -> {
@@ -102,6 +102,7 @@ class CrearCuenta: Fragment() {
             }
         }
     }
+
     private fun configurarEventos() {
         binding.btnEnviar.setOnClickListener {
             val nuevoUsuario = Usuario(binding.etCorreo.text.toString(),
