@@ -28,4 +28,7 @@ interface ServicioUsuarioApi
 
     @POST("/configuraciones/BorrarCuenta")
     fun borrarCuenta(@Body correo: Correo) : Call<String>
+    
+    @POST("/donacion/NuevaDonacion")
+    fun enviarDonacion(@Body donacion: JsonDonacion) : Call<String>
 }
