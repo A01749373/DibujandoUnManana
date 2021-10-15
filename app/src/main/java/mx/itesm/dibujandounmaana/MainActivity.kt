@@ -1,9 +1,12 @@
 package mx.itesm.dibujandounmaana
 
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.preference.PreferenceManager
 import android.view.Menu
+import android.view.MenuItem
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.navigation.NavigationView
 import androidx.navigation.findNavController
@@ -17,7 +20,7 @@ import mx.itesm.dibujandounmaana.databinding.ActivityMainBinding
 import mx.itesm.dibujandounmaana.view.Ayuda
 import mx.itesm.dibujandounmaana.viewmodel.AyudaVM
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
@@ -44,11 +47,14 @@ class MainActivity : AppCompatActivity() {
             setOf(
                 R.id.nav_donar, R.id.nav_quienes, R.id.nav_regalos,
                 R.id.nav_perfil, R.id.nav_contactanos, R.id.nav_proyectos,
-                R.id.iniciarSesion, R.id.tipoUsuario, R.id.nav_configuracion
+                R.id.iniciarSesion, R.id.tipoUsuario, R.id.nav_configuracion,
+                R.id.nav_logout
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
+        //navView.setNavigationItemSelectedListener(this)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -57,7 +63,29 @@ class MainActivity : AppCompatActivity() {
         return true
     }
 
-    override fun onSupportNavigateUp(): Boolean {
+    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.nav_logout -> {
+                println("si soy")
+                logout()
+            }
+        }
+        return true
+    }
+
+
+    private fun logout(){
+        println("Sesion cerrada")
+        val preferencias = this.getSharedPreferences("Usuario", MODE_PRIVATE)
+        //val correo = preferencias.getString("Correo","-1")
+        val editor = preferencias.edit()
+        editor.remove("Usuario")
+        editor.apply()
+        this.finish()
+        findNavController(R.id.iniciarSesion)
+    }
+
+        override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment_content_main)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
