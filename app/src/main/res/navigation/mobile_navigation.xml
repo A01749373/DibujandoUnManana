@@ -12,12 +12,6 @@
         tools:layout="@layout/donar_fragment" />
 
     <fragment
-        android:id="@+id/nav_configuracion"
-        android:name="mx.itesm.dibujandounmaana.ui.home.HomeFragment"
-        android:label="Configuración"
-        tools:layout="@layout/fragment_home" />
-
-    <fragment
         android:id="@+id/nav_quienes"
         android:name="mx.itesm.dibujandounmaana.view.Quienes"
         android:label="¿Quiénes somos?"
@@ -150,5 +144,14 @@
         <action
             android:id="@+id/action_chats_to_mensaje"
             app:destination="@id/mensaje" />
+    </fragment>
+    <fragment
+        android:id="@+id/configuraciones"
+        android:name="mx.itesm.dibujandounmaana.Configuraciones"
+        android:label="Configuraciones"
+        tools:layout="@layout/configuraciones_fragment" >
+        <action
+            android:id="@+id/action_configuraciones_to_iniciarSesion"
+            app:destination="@id/iniciarSesion" />
     </fragment>
 </navigation>

@@ -47,8 +47,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             setOf(
                 R.id.nav_donar, R.id.nav_quienes, R.id.nav_regalos,
                 R.id.nav_perfil, R.id.nav_contactanos, R.id.nav_proyectos,
-                R.id.iniciarSesion, R.id.tipoUsuario, R.id.nav_configuracion,
-                R.id.nav_logout
+                R.id.iniciarSesion, R.id.tipoUsuario,
+                R.id.nav_logout,R.id.configuraciones
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)

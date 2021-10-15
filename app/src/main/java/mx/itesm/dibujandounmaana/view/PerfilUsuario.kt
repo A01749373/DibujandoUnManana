@@ -59,6 +59,7 @@ class perfilUsuario : Fragment() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?){
         super.onActivityResult(requestCode, resultCode, data)
+        //Guardar Imagen seleccionada por el usuario
         if(requestCode == IMAGE_REQUEST_CODE && resultCode == RESULT_OK){
             imageURi = data?.data!!
             val progressDialog = ProgressDialog(this.requireContext())

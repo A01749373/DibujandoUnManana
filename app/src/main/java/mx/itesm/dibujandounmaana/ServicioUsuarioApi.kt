@@ -25,4 +25,7 @@ interface ServicioUsuarioApi
 
     @POST("/proyectos/Proyectos")
     fun verProyecto(): Call<List<Proyecto>>
+
+    @POST("/configuraciones/BorrarCuenta")
+    fun borrarCuenta(@Body correo: Correo) : Call<String>
 }

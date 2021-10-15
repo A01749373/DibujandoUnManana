@@ -26,8 +26,8 @@
             android:id="@+id/nav_contactanos"
             android:title="Contáctanos" />
         <item
-            android:id="@+id/nav_configuracion"
-            android:title="Configuración" />
+            android:id="@+id/configuraciones"
+            android:title="Configuraciones" />
         <item
             android:id="@+id/nav_logout"
             android:title="Cerrar sesión" />
