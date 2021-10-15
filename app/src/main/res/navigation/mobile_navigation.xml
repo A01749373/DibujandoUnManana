@@ -37,6 +37,24 @@
         android:name="mx.itesm.dibujandounmaana.view.CrearCuenta"
         android:label="Crear Cuenta"
         tools:layout="@layout/nav_crear_cuenta" />
+    <fragment
+        android:id="@+id/crear_cuenta_admin"
+        android:name="mx.itesm.dibujandounmaana.view.CrearCuentaAdmin"
+        android:label="Crear Cuenta"
+        tools:layout="@layout/nav_crear_cuenta_admin" />
+
+    <fragment
+        android:id="@+id/iniciar_sesion_admin"
+        android:name="mx.itesm.dibujandounmaana.view.IniciarSesionAdmin"
+        android:label="Iniciar sesión admin"
+        tools:layout="@layout/iniciar_sesion_admin" >
+        <action
+            android:id="@+id/action_iniciar_sesion_admin_to_crear_cuenta_admin"
+            app:destination="@id/crear_cuenta_admin" />
+        <action
+            android:id="@+id/action_iniciar_sesion_admin_to_nav_quienes"
+            app:destination="@id/nav_quienes" />
+    </fragment>
 
     <fragment
         android:id="@+id/donar"
@@ -90,13 +108,14 @@
         <action
             android:id="@+id/action_tipoUsuario_to_iniciarSesion"
             app:destination="@id/iniciarSesion" />
+        <action
+            android:id="@+id/action_tipoUsuario_to_iniciar_sesion_admin"
+            app:destination="@id/iniciar_sesion_admin" />
     </fragment>
 
     <fragment
         android:id="@+id/nav_logout"
-        android:name="mx.itesm.dibujandounmaana.ui.home.HomeFragment"
-        android:label=" "
-        tools:layout="@layout/nav_cerrarsesion" />
+        android:label=" " />
     <fragment
         android:id="@+id/sumate"
         android:name="mx.itesm.dibujandounmaana.view.Sumate"

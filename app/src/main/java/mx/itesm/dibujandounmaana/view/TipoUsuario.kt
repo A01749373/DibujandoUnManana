@@ -46,8 +46,9 @@ class TipoUsuario : Fragment() {
             startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(urlEmpresa)))
         }
         binding.btnTipoAdministrador.setOnClickListener {
-            findNavController().navigate((R.id.action_tipoUsuario_to_iniciarSesion))
+            findNavController().navigate((R.id.action_tipoUsuario_to_iniciar_sesion_admin))
         }
+
     }
 
     private fun configurarObservadores() {

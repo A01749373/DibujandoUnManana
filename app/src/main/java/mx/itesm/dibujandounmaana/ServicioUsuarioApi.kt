@@ -11,6 +11,9 @@ interface ServicioUsuarioApi
     @POST("/Usuario/CrearCuenta")
     fun enviarUsuario(@Body usuario: JsonUsuario) : Call<String>
 
+    @POST("/Usuario/CrearCuentaAdmin")
+    fun enviarAdmin(@Body admin: JsonAdmin) : Call<String>
+
     @POST("/crearPerfilUsuario/PerfilUsuario")
     fun verUsuario(@Body correo: CorreoUsuario): Call<crearPefilUsuario>
 

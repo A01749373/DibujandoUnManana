@@ -13,7 +13,7 @@ object RetrofitInstance {
             // Localhost Amy: 192.168.39.163
             // Localhost Andrea:  192.168.100.28
             // Localhost Ari: 192.168.100.22
-            .baseUrl("http://192.168.100.22:8080")     // Localhost de la máquina donde corre el simulador
+            .baseUrl("http://10.48.106.78:8080")     // Localhost de la máquina donde corre el simulador
             .addConverterFactory(ScalarsConverterFactory.create())      // String. Int, etc
             .addConverterFactory(GsonConverterFactory.create())         // Json
             .build()
