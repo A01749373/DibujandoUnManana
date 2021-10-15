@@ -52,7 +52,7 @@ class CrearCuenta: Fragment() {
         configurarEventos()
         //Email
         binding.loginButton.setReadPermissions("email")
-        binding.loginButton.setReadPermissions("user_gender")
+        //binding.loginButton.setReadPermissions("user_gender")
         //binding.loginButton.setReadPermissions("user_birthday")
 
         //saber si hay un token de login
@@ -85,7 +85,7 @@ class CrearCuenta: Fragment() {
                     println("UID: ${usuario?.uid}")
                     println("Nombre: ${usuario?.displayName}")
                     viewModel.enviarUsuario(Usuario(usuario?.email.toString(), usuario?.displayName.toString(),
-                    "", "", ""))
+                    "", "",null.toString()))
                     // Lanzar otra actividad
                 }
                 RESULT_CANCELED -> {
@@ -137,9 +137,9 @@ class CrearCuenta: Fragment() {
                             //println(objeto?.get("name"))
                             //println(response.toString())
                             val name= objeto?.get("name"); val correo=objeto?.get("email")
-                            val genero = objeto?.get("gender"); //val birthday = objeto?.get("birthday")
+                            //val birthday = objeto?.get("birthday")
                             viewModel.enviarUsuario(Usuario(correo.toString(),name.toString(),
-                                genero.toString()," "," "))
+                                ""," ",null.toString()))
                         }
                     })
 
