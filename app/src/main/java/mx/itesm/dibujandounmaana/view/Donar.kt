@@ -83,7 +83,7 @@ class Donar : Fragment() {
 
                     //Enviar Donacion
                     val nuevaDonacion= Donar(binding.spinner2.selectedItem.toString(),
-                        binding.etCantidad.text.toString())
+                        binding.etCantidad.text.toString().toInt())
                     viewModel.enviarDonacion(nuevaDonacion)
                 }
             },

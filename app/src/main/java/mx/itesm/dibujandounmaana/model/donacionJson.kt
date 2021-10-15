@@ -12,7 +12,7 @@ data class Donar(
     @SerializedName("nombreProyectoDonar")
     val nombreProyecto: String,
     @SerializedName("montoDonacion")
-    val montoDonacion: String) : Serializable
+    val montoDonacion: Int) : Serializable
 
 
 data class JsonDonacion(
