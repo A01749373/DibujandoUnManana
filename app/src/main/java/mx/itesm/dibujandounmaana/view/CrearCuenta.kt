@@ -74,6 +74,7 @@ class CrearCuenta: Fragment() {
 
     override fun onActivityResult(requestCode: Int, resultCode:
     Int, data: Intent?) {
+        //callbackManager.onActivityResult(requestCode, resultCode, data)
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == CODIGO_SIGNIN) {
             when (resultCode) {
@@ -137,9 +138,9 @@ class CrearCuenta: Fragment() {
                             //println(objeto?.get("name"))
                             //println(response.toString())
                             val name= objeto?.get("name"); val correo=objeto?.get("email")
-                            //val birthday = objeto?.get("birthday")
+                            val genero = objeto?.get("gender"); //val birthday = objeto?.get("birthday")
                             viewModel.enviarUsuario(Usuario(correo.toString(),name.toString(),
-                                ""," ",null.toString()))
+                                genero.toString()," "," "))
                         }
                     })
 
@@ -157,8 +158,6 @@ class CrearCuenta: Fragment() {
             override fun onError(exception: FacebookException) {
                 println("Firma no exitosa")
             }
-
-
         })
 
 
