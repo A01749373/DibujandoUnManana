@@ -54,7 +54,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
-        //navView.setNavigationItemSelectedListener(this)
+        navView.setNavigationItemSelectedListener(this)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -79,14 +79,21 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         val preferencias = this.getSharedPreferences("Usuario", MODE_PRIVATE)
         //val correo = preferencias.getString("Correo","-1")
         val editor = preferencias.edit()
-        editor.remove("Usuario")
+        editor.remove("Correo")
         editor.apply()
-        this.finish()
-        findNavController(R.id.iniciarSesion)
+        //findNavController(R.id.iniciarSesion)
+        findNavController(R.id.nav_host_fragment_content_main).navigateUp()
     }
 
         override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment_content_main)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        println("Hacer logout")
+        logout()
+        return super.onOptionsItemSelected(item)
+    }
+
 }

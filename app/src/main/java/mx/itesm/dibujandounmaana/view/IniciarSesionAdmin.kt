@@ -15,16 +15,26 @@ import mx.itesm.dibujandounmaana.model.SesionUsuario
 import mx.itesm.dibujandounmaana.databinding.IniciarSesionFragmentBinding
 import mx.itesm.dibujandounmaana.viewmodel.IniciarSesionVM
 import android.widget.Toast.makeText
+import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import mx.itesm.dibujandounmaana.databinding.IniciarSesionAdminBinding
 import mx.itesm.dibujandounmaana.viewmodel.IniciarSesionAdminVM
 import kotlinx.coroutines.delay as delay
 
-class IniciarSesionAdmin : Fragment() {
+class IniciarSesionAdmin : AppCompatActivity() {
 
     private val viewModel: IniciarSesionAdminVM by viewModels()
 
     private lateinit var binding: IniciarSesionAdminBinding
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.iniciar_sesion_fragment)
+        cargarPreferencias()
+        configurarObservadores()
+        configurarEventos()
+    }
+    /*
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -35,14 +45,15 @@ class IniciarSesionAdmin : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         cargarPreferencias()
         configurarObservadores()
         configurarEventos()
-    }
+    }*/
 
     private fun cargarPreferencias() {
         val preferencias =
-            this.requireContext().getSharedPreferences("Usuario", Context.MODE_PRIVATE)
+            this.getSharedPreferences("Usuario", Context.MODE_PRIVATE)
         val favorito = preferencias.getString("Correo", "-1")
         if (favorito != "-1") {
             println("$favorito")
