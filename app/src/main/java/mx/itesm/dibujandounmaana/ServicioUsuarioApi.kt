@@ -25,4 +25,7 @@ interface ServicioUsuarioApi
 
     @POST("/proyectos/Proyectos")
     fun verProyecto(): Call<List<Proyecto>>
+
+    @POST("/donacion/NuevaDonacion")
+    fun enviarDonacion(@Body donacion: JsonDonacion) : Call<String>
 }

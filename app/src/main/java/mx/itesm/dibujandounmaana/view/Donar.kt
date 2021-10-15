@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.viewModels
 import mx.itesm.dibujandounmaana.viewmodel.DonarVM
 import mx.itesm.dibujandounmaana.R
@@ -25,6 +26,8 @@ import com.paypal.checkout.order.AppContext
 import com.paypal.checkout.order.Order
 import com.paypal.checkout.order.PurchaseUnit
 import com.paypal.checkout.paymentbutton.PayPalButton
+import mx.itesm.dibujandounmaana.model.Donar
+
 
 
 class Donar : Fragment() {
@@ -73,22 +76,39 @@ class Donar : Fragment() {
                 approval.orderActions.capture { captureOrderResult ->
                     Log.i("CaptureOrder", "CaptureOrderResult: $captureOrderResult")
                     println("CaptureOrderResult: $captureOrderResult")
+                    Toast.makeText(context,"Pago exitoso", Toast.LENGTH_SHORT).show()
 
                     //configurarObservadores()
                     //configurarEventos()
+
+                    //Enviar Donacion
+                    val nuevaDonacion= Donar(binding.spinner2.selectedItem.toString(),
+                        binding.etCantidad.text.toString())
+                    viewModel.enviarDonacion(nuevaDonacion)
                 }
             },
             onCancel = OnCancel {
                 Log.d("OnCancel", "Buyer canceled the PayPal experience.")
                 println("Buyer canceled the PayPal experience.")
+                Toast.makeText(context,"Donación cancelada", Toast.LENGTH_SHORT).show()
             },
             onError = OnError { errorInfo ->
                 Log.d("OnError", "Error: $errorInfo")
                 println("Error: $errorInfo")
+                Toast.makeText(context,"Error", Toast.LENGTH_SHORT).show()
             }
         )
 
     }
+    /*
+    private fun configurarEventos() {
+        binding.payPalButton.setOnClickListener {
+            val nuevaDonacion= Donar(binding.spinner2.selectedItem.toString(),
+                binding.etCantidad.text.toString())
+
+            viewModel.enviarDonacion(nuevaDonacion)
+        }
+    }*/
 
 /*
     override fun onActivityCreated(savedInstanceState: Bundle?) {
