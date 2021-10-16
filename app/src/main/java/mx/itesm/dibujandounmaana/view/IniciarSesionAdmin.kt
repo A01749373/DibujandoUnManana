@@ -17,6 +17,7 @@ import mx.itesm.dibujandounmaana.viewmodel.IniciarSesionVM
 import android.widget.Toast.makeText
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.findNavController
 import mx.itesm.dibujandounmaana.databinding.IniciarSesionAdminBinding
 import mx.itesm.dibujandounmaana.viewmodel.IniciarSesionAdminVM
 import kotlinx.coroutines.delay as delay
@@ -29,7 +30,7 @@ class IniciarSesionAdmin : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.iniciar_sesion_fragment)
+        setContentView(R.layout.iniciar_sesion_admin)
         cargarPreferencias()
         configurarObservadores()
         configurarEventos()
@@ -64,10 +65,10 @@ class IniciarSesionAdmin : AppCompatActivity() {
 
     private fun cambiarPantalla(respuesta: String) {
         if (respuesta == "Lo sentimos: Usuario o contraseña no válidos") {
-            Toast.makeText(activity, respuesta + " 😭", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, respuesta + " 😭", Toast.LENGTH_SHORT).show()
         } else {
-            Toast.makeText(activity, respuesta + " 😃", Toast.LENGTH_SHORT).show()
-            findNavController().navigate(R.id.action_iniciar_sesion_admin_to_nav_quienes)
+            Toast.makeText(this, respuesta + " 😃", Toast.LENGTH_SHORT).show()
+            findNavController(R.id.action_iniciar_sesion_admin_to_nav_quienes)
         }
     }
 
@@ -78,7 +79,7 @@ class IniciarSesionAdmin : AppCompatActivity() {
                 binding.etContrasena.text.toString()
             )
             val preferencias =
-                this.requireContext().getSharedPreferences("Usuario", Context.MODE_PRIVATE)
+                this.getSharedPreferences("Usuario", Context.MODE_PRIVATE)
             preferencias.edit {
                 putString("Correo", binding.etUsuario.text.toString())
                 commit()
@@ -93,12 +94,12 @@ class IniciarSesionAdmin : AppCompatActivity() {
             viewModel.verificaUsuario(usuarioRegistrado)
         }
         binding.btnCrearCuenta.setOnClickListener {
-            findNavController().navigate(R.id.action_iniciar_sesion_admin_to_crear_cuenta_admin)
+            findNavController(R.id.action_iniciar_sesion_admin_to_crear_cuenta_admin)
         }
     }
 
     private fun configurarObservadores() {
-        viewModel.respuesta.observe(viewLifecycleOwner) { respuesta ->
+        viewModel.respuesta.observe(this) { respuesta ->
             binding.tvEstado.text = respuesta
             cambiarPantalla(respuesta)
         }
