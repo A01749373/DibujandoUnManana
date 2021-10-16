@@ -1,8 +1,6 @@
 package mx.itesm.dibujandounmaana
 
 import android.content.Context
-import android.graphics.BitmapFactory
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -11,11 +9,9 @@ import android.view.ViewGroup
 import androidx.core.content.edit
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import com.google.firebase.storage.FirebaseStorage
 import mx.itesm.dibujandounmaana.databinding.ConfiguracionesFragmentBinding
-import mx.itesm.dibujandounmaana.databinding.PerfilUsuarioFragmentBinding
 import mx.itesm.dibujandounmaana.viewmodel.ConfiguracionesVM
-import java.io.File
+
 
 class Configuraciones : Fragment() {
 
@@ -58,12 +54,9 @@ class Configuraciones : Fragment() {
             }
             findNavController().navigate(R.id.action_configuraciones_to_iniciarSesion)
         }
-        /*binding.btnCambiarContraseA.setOnClickListener {
-
+        binding.btnEditarPerfil.setOnClickListener {
+            findNavController().navigate(R.id.action_configuraciones_to_cambiarNombre)
         }
-        binding.btnCambiarNombre.setOnClickListener {
-
-        }*/
     }
 
 }

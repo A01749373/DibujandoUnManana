@@ -28,6 +28,12 @@ interface ServicioUsuarioApi
 
     @POST("/configuraciones/BorrarCuenta")
     fun borrarCuenta(@Body correo: Correo) : Call<String>
+
+    @POST("/configuraciones/EditarNombre")
+    fun editarNombre(@Body nombre: Nombre) : Call<String>
+
+    @POST("/configuraciones/EditarContrasena")
+    fun editarContrasena(@Body nombre: Nombre) : Call<String>
     
     @POST("/donacion/NuevaDonacion")
     fun enviarDonacion(@Body donacion: JsonDonacion) : Call<String>

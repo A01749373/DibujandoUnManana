@@ -153,5 +153,13 @@
         <action
             android:id="@+id/action_configuraciones_to_iniciarSesion"
             app:destination="@id/iniciarSesion" />
+        <action
+            android:id="@+id/action_configuraciones_to_cambiarNombre"
+            app:destination="@id/cambiarNombre" />
     </fragment>
+    <fragment
+        android:id="@+id/cambiarNombre"
+        android:name="mx.itesm.dibujandounmaana.cambiarNombre"
+        android:label="fragment_cambiar_nombre"
+        tools:layout="@layout/fragment_cambiar_nombre" />
 </navigation>

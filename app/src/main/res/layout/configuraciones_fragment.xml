@@ -36,26 +36,12 @@
             android:layout_height="50dp" />
 
         <Button
-            android:id="@+id/btnCambiarNombre"
+            android:id="@+id/btnEditarPerfil"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:insetLeft="20dp"
             android:insetRight="20dp"
-            android:text="Cabiar Nombre de Usuario"
-            android:textSize="20sp" />
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="50dp" />
-
-        <Button
-            android:id="@+id/btnCambiarContraseña"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:insetLeft="20dp"
-            android:insetRight="20dp"
-            android:text="Cambiar contraseña"
-            android:textAlignment="center"
+            android:text="Editar Perfil"
             android:textSize="20sp" />
 
         <Space
