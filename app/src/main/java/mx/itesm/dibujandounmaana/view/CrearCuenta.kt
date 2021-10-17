@@ -74,7 +74,6 @@ class CrearCuenta: Fragment() {
 
     override fun onActivityResult(requestCode: Int, resultCode:
     Int, data: Intent?) {
-        //callbackManager.onActivityResult(requestCode, resultCode, data)
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == CODIGO_SIGNIN) {
             when (resultCode) {
@@ -101,6 +100,8 @@ class CrearCuenta: Fragment() {
                     println("Error: ${response?.error?.errorCode}")
                 }
             }
+        } else{
+            callbackManager.onActivityResult(requestCode, resultCode, data)
         }
     }
 
