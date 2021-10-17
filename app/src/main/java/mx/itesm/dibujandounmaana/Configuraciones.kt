@@ -1,6 +1,7 @@
 package mx.itesm.dibujandounmaana
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -44,7 +45,8 @@ class Configuraciones : Fragment() {
                 putString("Correo", "-1")
                 commit()
             }
-            findNavController().navigate(R.id.action_configuraciones_to_iniciarSesion)
+            val intIniciarSe = Intent(this.requireContext(),IniciarSesionAct::class.java)
+            startActivity(intIniciarSe)
         }
         binding.btnBorrarCuenta.setOnClickListener {
             viewModel.borrarUsuario(correo.toString())
@@ -52,7 +54,8 @@ class Configuraciones : Fragment() {
                 putString("Correo", "-1")
                 commit()
             }
-            findNavController().navigate(R.id.action_configuraciones_to_iniciarSesion)
+            val intIniciarSe = Intent(this.requireContext(),IniciarSesionAct::class.java)
+            startActivity(intIniciarSe)
         }
         binding.btnEditarPerfil.setOnClickListener {
             findNavController().navigate(R.id.action_configuraciones_to_cambiarNombre)

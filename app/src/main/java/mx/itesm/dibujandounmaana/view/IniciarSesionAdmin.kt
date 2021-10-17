@@ -2,25 +2,15 @@ package mx.itesm.dibujandounmaana.view
 
 import android.content.Context
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.content.edit
-import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.findNavController
 import mx.itesm.dibujandounmaana.R
 import mx.itesm.dibujandounmaana.model.SesionUsuario
-import mx.itesm.dibujandounmaana.databinding.IniciarSesionFragmentBinding
-import mx.itesm.dibujandounmaana.viewmodel.IniciarSesionVM
-import android.widget.Toast.makeText
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import mx.itesm.dibujandounmaana.databinding.IniciarSesionAdminBinding
 import mx.itesm.dibujandounmaana.viewmodel.IniciarSesionAdminVM
-import kotlinx.coroutines.delay as delay
 
 class IniciarSesionAdmin : AppCompatActivity() {
 

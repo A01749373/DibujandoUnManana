@@ -20,7 +20,7 @@ import mx.itesm.dibujandounmaana.databinding.ActivityMainBinding
 import mx.itesm.dibujandounmaana.view.Ayuda
 import mx.itesm.dibujandounmaana.viewmodel.AyudaVM
 
-class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
@@ -47,14 +47,11 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             setOf(
                 R.id.nav_donar, R.id.nav_quienes, R.id.nav_regalos,
                 R.id.nav_perfil, R.id.nav_contactanos, R.id.nav_proyectos,
-                R.id.iniciarSesion, R.id.tipoUsuario,
                 R.id.nav_logout,R.id.configuraciones
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
-
-        navView.setNavigationItemSelectedListener(this)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -62,17 +59,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         menuInflater.inflate(R.menu.main, menu)
         return true
     }
-
-    override fun onNavigationItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.nav_logout -> {
-                println("si soy")
-                logout()
-            }
-        }
-        return true
-    }
-
 
     private fun logout(){
         println("Sesion cerrada")

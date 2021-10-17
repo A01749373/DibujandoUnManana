@@ -27,11 +27,6 @@
         android:label="Regalos con causa"
         tools:layout="@layout/fragment_regalos" />
     <fragment
-        android:id="@+id/crear_cuenta"
-        android:name="mx.itesm.dibujandounmaana.view.CrearCuenta"
-        android:label="Crear Cuenta"
-        tools:layout="@layout/nav_crear_cuenta" />
-    <fragment
         android:id="@+id/crear_cuenta_admin"
         android:name="mx.itesm.dibujandounmaana.view.CrearCuentaAdmin"
         android:label="Crear Cuenta"
@@ -61,19 +56,6 @@
         android:label="Contáctanos"
         tools:layout="@layout/nav_contactanos_fragment" />
     <fragment
-        android:id="@+id/iniciarSesion"
-        android:name="mx.itesm.dibujandounmaana.view.IniciarSesion"
-        android:label="Iniciar sesión"
-        tools:layout="@layout/iniciar_sesion_fragment" >
-        <action
-            android:id="@+id/action_iniciarSesion_to_crear_cuenta"
-            app:destination="@id/crear_cuenta" />
-        <action
-            android:id="@+id/action_iniciarSesion_to_nav_quienes"
-            app:destination="@id/nav_quienes" />
-
-    </fragment>
-    <fragment
         android:id="@+id/nav_perfil"
         android:name="mx.itesm.dibujandounmaana.view.perfilUsuario"
         android:label="Perfil"
@@ -93,18 +75,6 @@
         <action
             android:id="@+id/action_nav_proyectos_to_sumate"
             app:destination="@id/sumate" />
-    </fragment>
-    <fragment
-        android:id="@+id/tipoUsuario"
-        android:name="mx.itesm.dibujandounmaana.view.TipoUsuario"
-        android:label="Elige Tipo Usuario"
-        tools:layout="@layout/tipo_usuario_fragment" >
-        <action
-            android:id="@+id/action_tipoUsuario_to_iniciarSesion"
-            app:destination="@id/iniciarSesion" />
-        <action
-            android:id="@+id/action_tipoUsuario_to_iniciar_sesion_admin"
-            app:destination="@id/iniciar_sesion_admin" />
     </fragment>
 
     <fragment
@@ -150,9 +120,6 @@
         android:name="mx.itesm.dibujandounmaana.Configuraciones"
         android:label="Configuraciones"
         tools:layout="@layout/configuraciones_fragment" >
-        <action
-            android:id="@+id/action_configuraciones_to_iniciarSesion"
-            app:destination="@id/iniciarSesion" />
         <action
             android:id="@+id/action_configuraciones_to_cambiarNombre"
             app:destination="@id/cambiarNombre" />

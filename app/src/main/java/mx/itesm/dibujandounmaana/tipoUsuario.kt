@@ -4,15 +4,8 @@ import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.activity.viewModels
-import androidx.fragment.app.viewModels
-import androidx.navigation.findNavController
-import androidx.navigation.fragment.findNavController
 import mx.itesm.dibujandounmaana.databinding.ActivityTipoUsuarioBinding
-import mx.itesm.dibujandounmaana.databinding.TipoUsuarioFragmentBinding
 import mx.itesm.dibujandounmaana.viewmodel.TipoUsuarioVM
 
 class tipoUsuario : AppCompatActivity() {

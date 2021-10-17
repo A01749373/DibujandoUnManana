@@ -6,12 +6,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import androidx.core.content.edit
 import androidx.fragment.app.viewModels
 import mx.itesm.dibujandounmaana.databinding.FragmentCambiarNombreBinding
-import androidx.navigation.fragment.findNavController
-import mx.itesm.dibujandounmaana.databinding.IniciarSesionFragmentBinding
 import mx.itesm.dibujandounmaana.model.Datos
 import mx.itesm.dibujandounmaana.viewmodel.ConfiguracionesVM
 
