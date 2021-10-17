@@ -34,8 +34,8 @@ class tipoUsuario : AppCompatActivity() {
             startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(urlEmpresa)))
         }
         binding.btnTipoAdministrador.setOnClickListener {
-            val intSesion = Intent(this,IniciarSesionAct::class.java)
-            startActivity(intSesion)
+            val intentAdministrador = Intent(this, IniciarSesionAdminAct::class.java)
+            startActivity(intentAdministrador)
         }
 
     }

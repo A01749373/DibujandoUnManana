@@ -34,7 +34,6 @@ class IniciarSesionVM : ViewModel() {
                 println(respuesta.value)
             }
         })
-
     }
 
     fun enviarUsuario(usuario: Usuario) {

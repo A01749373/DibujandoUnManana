@@ -1,51 +1,44 @@
-package mx.itesm.dibujandounmaana.view
+package mx.itesm.dibujandounmaana
 
+import android.app.Activity
 import android.content.Context
+import android.content.Intent
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import androidx.core.content.edit
-import mx.itesm.dibujandounmaana.R
-import mx.itesm.dibujandounmaana.model.SesionUsuario
 import androidx.activity.viewModels
-import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.findNavController
-import mx.itesm.dibujandounmaana.databinding.IniciarSesionAdminBinding
+import androidx.core.content.edit
+import com.facebook.*
+import com.facebook.login.LoginResult
+import com.firebase.ui.auth.AuthUI
+import com.firebase.ui.auth.IdpResponse
+import com.google.firebase.auth.FirebaseAuth
+import mx.itesm.dibujandounmaana.databinding.ActivityIniciarSesionAdminBinding
+import mx.itesm.dibujandounmaana.databinding.ActivityIniciarSesionBinding
 import mx.itesm.dibujandounmaana.model.SesionAdmin
+import mx.itesm.dibujandounmaana.model.SesionUsuario
+import mx.itesm.dibujandounmaana.model.Usuario
 import mx.itesm.dibujandounmaana.viewmodel.IniciarSesionAdminVM
+import mx.itesm.dibujandounmaana.viewmodel.IniciarSesionVM
+import org.json.JSONObject
 
-class IniciarSesionAdmin : AppCompatActivity() {
+class IniciarSesionAdminAct : AppCompatActivity() {
 
     private val viewModel: IniciarSesionAdminVM by viewModels()
 
-    private lateinit var binding: IniciarSesionAdminBinding
+    private lateinit var binding: ActivityIniciarSesionAdminBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.iniciar_sesion_admin)
+        binding = ActivityIniciarSesionAdminBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         cargarPreferencias()
         configurarObservadores()
         configurarEventos()
     }
-    /*
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        binding = IniciarSesionAdminBinding.inflate(layoutInflater)
-        return binding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        cargarPreferencias()
-        configurarObservadores()
-        configurarEventos()
-    }*/
 
     private fun cargarPreferencias() {
-        val preferencias =
-            this.getSharedPreferences("Usuario", Context.MODE_PRIVATE)
+        val preferencias = this.getSharedPreferences("Usuario", Context.MODE_PRIVATE)
         val favorito = preferencias.getString("Correo", "-1")
         if (favorito != "-1") {
             println("$favorito")
@@ -59,13 +52,14 @@ class IniciarSesionAdmin : AppCompatActivity() {
             Toast.makeText(this, respuesta + " 😭", Toast.LENGTH_SHORT).show()
         } else {
             Toast.makeText(this, respuesta + " 😃", Toast.LENGTH_SHORT).show()
-            findNavController(R.id.action_iniciar_sesion_admin_to_nav_quienes)
+            val intentAppPrincipal = Intent(this, MainActivity::class.java)
+            startActivity(intentAppPrincipal)
         }
     }
 
     private fun configurarEventos() {
         binding.btnIniciarSesion.setOnClickListener {
-            val usuarioRegistrado = SesionAdmin(
+            val adminRegistrado = SesionAdmin(
                 binding.etUsuario.text.toString(),
                 binding.etContrasena.text.toString()
             )
@@ -82,10 +76,12 @@ class IniciarSesionAdmin : AppCompatActivity() {
             } else {
                 println("No funciono")
             }
-            viewModel.verificaAdmin(usuarioRegistrado)
+            viewModel.verificaAdmin(adminRegistrado)
         }
+        // Hacer actividad CrearCuentaAdmin
         binding.btnCrearCuenta.setOnClickListener {
-            findNavController(R.id.action_iniciar_sesion_admin_to_crear_cuenta_admin)
+            val intentCrearCuentaAdmin = Intent(this, CrearCuentaAct::class.java)
+            startActivity(intentCrearCuentaAdmin)
         }
     }
 
