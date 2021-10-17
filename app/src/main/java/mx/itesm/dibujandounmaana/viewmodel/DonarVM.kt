@@ -4,9 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.google.gson.Gson
 import mx.itesm.dibujandounmaana.RetrofitInstance
-import mx.itesm.dibujandounmaana.model.Donacion
-import mx.itesm.dibujandounmaana.model.Donar
-import mx.itesm.dibujandounmaana.model.JsonDonacion
+import mx.itesm.dibujandounmaana.model.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

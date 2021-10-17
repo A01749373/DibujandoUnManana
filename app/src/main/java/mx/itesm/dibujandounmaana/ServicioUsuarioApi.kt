@@ -37,4 +37,6 @@ interface ServicioUsuarioApi
     
     @POST("/donacion/NuevaDonacion")
     fun enviarDonacion(@Body donacion: JsonDonacion) : Call<String>
+
+
 }
