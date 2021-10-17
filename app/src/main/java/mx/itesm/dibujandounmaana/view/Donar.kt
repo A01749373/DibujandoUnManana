@@ -1,5 +1,6 @@
 package mx.itesm.dibujandounmaana.view
 
+import android.content.Context
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import android.util.Log
@@ -34,6 +35,7 @@ class Donar : Fragment() {
 
     private val viewModel: DonarVM by viewModels()
     private lateinit var binding: DonarFragmentBinding
+
     companion object {
         fun newInstance() = Donar()
     }
@@ -43,7 +45,7 @@ class Donar : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding= DonarFragmentBinding.inflate(layoutInflater)
+        binding = DonarFragmentBinding.inflate(layoutInflater)
         return binding.root
     }
 
@@ -51,6 +53,8 @@ class Donar : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         //val  payPalButton = findViewById<PayPalButton>(R.id.payPalButton)
+        val preferencias = this.requireContext().getSharedPreferences("Usuario", Context.MODE_PRIVATE)
+        val usuarioCorreo = preferencias.getString("Correo", "-1")
 
         binding.payPalButton.setup(
             createOrder = CreateOrder { createOrderActions ->
@@ -76,31 +80,43 @@ class Donar : Fragment() {
                 approval.orderActions.capture { captureOrderResult ->
                     Log.i("CaptureOrder", "CaptureOrderResult: $captureOrderResult")
                     println("CaptureOrderResult: $captureOrderResult")
-                    Toast.makeText(context,"Pago exitoso", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, "Pago exitoso", Toast.LENGTH_LONG).show()
 
                     //configurarObservadores()
                     //configurarEventos()
 
                     //Enviar Donacion
-                    val nuevaDonacion= Donar(binding.spinner2.selectedItem.toString(),
-                        binding.etCantidad.text.toString().toInt())
+                    val nuevaDonacion = Donar(
+                        binding.spinner2.selectedItem.toString(),
+                        binding.etCantidad.text.toString().toInt(),
+                        usuarioCorreo.toString()
+                    )
                     viewModel.enviarDonacion(nuevaDonacion)
+                    viewModel.respuesta.observe(viewLifecycleOwner) { respuesta ->
+                        binding.tvEst.text = respuesta
+                    }
                 }
             },
             onCancel = OnCancel {
                 Log.d("OnCancel", "Buyer canceled the PayPal experience.")
                 println("Buyer canceled the PayPal experience.")
-                Toast.makeText(context,"Donación cancelada", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "Donación cancelada", Toast.LENGTH_LONG).show()
             },
             onError = OnError { errorInfo ->
                 Log.d("OnError", "Error: $errorInfo")
                 println("Error: $errorInfo")
-                Toast.makeText(context,"Error", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "Error", Toast.LENGTH_LONG).show()
             }
         )
 
     }
     /*
+    private fun configurarObservadores() {
+        viewModel.respuesta.observe(viewLifecycleOwner) { respuesta ->
+            binding.tvEst.text = respuesta
+        }
+    }
+
     private fun configurarEventos() {
         binding.payPalButton.setOnClickListener {
             val nuevaDonacion= Donar(binding.spinner2.selectedItem.toString(),
