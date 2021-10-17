@@ -12,7 +12,10 @@
         <entry key="..\:/Users/Amy/OneDrive/Documentos/GitHub/DibujandoUnManana/app/src/main/res/layout/nav_proyectos.xml" value="0.25" />
         <entry key="..\:/Users/Amy/OneDrive/Documentos/GitHub/DibujandoUnManana/app/src/main/res/layout/nav_sumate.xml" value="0.25" />
         <entry key="..\:/Users/Matt Aullido/Documents/GitHub/DibujandoUnManana/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2703125" />
+        <entry key="..\:/Users/Matt Aullido/Documents/GitHub/DibujandoUnManana/app/src/main/res/layout/activity_crear_cuenta.xml" value="0.1" />
+        <entry key="..\:/Users/Matt Aullido/Documents/GitHub/DibujandoUnManana/app/src/main/res/layout/activity_iniciar_sesion.xml" value="0.1" />
         <entry key="..\:/Users/Matt Aullido/Documents/GitHub/DibujandoUnManana/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Matt Aullido/Documents/GitHub/DibujandoUnManana/app/src/main/res/layout/activity_tipo_usuario.xml" value="0.3232931726907631" />
         <entry key="..\:/Users/Matt Aullido/Documents/GitHub/DibujandoUnManana/app/src/main/res/layout/app_bar_main.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Matt Aullido/Documents/GitHub/DibujandoUnManana/app/src/main/res/layout/ayuda_fragment.xml" value="0.3625" />
         <entry key="..\:/Users/Matt Aullido/Documents/GitHub/DibujandoUnManana/app/src/main/res/layout/content_main.xml" value="0.25416666666666665" />
@@ -22,6 +25,7 @@
         <entry key="..\:/Users/Matt Aullido/Documents/GitHub/DibujandoUnManana/app/src/main/res/layout/fragment_home.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Matt Aullido/Documents/GitHub/DibujandoUnManana/app/src/main/res/layout/fragment_slideshow.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Matt Aullido/Documents/GitHub/DibujandoUnManana/app/src/main/res/layout/iniciar_sesion.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Matt Aullido/Documents/GitHub/DibujandoUnManana/app/src/main/res/layout/iniciar_sesion_fragment.xml" value="0.1" />
         <entry key="..\:/Users/Matt Aullido/Documents/GitHub/DibujandoUnManana/app/src/main/res/layout/nav_chats.xml" value="0.264" />
         <entry key="..\:/Users/Matt Aullido/Documents/GitHub/DibujandoUnManana/app/src/main/res/layout/nav_crear_cuenta.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Matt Aullido/Documents/GitHub/DibujandoUnManana/app/src/main/res/layout/nav_header_main.xml" value="0.4" />
@@ -30,6 +34,8 @@
         <entry key="..\:/Users/Matt Aullido/Documents/GitHub/DibujandoUnManana/app/src/main/res/layout/nav_mensajes.xml" value="0.4" />
         <entry key="..\:/Users/Matt Aullido/Documents/GitHub/DibujandoUnManana/app/src/main/res/layout/nav_proyectos.xml" value="0.20572916666666666" />
         <entry key="..\:/Users/Matt Aullido/Documents/GitHub/DibujandoUnManana/app/src/main/res/layout/nav_sumate.xml" value="0.20572916666666666" />
+        <entry key="..\:/Users/Matt Aullido/Documents/GitHub/DibujandoUnManana/app/src/main/res/layout/perfil_usuario_fragment.xml" value="0.1" />
+        <entry key="..\:/Users/Matt Aullido/Documents/GitHub/DibujandoUnManana/app/src/main/res/layout/tipo_usuario_fragment.xml" value="0.1" />
         <entry key="..\:/Users/Matt Aullido/Documents/GitHub/DibujandoUnManana/app/src/main/res/menu/activity_main_drawer.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Matt Aullido/Documents/GitHub/DibujandoUnManana/app/src/main/res/menu/main.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/andyv/Documents/DibujandoUnManana/app/src/main/res/layout/configuraciones_fragment.xml" value="0.240625" />
