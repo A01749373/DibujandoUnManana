@@ -16,6 +16,7 @@ import com.google.firebase.auth.FirebaseAuth
 import mx.itesm.dibujandounmaana.databinding.ActivityIniciarSesionBinding
 import mx.itesm.dibujandounmaana.model.SesionUsuario
 import mx.itesm.dibujandounmaana.model.Usuario
+import mx.itesm.dibujandounmaana.view.Ayuda
 import mx.itesm.dibujandounmaana.viewmodel.IniciarSesionVM
 import org.json.JSONObject
 
@@ -60,8 +61,7 @@ class IniciarSesionAct : AppCompatActivity() {
             Toast.makeText(this, respuesta + " 😭", Toast.LENGTH_SHORT).show()
         } else {
             Toast.makeText(this, respuesta + " 😃", Toast.LENGTH_SHORT).show()
-            val intAppPr = Intent(this,MainActivity::class.java)
-            startActivity(intAppPr)
+            abrirActividad()
         }
     }
 
@@ -84,6 +84,7 @@ class IniciarSesionAct : AppCompatActivity() {
                     )*/
                     viewModel.verificaUsuario(usuarioRegistrado)
                     // Lanzar otra actividad
+                    abrirActividad()
                 }
                 Activity.RESULT_CANCELED -> {
                     println("Cancelado...")
@@ -102,6 +103,11 @@ class IniciarSesionAct : AppCompatActivity() {
         }
     }
 
+    private fun abrirActividad() {
+        val intIniciarSe = Intent(this,MainActivity::class.java)
+        startActivity(intIniciarSe)
+    }
+
     private fun autenticar() {
         val providers =
             arrayListOf(AuthUI.IdpConfig.GoogleBuilder().build())
@@ -112,6 +118,7 @@ class IniciarSesionAct : AppCompatActivity() {
                 .build(),
             CODIGO_SIGNIN
         )
+        
     }
 
     private fun configurarEventos() {
@@ -171,6 +178,7 @@ class IniciarSesionAct : AppCompatActivity() {
                 //println(parameters)
                 request.setParameters(parameters)
                 request.executeAsync()
+                abrirActividad()
             }
 
             override fun onCancel() {

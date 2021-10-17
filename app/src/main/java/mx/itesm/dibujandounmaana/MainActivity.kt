@@ -67,7 +67,7 @@ class MainActivity : AppCompatActivity() {
         val editor = preferencias.edit()
         editor.remove("Correo")
         editor.apply()
-        //findNavController(R.id.iniciarSesion)
+        //findNavController(R.id.nav_host_fragment_content_main).navigateUp()
         findNavController(R.id.nav_host_fragment_content_main).navigateUp()
     }
 
