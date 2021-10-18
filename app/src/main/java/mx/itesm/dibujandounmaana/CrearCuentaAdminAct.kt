@@ -1,9 +1,13 @@
 package mx.itesm.dibujandounmaana
 
 import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.findNavController
 import mx.itesm.dibujandounmaana.databinding.ActivityCrearCuentaAdminBinding
 import mx.itesm.dibujandounmaana.databinding.ActivityIniciarSesionAdminBinding
 import mx.itesm.dibujandounmaana.model.Admin
@@ -36,7 +40,7 @@ class CrearCuentaAdminAct : AppCompatActivity() {
             val s1 = binding.etCorreo.text.toString(); val s2= "dibujando.org.mx"
             val comp= s2 in s1
             println(comp)
-            if(comp){
+            if(comp && binding.etContrsena.text.toString() == binding.confContrasea.text.toString()){
                 val nuevoUsuario = Admin(
                     binding.etCorreo.text.toString(),
                     binding.etNombreUsuario.text.toString(),
@@ -44,12 +48,12 @@ class CrearCuentaAdminAct : AppCompatActivity() {
                     binding.etContrsena.text.toString()
                 )
                 viewModel.enviarAdmin(nuevoUsuario)
+                findNavController(R.id.administracion)
             } else{
                     println(binding.etCorreo.text.toString())
                     //println("dibujando.org.mx" in binding.etCorreo.text.toString())
                     binding.tvEstado.text = "Usuario no válido"
                     binding.etCorreo.error = "El correo debe contener el dominio de la fundación"
-
             }
         }
     }

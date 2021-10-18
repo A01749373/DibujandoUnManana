@@ -120,11 +120,6 @@ class MainActivity : AppCompatActivity() {
             logout()
             true
         }
-        R.id.btnCrearCuentaAdmin -> {
-            println("Agregar Cuenta Admin")
-            toCrearCuentaAdmin()
-            true
-        }
         else -> {
             super.onOptionsItemSelected(item)
         }

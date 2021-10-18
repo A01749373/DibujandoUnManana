@@ -34,7 +34,7 @@
             android:id="@+id/chats"
             android:title="Chats" />
         <item
-            android:id="@+id/btnCrearCuentaAdmin"
-            android:title="Agregar Usuario Administrador" />
+            android:id="@+id/administracion"
+            android:title="Administración" />
     </group>
 </menu>
