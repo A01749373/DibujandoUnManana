@@ -54,7 +54,7 @@ class Configuraciones : Fragment() {
                 putString("Correo", "-1")
                 commit()
             }
-            val intIniciarSe = Intent(this.requireContext(),IniciarSesionAct::class.java)
+            val intIniciarSe = Intent(this.requireContext(),tipoUsuario::class.java)
             startActivity(intIniciarSe)
         }
         binding.btnEditarPerfil.setOnClickListener {

@@ -109,6 +109,6 @@
     <fragment
         android:id="@+id/cambiarNombre"
         android:name="mx.itesm.dibujandounmaana.cambiarNombre"
-        android:label="fragment_cambiar_nombre"
+        android:label="Cambiar nombre"
         tools:layout="@layout/fragment_cambiar_nombre" />
 </navigation>

@@ -15,6 +15,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.edit
 import com.facebook.login.LoginManager
 import mx.itesm.dibujandounmaana.databinding.ActivityMainBinding
 import mx.itesm.dibujandounmaana.view.Ayuda
@@ -63,17 +64,19 @@ class MainActivity : AppCompatActivity() {
     private fun logout(){
         println("Sesion cerrada")
         val preferencias = this.getSharedPreferences("Usuario", MODE_PRIVATE)
-        val editor = preferencias.edit()
         val correo = preferencias.getString("Correo","-1")
-        editor.remove(correo)
-        editor.apply()
+        preferencias.edit {
+            putString("Correo", "-1")
+            commit()
+        }
         //Google
         AuthUI.getInstance().signOut(this)
         //Facebook
         LoginManager.getInstance().logOut()
         //this.finish()
-        //val tipo = Intent(this,tipoUsuario::class.java)
-        //startActivity(tipo)
+        println("Este es el correo: ${correo}")
+        val tipo = Intent(this,tipoUsuario::class.java)
+        startActivity(tipo)
     }
 
         override fun onSupportNavigateUp(): Boolean {
