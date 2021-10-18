@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import mx.itesm.dibujandounmaana.viewmodel.DonarVM
@@ -28,13 +29,16 @@ import com.paypal.checkout.order.Order
 import com.paypal.checkout.order.PurchaseUnit
 import com.paypal.checkout.paymentbutton.PayPalButton
 import mx.itesm.dibujandounmaana.model.Donar
-
+import mx.itesm.dibujandounmaana.viewmodel.ProyectosVM
 
 
 class Donar : Fragment() {
 
     private val viewModel: DonarVM by viewModels()
     private lateinit var binding: DonarFragmentBinding
+    private val viewModel2: ProyectosVM by viewModels()
+    private var lista = arrayListOf<String>()
+    private var listaid = arrayListOf<Int>()
 
     companion object {
         fun newInstance() = Donar()
@@ -55,6 +59,8 @@ class Donar : Fragment() {
         //val  payPalButton = findViewById<PayPalButton>(R.id.payPalButton)
         val preferencias = this.requireContext().getSharedPreferences("Usuario", Context.MODE_PRIVATE)
         val usuarioCorreo = preferencias.getString("Correo", "-1")
+        viewModel2.descargarDatosProyecto()
+        configurarObservadores()
 
         binding.payPalButton.setup(
             createOrder = CreateOrder { createOrderActions ->
@@ -90,7 +96,7 @@ class Donar : Fragment() {
                         binding.spinner2.selectedItem.toString(),
                         binding.etCantidad.text.toString().toInt(),
                         usuarioCorreo.toString(),
-                        binding.spinner2.selectedItemPosition + 1 
+                        listaid?.get(binding.spinner2.selectedItemPosition)
                     )
                     viewModel.enviarDonacion(nuevaDonacion)
                     viewModel.respuesta.observe(viewLifecycleOwner) { respuesta ->
@@ -111,13 +117,22 @@ class Donar : Fragment() {
         )
 
     }
-    /*
+
     private fun configurarObservadores() {
-        viewModel.respuesta.observe(viewLifecycleOwner) { respuesta ->
-            binding.tvEst.text = respuesta
+        viewModel2.arrProyectos.observe(viewLifecycleOwner) { Lista ->
+            Lista.forEach { proyecto ->
+                val nombre = proyecto.proyecto
+                val idproy = proyecto.idproyecto
+                lista.add(nombre)
+                listaid.add(idproy)
+                //println(nombre)
+            }
+            val adaptador = ArrayAdapter(this.requireContext(), android.R.layout.simple_spinner_item, lista)
+            adaptador.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line)
+            binding.spinner2.adapter = adaptador
         }
     }
-
+/*
     private fun configurarEventos() {
         binding.payPalButton.setOnClickListener {
             val nuevaDonacion= Donar(binding.spinner2.selectedItem.toString(),
