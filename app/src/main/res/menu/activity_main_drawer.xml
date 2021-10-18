@@ -33,6 +33,11 @@
             android:title="Cerrar sesión" />
         <item
             android:id="@+id/chats"
-            android:title="chats" />
+            android:title="Chats" />
+        <item
+            android:id="@+id/btnCrearCuentaAdmin"
+            android:title="Agregar Usuario Administrador" />
+        <item
+            />
     </group>
 </menu>

@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.core.content.edit
+import androidx.core.view.size
 import com.facebook.*
 import com.facebook.login.LoginResult
 import com.firebase.ui.auth.AuthUI
@@ -15,6 +16,7 @@ import com.firebase.ui.auth.IdpResponse
 import com.google.firebase.auth.FirebaseAuth
 import mx.itesm.dibujandounmaana.databinding.ActivityIniciarSesionAdminBinding
 import mx.itesm.dibujandounmaana.databinding.ActivityIniciarSesionBinding
+import mx.itesm.dibujandounmaana.databinding.ActivityMainBinding
 import mx.itesm.dibujandounmaana.model.SesionAdmin
 import mx.itesm.dibujandounmaana.model.SesionUsuario
 import mx.itesm.dibujandounmaana.model.Usuario
@@ -28,9 +30,14 @@ class IniciarSesionAdminAct : AppCompatActivity() {
 
     private lateinit var binding: ActivityIniciarSesionAdminBinding
 
+    private lateinit var bindingMain: ActivityMainBinding
+
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityIniciarSesionAdminBinding.inflate(layoutInflater)
+        bindingMain = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         cargarPreferencias()
         configurarObservadores()
@@ -40,10 +47,16 @@ class IniciarSesionAdminAct : AppCompatActivity() {
     private fun cargarPreferencias() {
         val preferencias = this.getSharedPreferences("Usuario", Context.MODE_PRIVATE)
         val favorito = preferencias.getString("Correo", "-1")
+        val tipoUsuario = preferencias.getString("TipoUsuario", "-1")
         if (favorito != "-1") {
             println("$favorito")
         } else {
             println("No funciono")
+        }
+        if (tipoUsuario != "-1") {
+            println("$tipoUsuario")
+        } else {
+            println("No funcionó")
         }
     }
 
@@ -52,6 +65,11 @@ class IniciarSesionAdminAct : AppCompatActivity() {
             Toast.makeText(this, respuesta + " 😭", Toast.LENGTH_SHORT).show()
         } else {
             Toast.makeText(this, respuesta + " 😃", Toast.LENGTH_SHORT).show()
+            var menu = bindingMain.navView.menu
+            var item = menu.getItem(9)
+            println("Tamaño: ${menu.size()}")
+            println("Nombre de Item: $item")
+            //menu.removeItem(9)
             val intentAppPrincipal = Intent(this, MainActivity::class.java)
             startActivity(intentAppPrincipal)
         }
@@ -67,6 +85,7 @@ class IniciarSesionAdminAct : AppCompatActivity() {
                 this.getSharedPreferences("Usuario", Context.MODE_PRIVATE)
             preferencias.edit {
                 putString("Correo", binding.etUsuario.text.toString())
+                putString("TipoUsuario", "administrador")
                 commit()
             }
             // Ver Datos de preferencias

@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.preference.PreferenceManager
+import android.view.Gravity
 import android.view.Menu
 import android.view.MenuItem
 import com.google.android.material.navigation.NavigationView
@@ -26,6 +27,8 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
+    private lateinit var navViewPrueba: NavigationView
+    private lateinit var drawerLayoutPrueba: DrawerLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         Thread.sleep(2000)
@@ -42,6 +45,9 @@ class MainActivity : AppCompatActivity() {
         val drawerLayout: DrawerLayout = binding.drawerLayout
         val navView: NavigationView = binding.navView
         val navController = findNavController(R.id.nav_host_fragment_content_main)
+
+        drawerLayoutPrueba = binding.drawerLayout
+        navViewPrueba = binding.navView
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(
@@ -53,6 +59,22 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+        verificaTipoUsuario()
+    }
+
+    private fun verificaTipoUsuario() {
+        val preferencias = this.getSharedPreferences("Usuario", MODE_PRIVATE)
+        val correo = preferencias.getString("Correo","-1")
+        val tipoUsuario = preferencias.getString("TipoUsuario", "-1")
+        var menu = navViewPrueba.menu
+
+        println("Tipo usuario: $tipoUsuario")
+        if (tipoUsuario != "administrador") {
+            println("Entró al if ")
+            //menu.removeItem(9)
+            //menu.setGroupVisible(0, false)
+            menu.getItem(9).setVisible(false)
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -84,15 +106,24 @@ class MainActivity : AppCompatActivity() {
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
 
+    private fun toCrearCuentaAdmin() {
+        val intentCrearCuentaAdmin = Intent(this, CrearCuentaAdminAct::class.java)
+        startActivity(intentCrearCuentaAdmin)
+    }
+
     override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
         R.id.btnLogout -> {
             println("Hacer logout")
             logout()
             true
         }
+        R.id.btnCrearCuentaAdmin -> {
+            println("Agregar Cuenta Admin")
+            toCrearCuentaAdmin()
+            true
+        }
         else -> {
             super.onOptionsItemSelected(item)
         }
     }
-
 }
