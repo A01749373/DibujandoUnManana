@@ -87,13 +87,9 @@ class CrearCuentaAct : AppCompatActivity() {
             if (binding.etCorreo.text.toString().isNotEmpty()) {
                 if (binding.etNombreUsuario.text.toString().isNotEmpty()) {
                     if (binding.etYearFN.text.toString().length == 4) {
-                        if (binding.etMesFN.text.toString()
-                                .toInt() >= 1 && binding.etMesFN.text.toString().toInt() <= 12 &&
-                                binding.etMesFN.text.toString().isNotEmpty()
-                        ) {
-                            if (binding.etDiaFN.text.toString()
-                                    .toInt() >= 1 && binding.etDiaFN.text.toString().toInt() <= 31 &&
-                                    binding.etDiaFN.text.toString().isNotEmpty()
+                        if (binding.etMesFN.text.toString().length >= 1 && binding.etMesFN.text.toString().toInt() >= 1 && binding.etMesFN.text.toString().toInt() <= 12) {
+                            if (binding.etDiaFN.text.toString().length >= 1 && binding.etDiaFN.text.toString()
+                                    .toInt() >= 1 && binding.etDiaFN.text.toString().toInt() <= 31
                             ) {
                                 if (binding.etContrsena.text.toString().length > 6) {
                                     if (binding.etContrsena.text.toString() == binding.etconfcontra.text.toString()) {
