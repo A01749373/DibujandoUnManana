@@ -7,7 +7,6 @@ import android.os.Bundle
 import android.preference.PreferenceManager
 import android.view.Menu
 import android.view.MenuItem
-import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.navigation.NavigationView
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -16,9 +15,11 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
+import com.facebook.login.LoginManager
 import mx.itesm.dibujandounmaana.databinding.ActivityMainBinding
 import mx.itesm.dibujandounmaana.view.Ayuda
-import mx.itesm.dibujandounmaana.viewmodel.AyudaVM
+import com.firebase.ui.auth.AuthUI
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -31,7 +32,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         setSupportActionBar(binding.appBarMain.toolbar)
 
         binding.appBarMain.fab.setOnClickListener {
@@ -47,7 +47,7 @@ class MainActivity : AppCompatActivity() {
             setOf(
                 R.id.nav_donar, R.id.nav_quienes, R.id.nav_regalos,
                 R.id.nav_perfil, R.id.nav_contactanos, R.id.nav_proyectos,
-                R.id.nav_logout,R.id.configuraciones
+                R.id.configuraciones
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
@@ -63,12 +63,17 @@ class MainActivity : AppCompatActivity() {
     private fun logout(){
         println("Sesion cerrada")
         val preferencias = this.getSharedPreferences("Usuario", MODE_PRIVATE)
-        //val correo = preferencias.getString("Correo","-1")
         val editor = preferencias.edit()
-        editor.remove("Correo")
+        val correo = preferencias.getString("Correo","-1")
+        editor.remove(correo)
         editor.apply()
-        //findNavController(R.id.nav_host_fragment_content_main).navigateUp()
-        findNavController(R.id.nav_host_fragment_content_main).navigateUp()
+        //Google
+        AuthUI.getInstance().signOut(this)
+        //Facebook
+        LoginManager.getInstance().logOut()
+        //this.finish()
+        //val tipo = Intent(this,tipoUsuario::class.java)
+        //startActivity(tipo)
     }
 
         override fun onSupportNavigateUp(): Boolean {
@@ -78,6 +83,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         println("Hacer logout")
+
         logout()
         return super.onOptionsItemSelected(item)
     }

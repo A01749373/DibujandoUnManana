@@ -9,6 +9,9 @@ import com.facebook.login.LoginResult
 import com.firebase.ui.auth.AuthUI
 import com.firebase.ui.auth.IdpResponse
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import mx.itesm.dibujandounmaana.databinding.ActivityCrearCuentaBinding
 import mx.itesm.dibujandounmaana.model.Usuario
 import mx.itesm.dibujandounmaana.viewmodel.CrearCuentaVM
@@ -19,6 +22,7 @@ class CrearCuentaAct : AppCompatActivity() {
     private val CODIGO_SIGNIN =500
     private val viewModel: CrearCuentaVM by viewModels()
 
+    private lateinit var auth: FirebaseAuth
     private lateinit var binding: ActivityCrearCuentaBinding
 
     lateinit var callbackManager: CallbackManager
@@ -34,6 +38,7 @@ class CrearCuentaAct : AppCompatActivity() {
         val isLoggedIn = accessToken != null && !accessToken.isExpired
         println("logeado $isLoggedIn")
 
+        auth = Firebase.auth
         configurarObservadores()
         configurarEventos()
     }
@@ -92,6 +97,29 @@ class CrearCuentaAct : AppCompatActivity() {
                 binding.etContrsena.text.toString())
 
             viewModel.enviarUsuario(nuevoUsuario)
+            auth.createUserWithEmailAndPassword(binding.etNombreUsuario.text.toString(),
+                binding.etContrsena.text.toString()).addOnCompleteListener(this){task->
+                if(task.isSuccessful){
+                    println("Usuario creado ${auth.currentUser}")
+                }else{
+                    println("Fallido")
+                }
+            }
+
+            println(binding.etCorreo.text.toString())
+            println(binding.etContrsena.text.toString())
+
+            val usuario = FirebaseAuth.getInstance().currentUser
+            println(usuario)
+            /*
+                if(task.isSuccessful && usuario!=null){
+                    usuario?.sendEmailVerification()
+                    println("Correo enviado")
+                }else{
+                    println("Correo no enviado")
+
+            }*/
+
         }
 
         binding.btnSignInGoogle.setOnClickListener{
@@ -131,6 +159,7 @@ class CrearCuentaAct : AppCompatActivity() {
                 abrirActividad()
             }
 
+
             override fun onCancel() {
                 println("Firma Cancelada")
             }
@@ -160,7 +189,6 @@ class CrearCuentaAct : AppCompatActivity() {
             CODIGO_SIGNIN
         )
     }
-
 
 
     private fun configurarObservadores() {
