@@ -82,7 +82,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
-        R.id.action_settings -> {
+        R.id.btnLogout -> {
             println("Hacer logout")
             logout()
             true

@@ -81,12 +81,8 @@ class CrearCuentaAct : AppCompatActivity() {
     }
 
     private fun configurarEventos() {
-        binding.btnEnviar.setOnClickListener {
-            val nuevoUsuario = Usuario(binding.etCorreo.text.toString(),
-                binding.etNombreUsuario.text.toString(),
-                binding.etGenero.text.toString(),
-                binding.etPais.text.toString(),
-                binding.etContrsena.text.toString())
+
+        binding.btnEvniar.setOnClickListener {
             if(binding.etContrsena.text.toString() == binding.etconfcontra.text.toString()) {
                 val nuevoUsuario = Usuario(
                     binding.etCorreo.text.toString(),
@@ -98,20 +94,23 @@ class CrearCuentaAct : AppCompatActivity() {
                 )
 
                 viewModel.enviarUsuario(nuevoUsuario)
+                auth.createUserWithEmailAndPassword(binding.etNombreUsuario.text.toString(),
+                    binding.etContrsena.text.toString()).addOnCompleteListener(this){task->
+                    if(task.isSuccessful){
+                        println("Usuario creado ${auth.currentUser}")
+                    }else{
+                        println("Fallido")
+                    }
+                }
                 abrirActividad()
             } else{
                 binding.etconfcontra.error = "Las contraseña no coinciden"
                 println(binding.etContrsena.text.toString())
             }
-            viewModel.enviarUsuario(nuevoUsuario)
-            auth.createUserWithEmailAndPassword(binding.etNombreUsuario.text.toString(),
-                binding.etContrsena.text.toString()).addOnCompleteListener(this){task->
-                if(task.isSuccessful){
-                    println("Usuario creado ${auth.currentUser}")
-                }else{
-                    println("Fallido")
-                }
-            }
+
+
+
+
 
             println(binding.etCorreo.text.toString())
             println(binding.etContrsena.text.toString())
@@ -127,24 +126,6 @@ class CrearCuentaAct : AppCompatActivity() {
 
             }*/
 
-        binding.btnEvniar.setOnClickListener {
-            if(binding.etContrsena.text.toString() == binding.etconfcontra.text.toString()) {
-                val nuevoUsuario = Usuario(
-                    binding.etCorreo.text.toString(),
-                    binding.etNombreUsuario.text.toString(),
-                    binding.etFechaNacimiento.text.toString(),
-                    binding.etGenero.text.toString(),
-                    binding.etPais.text.toString(),
-                    binding.etContrsena.text.toString()
-                )
-
-                viewModel.enviarUsuario(nuevoUsuario)
-                abrirActividad()
-            } else{
-                binding.etconfcontra.error = "Las contraseña no coinciden"
-                println(binding.etContrsena.text.toString())
-            }
-        }
 
         binding.btnSignInGoogle.setOnClickListener{
             autenticar()
@@ -195,7 +176,7 @@ class CrearCuentaAct : AppCompatActivity() {
 
 
 
-    }
+    }}
 
     private fun abrirActividad() {
         val intIniciarSe = Intent(this,IniciarSesionAct::class.java)
