@@ -23,6 +23,9 @@ interface ServicioUsuarioApi
     @POST("/Sesion/BuscarUsuario")
     fun iniciarSesion(@Body sesionUsuario: JsonSesionUsuario): Call<String>
 
+    @POST("/Sesion/BuscarAdmin")
+    fun iniciarSesionAdmin(@Body sesionAdmin: JsonSesionAdmin): Call<String>
+
     @POST("/proyectos/Proyectos")
     fun verProyecto(): Call<List<Proyecto>>
 
@@ -37,6 +40,9 @@ interface ServicioUsuarioApi
     
     @POST("/donacion/NuevaDonacion")
     fun enviarDonacion(@Body donacion: JsonDonacion) : Call<String>
+
+    @POST("/nuevapropuesta/NuevaPropuesta")
+    fun enviarPropuesta(@Body nuevapropuesta: JsonPropuesta) : Call<String>
 
 
 }

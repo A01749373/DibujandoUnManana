@@ -8,6 +8,8 @@ data class Usuario (
     val correo: String,
     @SerializedName("nombre")
     val nombre: String,
+    @SerializedName("fechaNacimiento")
+    val FechaNacimiento: String,
     @SerializedName("genero")
     val genero: String,
     @SerializedName("pais")

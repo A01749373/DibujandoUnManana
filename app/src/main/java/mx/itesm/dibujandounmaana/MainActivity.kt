@@ -81,11 +81,15 @@ class MainActivity : AppCompatActivity() {
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        println("Hacer logout")
-
-        logout()
-        return super.onOptionsItemSelected(item)
+    override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
+        R.id.action_settings -> {
+            println("Hacer logout")
+            logout()
+            true
+        }
+        else -> {
+            super.onOptionsItemSelected(item)
+        }
     }
 
 }
