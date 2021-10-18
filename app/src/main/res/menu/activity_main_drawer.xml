@@ -9,7 +9,6 @@
         <item
             android:id= "@+id/nav_perfil"
             android:title = "Perfil" />
-
         <item
             android:id="@+id/nav_donar"
             android:title="Donaciones" />
@@ -37,7 +36,5 @@
         <item
             android:id="@+id/btnCrearCuentaAdmin"
             android:title="Agregar Usuario Administrador" />
-        <item
-            />
     </group>
 </menu>

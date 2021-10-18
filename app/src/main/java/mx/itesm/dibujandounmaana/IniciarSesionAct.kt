@@ -49,12 +49,18 @@ class IniciarSesionAct : AppCompatActivity() {
     private fun cargarPreferencias() {
         val preferencias = this.getSharedPreferences("Usuario", Context.MODE_PRIVATE)
         val favorito = preferencias.getString("Correo", "-1")
+        val tipoUsuario = preferencias.getString("TipoUsuario", "-1")
         if (favorito != "-1") {
             println("si esta $favorito")
             val Mainact = Intent(this,MainActivity::class.java)
             startActivity(Mainact)
         } else {
             println("No funciono")
+        }
+        if (tipoUsuario != "-1") {
+            println("$tipoUsuario")
+        } else {
+            println("No funcionó")
         }
     }
 
@@ -134,6 +140,7 @@ class IniciarSesionAct : AppCompatActivity() {
                 this.getSharedPreferences("Usuario", Context.MODE_PRIVATE)
             preferencias.edit {
                 putString("Correo", binding.etUsuario.text.toString())
+                putString("TipoUsuario", "normal")
                 commit()
             }
             // Ver Datos de preferencias
