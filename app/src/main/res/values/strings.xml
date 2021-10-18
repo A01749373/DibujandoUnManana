@@ -27,4 +27,51 @@
         <item>Género</item>
         <item>Ayuda humanitaria</item>
     </string-array>
+
+    //Para Spinner genero
+    <string-array name="arrGenero">
+        <item>Femenino</item>
+        <item>Masculino</item>
+        <item>Otro</item>
+    </string-array>
+
+    //Para Spinner Paises
+    <string-array name="arrPaises">
+        <item>Antigua y Barbuda</item>
+        <item>Argentina</item>
+        <item>Bahamas</item>
+        <item>Barbados</item>
+        <item>Belice</item>
+        <item>Bolivia</item>
+        <item>Brasil</item>
+        <item>Canadá</item>
+        <item>Chile</item>
+        <item>Colombia</item>
+        <item>Costa Rica</item>
+        <item>Cuba</item>
+        <item>Dominica</item>
+        <item>Ecuador</item>
+        <item>El Salvador</item>
+        <item>Estado Unidos</item>
+        <item>Granada</item>
+        <item>Guatemala</item>
+        <item>Guyana</item>
+        <item>Haití</item>
+        <item>Honduras</item>
+        <item>Jamaica</item>
+        <item>México</item>
+        <item>Nicaragua</item>
+        <item>Panamá</item>
+        <item>Paraguay</item>
+        <item>Perú</item>
+        <item>República Dominicana</item>
+        <item>San Cristóbal y Nieves</item>
+        <item>San Vicente y las Granadinas</item>
+        <item>Santa Lucia</item>
+        <item>Surinam</item>
+        <item>Trinidad y Tobago</item>
+        <item>Uruguay</item>
+        <item>Venezuela</item>
+        <item>Otro</item>
+    </string-array>
 </resources>
