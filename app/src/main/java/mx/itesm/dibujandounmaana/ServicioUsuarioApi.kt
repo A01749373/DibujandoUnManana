@@ -44,5 +44,8 @@ interface ServicioUsuarioApi
     @POST("/nuevapropuesta/NuevaPropuesta")
     fun enviarPropuesta(@Body nuevapropuesta: JsonPropuesta) : Call<String>
 
+    @POST("/proyectos/AgregarProyecto")
+    fun agregarProyecto(@Body proyecto: JsonProyecto) : Call<String>
+
 
 }
