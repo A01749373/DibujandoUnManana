@@ -109,9 +109,11 @@
                 android:layout_height="wrap_content">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etconfcontra"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Confirmar contraseña"
+                    android:inputType="textPassword"
                     android:textColor="@null"
                     android:textColorHint="@null" />
             </com.google.android.material.textfield.TextInputLayout>

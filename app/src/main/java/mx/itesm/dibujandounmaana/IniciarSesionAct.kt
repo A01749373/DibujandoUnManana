@@ -50,7 +50,9 @@ class IniciarSesionAct : AppCompatActivity() {
         val preferencias = this.getSharedPreferences("Usuario", Context.MODE_PRIVATE)
         val favorito = preferencias.getString("Correo", "-1")
         if (favorito != "-1") {
-            println("$favorito")
+            println("si esta $favorito")
+            val Mainact = Intent(this,MainActivity::class.java)
+            startActivity(Mainact)
         } else {
             println("No funciono")
         }
@@ -85,6 +87,7 @@ class IniciarSesionAct : AppCompatActivity() {
                     viewModel.verificaUsuario(usuarioRegistrado)
                     // Lanzar otra actividad
                     abrirActividad()
+                    guardarPrederencias(usuario?.email.toString())
                 }
                 Activity.RESULT_CANCELED -> {
                     println("Cancelado...")
@@ -164,12 +167,14 @@ class IniciarSesionAct : AppCompatActivity() {
                             //println(objeto.toString())
                             //println(objeto?.get("name"))
                             //println(response.toString())
-                            val name= objeto?.get("name"); val correo=objeto?.get("email")
+                            val name= objeto?.get("name")
+                            val correo=objeto?.get("email")
                             val genero = objeto?.get("gender"); //val birthday = objeto?.get("birthday")
                             viewModel.enviarUsuario(
                                 Usuario(correo.toString(),name.toString(),
-                                genero.toString()," "," ")
+                                "",genero.toString()," "," ")
                             )
+                            guardarPrederencias(correo.toString())
                         }
                     })
 
@@ -189,6 +194,14 @@ class IniciarSesionAct : AppCompatActivity() {
                 println("Firma no exitosa")
             }
         })
+    }
+
+    private fun guardarPrederencias(correo: String) {
+        val preferencias = this.getSharedPreferences("Usuario", Context.MODE_PRIVATE)
+        preferencias.edit {
+            putString("Correo", correo)
+            commit()
+        }
     }
 
     private fun configurarObservadores() {

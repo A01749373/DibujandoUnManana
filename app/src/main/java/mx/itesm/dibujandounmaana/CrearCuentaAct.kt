@@ -38,14 +38,6 @@ class CrearCuentaAct : AppCompatActivity() {
         configurarEventos()
     }
 
-    // Resultado del callbackmanager
-    /*
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        callbackManager.onActivityResult(requestCode, resultCode, data)
-        super.onActivityResult(requestCode, resultCode, data)
-
-    }*/
-
 
     override fun onActivityResult(requestCode: Int, resultCode:
     Int, data: Intent?) {
@@ -61,7 +53,7 @@ class CrearCuentaAct : AppCompatActivity() {
                     println("Nombre: ${usuario?.displayName}")
                     viewModel.enviarUsuario(
                         Usuario(usuario?.email.toString(), usuario?.displayName.toString(),
-                        "", "",null.toString())
+                        "", "","",null.toString())
                     )
                     // Lanzar otra actividad
                     abrirActividad()
@@ -85,13 +77,22 @@ class CrearCuentaAct : AppCompatActivity() {
 
     private fun configurarEventos() {
         binding.btnEvniar.setOnClickListener {
-            val nuevoUsuario = Usuario(binding.etCorreo.text.toString(),
-                binding.etNombreUsuario.text.toString(),
-                binding.etGenero.text.toString(),
-                binding.etPais.text.toString(),
-                binding.etContrsena.text.toString())
+            if(binding.etContrsena.text.toString() == binding.etconfcontra.text.toString()) {
+                val nuevoUsuario = Usuario(
+                    binding.etCorreo.text.toString(),
+                    binding.etNombreUsuario.text.toString(),
+                    binding.etFechaNacimiento.text.toString(),
+                    binding.etGenero.text.toString(),
+                    binding.etPais.text.toString(),
+                    binding.etContrsena.text.toString()
+                )
 
-            viewModel.enviarUsuario(nuevoUsuario)
+                viewModel.enviarUsuario(nuevoUsuario)
+                abrirActividad()
+            } else{
+                binding.etconfcontra.error = "Las contraseña no coinciden"
+                println(binding.etContrsena.text.toString())
+            }
         }
 
         binding.btnSignInGoogle.setOnClickListener{
@@ -118,7 +119,7 @@ class CrearCuentaAct : AppCompatActivity() {
                             val genero = objeto?.get("gender"); //val birthday = objeto?.get("birthday")
                             viewModel.enviarUsuario(
                                 Usuario(correo.toString(),name.toString(),
-                                genero.toString()," "," ")
+                                "",genero.toString()," ","")
                             )
                         }
                     })

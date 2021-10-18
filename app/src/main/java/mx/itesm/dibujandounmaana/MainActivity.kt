@@ -67,8 +67,8 @@ class MainActivity : AppCompatActivity() {
         val editor = preferencias.edit()
         editor.remove(correo)
         editor.apply()
-        //findNavController(R.id.nav_host_fragment_content_main).navigateUp()
-        findNavController(R.id.nav_host_fragment_content_main).navigateUp()
+        val intIniciarSe = Intent(this,IniciarSesionAct::class.java)
+        startActivity(intIniciarSe)
     }
 
         override fun onSupportNavigateUp(): Boolean {
@@ -76,10 +76,15 @@ class MainActivity : AppCompatActivity() {
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        println("Hacer logout")
-        logout()
-        return super.onOptionsItemSelected(item)
+    override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
+        R.id.action_settings -> {
+            println("Hacer logout")
+            logout()
+            true
+        }
+        else -> {
+            super.onOptionsItemSelected(item)
+        }
     }
 
 }
