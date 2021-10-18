@@ -111,4 +111,9 @@
         android:name="mx.itesm.dibujandounmaana.cambiarNombre"
         android:label="Cambiar nombre"
         tools:layout="@layout/fragment_cambiar_nombre" />
+    <fragment
+        android:id="@+id/administracion"
+        android:name="mx.itesm.dibujandounmaana.administracion"
+        android:label="Administración"
+        tools:layout="@layout/administracion_fragment" />
 </navigation>
