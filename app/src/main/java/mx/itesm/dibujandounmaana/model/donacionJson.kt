@@ -9,7 +9,9 @@ data class Donar(
     @SerializedName("montoDonacion")
     val montoDonacion: Int,
     @SerializedName("usuarioCorreo")
-    val correo: String
+    val correo: String,
+    @SerializedName("proyectoIdProyectos")
+    val proyectoId: Int
 ) : Serializable
 
 
