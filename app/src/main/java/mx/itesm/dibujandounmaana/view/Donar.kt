@@ -90,7 +90,7 @@ class Donar : Fragment() {
                         binding.spinner2.selectedItem.toString(),
                         binding.etCantidad.text.toString().toInt(),
                         usuarioCorreo.toString(),
-                        676
+                        binding.spinner2.selectedItemPosition + 1 
                     )
                     viewModel.enviarDonacion(nuevaDonacion)
                     viewModel.respuesta.observe(viewLifecycleOwner) { respuesta ->

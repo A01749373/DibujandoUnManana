@@ -22,7 +22,9 @@
     <string-array name="arrProyectos">
         <item>Educación</item>
         <item>Salud</item>
+        <item>Prevención</item>
         <item>Protección</item>
         <item>Género</item>
+        <item>Ayuda humanitaria</item>
     </string-array>
 </resources>
