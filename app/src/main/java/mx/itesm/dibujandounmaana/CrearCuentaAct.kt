@@ -94,14 +94,18 @@ class CrearCuentaAct : AppCompatActivity() {
                 )
 
                 viewModel.enviarUsuario(nuevoUsuario)
-                auth.createUserWithEmailAndPassword(binding.etNombreUsuario.text.toString(),
+                auth.createUserWithEmailAndPassword(binding.etCorreo.text.toString(),
                     binding.etContrsena.text.toString()).addOnCompleteListener(this){task->
                     if(task.isSuccessful){
                         println("Usuario creado ${auth.currentUser}")
+                        auth.currentUser!!.sendEmailVerification()
+
                     }else{
-                        println("Fallido")
+                        println("Fallido/n ${task.result.toString()}")
                     }
                 }
+
+
                 abrirActividad()
             } else{
                 binding.etconfcontra.error = "Las contraseña no coinciden"
@@ -109,14 +113,13 @@ class CrearCuentaAct : AppCompatActivity() {
             }
 
 
-
-
-
             println(binding.etCorreo.text.toString())
             println(binding.etContrsena.text.toString())
 
-            val usuario = FirebaseAuth.getInstance().currentUser
-            println(usuario)
+            //val usuario = FirebaseAuth.getInstance().currentUser
+            //println(usuario)
+            //usuario?.sendEmailVerification()
+            //println("Correo enviado")
             /*
                 if(task.isSuccessful && usuario!=null){
                     usuario?.sendEmailVerification()

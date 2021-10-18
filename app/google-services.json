@@ -15,34 +15,29 @@
       },
       "oauth_client": [
         {
-          "client_id": "191421458931-6seh3orvemhss5kku7p57rk494iled5e.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
+          "client_id": "191421458931-29pkffpu4pqig7b22g69tqrj755l63tj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "mx.itesm.dibujandounmaana",
+            "certificate_hash": "fd44b4273f149f16772e8b1ef87d5fd5a65a82a6"
+          }
+        },
         {
-          "current_key": "AIzaSyDpW7dt0pfFx2nBsHvIjqWX-cEC2M8dB5A"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "191421458931-6seh3orvemhss5kku7p57rk494iled5e.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:191421458931:android:032675f790b9aaabbfca86",
-        "android_client_info": {
-          "package_name": "mx.itesm.rt_ariadna"
-        }
-      },
-      "oauth_client": [
+          "client_id": "191421458931-bpp4oglg6va108ujesq4u34dj9kbbm1c.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "mx.itesm.dibujandounmaana",
+            "certificate_hash": "9fe3b4a962985032627de8b06d3fff01a4c058cf"
+          }
+        },
+        {
+          "client_id": "191421458931-mg5mqpmfak7mkn9r2ol0qous3o9uo096.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "mx.itesm.dibujandounmaana",
+            "certificate_hash": "18265bfaa72be122ab9bd1b4f47d895a2387d4ef"
+          }
+        },
         {
           "client_id": "191421458931-6seh3orvemhss5kku7p57rk494iled5e.apps.googleusercontent.com",
           "client_type": 3
