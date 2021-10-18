@@ -47,7 +47,6 @@ class administracion : Fragment() {
         }
 
         binding.btnAgregarProyecto.setOnClickListener {
-            findNavController().navigate(R.id.action_administracion_to_agregarProyecto)
 
         }
 

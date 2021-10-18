@@ -115,14 +115,5 @@
         android:id="@+id/administracion"
         android:name="mx.itesm.dibujandounmaana.administracion"
         android:label="Administración"
-        tools:layout="@layout/administracion_fragment" >
-        <action
-            android:id="@+id/action_administracion_to_agregarProyecto"
-            app:destination="@id/agregarProyecto" />
-    </fragment>
-    <fragment
-        android:id="@+id/agregarProyecto"
-        android:name="mx.itesm.dibujandounmaana.view.AgregarProyecto"
-        android:label="Agregar proyecto"
-        tools:layout="@layout/agregar_proyecto_fragment" />
+        tools:layout="@layout/administracion_fragment" />
 </navigation>
