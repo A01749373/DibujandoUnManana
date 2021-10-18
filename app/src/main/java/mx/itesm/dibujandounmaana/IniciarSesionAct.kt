@@ -88,7 +88,7 @@ class IniciarSesionAct : AppCompatActivity() {
                     println("Nombre: ${usuario?.displayName}")
                     viewModel.enviarUsuario(
                         Usuario(usuario?.email.toString(), usuario?.displayName.toString(),
-                        "", "","", null.toString())
+                        "2001-12-07", "","", null.toString())
                     )
                     viewModel.verificaUsuario(usuarioRegistrado)
                     // Lanzar otra actividad
@@ -179,7 +179,7 @@ class IniciarSesionAct : AppCompatActivity() {
                             val genero = objeto?.get("gender"); //val birthday = objeto?.get("birthday")
                             viewModel.enviarUsuario(
                                 Usuario(correo.toString(),name.toString(),
-                                "",genero.toString()," "," ")
+                                "2001-12-07",genero.toString()," "," ")
                             )
                             guardarPrederencias(correo.toString())
                         }
