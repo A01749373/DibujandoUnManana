@@ -3,6 +3,7 @@ package mx.itesm.dibujandounmaana
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.viewModels
 import com.facebook.*
 import com.facebook.login.LoginResult
@@ -85,44 +86,52 @@ class CrearCuentaAct : AppCompatActivity() {
         binding.btnEvniar.setOnClickListener {
             if (binding.etCorreo.text.toString().isNotEmpty() && binding.etNombreUsuario.text.toString().isNotEmpty()) {
                 if (binding.etYearFN.text.toString().length == 4) {
-                    if (binding.etContrsena.text.toString().length > 6) {
-                        if (binding.etContrsena.text.toString() == binding.etconfcontra.text.toString()) {
-                            val fecha =
-                                "${binding.etYearFN.text.toString()}-${binding.etMesFN.text.toString()}-${binding.etDiaFN.text.toString()}"
-                            val nuevoUsuario = Usuario(
-                                binding.etCorreo.text.toString(),
-                                binding.etNombreUsuario.text.toString(),
-                                fecha,
-                                binding.etGenero.selectedItem.toString(),
-                                binding.etPais.selectedItem.toString(),
-                                binding.etContrsena.text.toString()
-                            )
+                    if(binding.etMesFN.text.toString().toInt() >= 1 && binding.etMesFN.text.toString().toInt() <= 12){
+                        if(binding.etDiaFN.text.toString().toInt() >= 1 && binding.etDiaFN.text.toString().toInt() <= 31) {
+                            if (binding.etContrsena.text.toString().length > 6) {
+                                if (binding.etContrsena.text.toString() == binding.etconfcontra.text.toString()) {
+                                    val fecha =
+                                        "${binding.etYearFN.text.toString()}-${binding.etMesFN.text.toString()}-${binding.etDiaFN.text.toString()}"
+                                    val nuevoUsuario = Usuario(
+                                        binding.etCorreo.text.toString(),
+                                        binding.etNombreUsuario.text.toString(),
+                                        fecha,
+                                        binding.etGenero.selectedItem.toString(),
+                                        binding.etPais.selectedItem.toString(),
+                                        binding.etContrsena.text.toString()
+                                    )
 
-                            viewModel.enviarUsuario(nuevoUsuario)
-                            auth.createUserWithEmailAndPassword(
-                                binding.etCorreo.text.toString(),
-                                binding.etContrsena.text.toString()
-                            ).addOnCompleteListener(this) { task ->
-                                if (task.isSuccessful) {
-                                    println("Usuario creado ${auth.currentUser}")
-                                    auth.currentUser!!.sendEmailVerification()
+                                    viewModel.enviarUsuario(nuevoUsuario)
+                                    auth.createUserWithEmailAndPassword(
+                                        binding.etCorreo.text.toString(),
+                                        binding.etContrsena.text.toString()
+                                    ).addOnCompleteListener(this) { task ->
+                                        if (task.isSuccessful) {
+                                            println("Usuario creado ${auth.currentUser}")
+                                            auth.currentUser!!.sendEmailVerification()
 
+                                        } else {
+                                            println("Fallido/n ${task.result.toString()}")
+                                        }
+                                    }
+                                    abrirActividad()
                                 } else {
-                                    println("Fallido/n ${task.result.toString()}")
+                                    binding.etconfcontra.setError("Las contraseñas no coinciden")
                                 }
+                            } else {
+                                binding.etContrsena.setError("La contraseña debe ser mayor a 6 caracteres")
                             }
-                            abrirActividad()
-                        } else {
-                            binding.etconfcontra.setError("Las contraseñas no coinciden")
+                        } else{
+                            binding.etDiaFN.setError("El Día debe ser un dígito entre 1 y 31")
                         }
-                    } else {
-                        binding.etContrsena.setError("La contraseña debe ser mayor a 6 caracteres")
+                    } else{
+                        binding.etMesFN.setError("El mes debe ser un dígito entre 1 y 12")
                     }
                 } else {
                     binding.etYearFN.setError("El año debe contener 4 dígitos")
                 }
             } else {
-                binding.etYearFN.setError("No puedes dejar campos vacios")
+                Toast.makeText(this,"No puedes dejar campos vacios", Toast.LENGTH_SHORT).show()
             }
         }
 
