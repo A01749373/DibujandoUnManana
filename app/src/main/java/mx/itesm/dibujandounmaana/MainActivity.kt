@@ -63,9 +63,9 @@ class MainActivity : AppCompatActivity() {
     private fun logout(){
         println("Sesion cerrada")
         val preferencias = this.getSharedPreferences("Usuario", MODE_PRIVATE)
-        //val correo = preferencias.getString("Correo","-1")
+        val correo = preferencias.getString("Correo","-1")
         val editor = preferencias.edit()
-        editor.remove("Correo")
+        editor.remove(correo)
         editor.apply()
         //findNavController(R.id.nav_host_fragment_content_main).navigateUp()
         findNavController(R.id.nav_host_fragment_content_main).navigateUp()

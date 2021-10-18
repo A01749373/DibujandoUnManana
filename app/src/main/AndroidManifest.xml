@@ -16,6 +16,9 @@
         android:theme="@style/Theme.DibujandoUnMañana"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".CrearCuentaAdminAct"
+            android:exported="true" />
+        <activity
             android:name=".IniciarSesionAdminAct"
             android:exported="true" />
         <activity

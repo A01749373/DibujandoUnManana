@@ -78,10 +78,10 @@ class IniciarSesionAct : AppCompatActivity() {
                     println("Correo: ${usuario?.email}")
                     println("UID: ${usuario?.uid}")
                     println("Nombre: ${usuario?.displayName}")
-                    /*viewModel.enviarUsuario(
+                    viewModel.enviarUsuario(
                         Usuario(usuario?.email.toString(), usuario?.displayName.toString(),
                         "", "",null.toString())
-                    )*/
+                    )
                     viewModel.verificaUsuario(usuarioRegistrado)
                     // Lanzar otra actividad
                     abrirActividad()

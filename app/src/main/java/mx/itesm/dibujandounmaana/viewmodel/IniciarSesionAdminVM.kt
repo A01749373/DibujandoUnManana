@@ -11,6 +11,7 @@ import retrofit2.Response
 
 class IniciarSesionAdminVM : ViewModel() {
     val respuesta = MutableLiveData<String>()
+    
     fun verificaAdmin(sesionAdmin: SesionAdmin){
         println(Gson().toJson(JsonSesionAdmin(sesionAdmin)))
         val call = RetrofitInstance.servicioUsuarioApi.iniciarSesionAdmin(JsonSesionAdmin(sesionAdmin))

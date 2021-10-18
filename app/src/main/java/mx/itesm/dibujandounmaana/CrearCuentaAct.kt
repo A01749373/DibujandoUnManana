@@ -84,7 +84,7 @@ class CrearCuentaAct : AppCompatActivity() {
     }
 
     private fun configurarEventos() {
-        binding.btnEnviar.setOnClickListener {
+        binding.btnEvniar.setOnClickListener {
             val nuevoUsuario = Usuario(binding.etCorreo.text.toString(),
                 binding.etNombreUsuario.text.toString(),
                 binding.etGenero.text.toString(),

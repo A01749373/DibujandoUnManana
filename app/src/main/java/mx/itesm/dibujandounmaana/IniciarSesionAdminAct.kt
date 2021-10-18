@@ -80,7 +80,7 @@ class IniciarSesionAdminAct : AppCompatActivity() {
         }
         // Hacer actividad CrearCuentaAdmin
         binding.btnCrearCuenta.setOnClickListener {
-            val intentCrearCuentaAdmin = Intent(this, CrearCuentaAct::class.java)
+            val intentCrearCuentaAdmin = Intent(this, CrearCuentaAdminAct::class.java)
             startActivity(intentCrearCuentaAdmin)
         }
     }

@@ -26,24 +26,6 @@
         android:name="mx.itesm.dibujandounmaana.view.Regalos"
         android:label="Regalos con causa"
         tools:layout="@layout/fragment_regalos" />
-    <fragment
-        android:id="@+id/crear_cuenta_admin"
-        android:name="mx.itesm.dibujandounmaana.view.CrearCuentaAdmin"
-        android:label="Crear Cuenta"
-        tools:layout="@layout/nav_crear_cuenta_admin" />
-
-    <fragment
-        android:id="@+id/iniciar_sesion_admin"
-        android:name="mx.itesm.dibujandounmaana.view.IniciarSesionAdmin"
-        android:label="Iniciar sesión admin"
-        tools:layout="@layout/iniciar_sesion_admin" >
-        <action
-            android:id="@+id/action_iniciar_sesion_admin_to_crear_cuenta_admin"
-            app:destination="@id/crear_cuenta_admin" />
-        <action
-            android:id="@+id/action_iniciar_sesion_admin_to_nav_quienes"
-            app:destination="@id/nav_quienes" />
-    </fragment>
 
     <fragment
         android:id="@+id/donar"
