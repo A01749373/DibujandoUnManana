@@ -33,13 +33,24 @@ class CrearCuentaAdminAct : AppCompatActivity() {
 
     private fun configurarObservadores() {
         binding.btnEvniar.setOnClickListener {
-            val nuevoUsuario = Admin(
-                binding.etCorreo.text.toString(),
-                binding.etNombreUsuario.text.toString(),
-                binding.etGenero.text.toString(),
-                binding.etContrsena.text.toString()
-            )
-            viewModel.enviarAdmin(nuevoUsuario)
+            val s1 = binding.etCorreo.text.toString(); val s2= "dibujando.org.mx"
+            val comp= s2 in s1
+            println(comp)
+            if(comp){
+                val nuevoUsuario = Admin(
+                    binding.etCorreo.text.toString(),
+                    binding.etNombreUsuario.text.toString(),
+                    binding.etGenero.text.toString(),
+                    binding.etContrsena.text.toString()
+                )
+                viewModel.enviarAdmin(nuevoUsuario)
+            } else{
+                    println(binding.etCorreo.text.toString())
+                    //println("dibujando.org.mx" in binding.etCorreo.text.toString())
+                    binding.tvEstado.text = "Usuario no válido"
+                    binding.etCorreo.error = "El correo debe contener el dominio de la fundación"
+
+            }
         }
     }
 

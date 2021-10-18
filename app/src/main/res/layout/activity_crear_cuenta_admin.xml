@@ -32,6 +32,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Correo"
+                    android:inputType="textWebEmailAddress"
                     android:textColor="@null"
                     android:textColorHint="@null" />
 
@@ -60,6 +61,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Fecha de Nacimiento"
+                    android:inputType="date"
                     android:textColor="@null"
                     android:textColorHint="@null" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -109,9 +111,11 @@
                 android:layout_height="wrap_content">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/confContrasea"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Confirmar contraseña"
+                    android:inputType="textPassword"
                     android:textColor="@null"
                     android:textColorHint="@null" />
             </com.google.android.material.textfield.TextInputLayout>
