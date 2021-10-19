@@ -20,74 +20,26 @@ import org.json.JSONObject
 
 class CrearCuentaAct : AppCompatActivity() {
 
-    private val CODIGO_SIGNIN =500
     private val viewModel: CrearCuentaVM by viewModels()
 
-    private lateinit var auth: FirebaseAuth
     private lateinit var binding: ActivityCrearCuentaBinding
-
-    lateinit var callbackManager: CallbackManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityCrearCuentaBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        binding.loginButton.setReadPermissions("email")
-
-        //saber si hay un token de login
-        val accessToken = AccessToken.getCurrentAccessToken()
-        val isLoggedIn = accessToken != null && !accessToken.isExpired
-        println("logeado $isLoggedIn")
-
-        auth = Firebase.auth
         configurarObservadores()
         configurarEventos()
     }
 
-
-    override fun onActivityResult(requestCode: Int, resultCode:
-    Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == CODIGO_SIGNIN) {
-            when (resultCode) {
-                RESULT_OK -> {
-                    val usuario =
-                        FirebaseAuth.getInstance().currentUser
-                    println("Bienvenido: ${usuario?.displayName}")
-                    println("Correo: ${usuario?.email}")
-                    println("UID: ${usuario?.uid}")
-                    println("Nombre: ${usuario?.displayName}")
-                    viewModel.enviarUsuario(
-                        Usuario(usuario?.email.toString(), usuario?.displayName.toString(),
-                        "", "","",null.toString())
-                    )
-                    // Lanzar otra actividad
-                    abrirActividad()
-                }
-                RESULT_CANCELED -> {
-                    println("Cancelado...")
-                    val response =
-                        IdpResponse.fromResultIntent(data)
-                    println("Error: ${response?.error?.localizedMessage}")
-                }
-                else -> {
-                    val response =
-                        IdpResponse.fromResultIntent(data)
-                    println("Error: ${response?.error?.errorCode}")
-                }
-            }
-        } else{
-            callbackManager.onActivityResult(requestCode, resultCode, data)
-        }
-    }
-
     private fun configurarEventos() {
-
         binding.btnEvniar.setOnClickListener {
             if (binding.etCorreo.text.toString().isNotEmpty()) {
                 if (binding.etNombreUsuario.text.toString().isNotEmpty()) {
                     if (binding.etYearFN.text.toString().length == 4) {
-                        if (binding.etMesFN.text.toString().length >= 1 && binding.etMesFN.text.toString().toInt() >= 1 && binding.etMesFN.text.toString().toInt() <= 12) {
+                        if (binding.etMesFN.text.toString().length >= 1 && binding.etMesFN.text.toString()
+                                .toInt() >= 1 && binding.etMesFN.text.toString().toInt() <= 12
+                        ) {
                             if (binding.etDiaFN.text.toString().length >= 1 && binding.etDiaFN.text.toString()
                                     .toInt() >= 1 && binding.etDiaFN.text.toString().toInt() <= 31
                             ) {
@@ -105,18 +57,6 @@ class CrearCuentaAct : AppCompatActivity() {
                                         )
 
                                         viewModel.enviarUsuario(nuevoUsuario)
-                                        auth.createUserWithEmailAndPassword(
-                                            binding.etCorreo.text.toString(),
-                                            binding.etContrsena.text.toString()
-                                        ).addOnCompleteListener(this) { task ->
-                                            if (task.isSuccessful) {
-                                                println("Usuario creado ${auth.currentUser}")
-                                                auth.currentUser!!.sendEmailVerification()
-
-                                            } else {
-                                                println("Fallido/n ${task.result.toString()}")
-                                            }
-                                        }
                                         abrirActividad()
                                     } else {
                                         binding.etconfcontra.setError("Las contraseñas no coinciden")
@@ -140,91 +80,12 @@ class CrearCuentaAct : AppCompatActivity() {
                 binding.etCorreo.setError("No puedes dejar campos vacios")
             }
         }
-
-
-            println(binding.etCorreo.text.toString())
-            println(binding.etContrsena.text.toString())
-
-            //val usuario = FirebaseAuth.getInstance().currentUser
-            //println(usuario)
-            //usuario?.sendEmailVerification()
-            //println("Correo enviado")
-            /*
-                if(task.isSuccessful && usuario!=null){
-                    usuario?.sendEmailVerification()
-                    println("Correo enviado")
-                }else{
-                    println("Correo no enviado")
-
-            }*/
-
-
-        binding.btnSignInGoogle.setOnClickListener{
-            autenticar()
-
-        }
-
-
-        //Registra el callback de facebook
-        callbackManager = CallbackManager.Factory.create()
-
-        binding.loginButton.registerCallback(callbackManager, object :
-            FacebookCallback<LoginResult?> {
-            override fun onSuccess(loginResult: LoginResult?) {
-                println("Firma Exitosa")
-                val request: GraphRequest = GraphRequest.newMeRequest(
-                    loginResult?.getAccessToken(),
-                    object : GraphRequest.GraphJSONObjectCallback {
-                        override fun onCompleted(objeto: JSONObject?, response: GraphResponse?) {
-                            //println(objeto.toString())
-                            //println(objeto?.get("name"))
-                            //println(response.toString())
-                            val name= objeto?.get("name"); val correo=objeto?.get("email")
-                            val genero = objeto?.get("gender"); //val birthday = objeto?.get("birthday")
-                            viewModel.enviarUsuario(
-                                Usuario(correo.toString(),name.toString(),
-                                "",genero.toString()," ","")
-                            )
-                        }
-                    })
-
-                val parameters = Bundle()
-                parameters.putString("fields", "email, name, gender")//birthday)
-                //println(parameters)
-                request.setParameters(parameters)
-                request.executeAsync()
-                abrirActividad()
-            }
-
-
-            override fun onCancel() {
-                println("Firma Cancelada")
-            }
-
-            override fun onError(exception: FacebookException) {
-                println("Firma no exitosa")
-            }
-        })
-
-
-
+        println(binding.etCorreo.text.toString())
+        println(binding.etContrsena.text.toString())
     }
-
     private fun abrirActividad() {
         val intIniciarSe = Intent(this,IniciarSesionAct::class.java)
         startActivity(intIniciarSe)
-    }
-
-    private fun autenticar() {
-        val providers =
-            arrayListOf(AuthUI.IdpConfig.GoogleBuilder().build())
-        startActivityForResult(
-            AuthUI.getInstance()
-                .createSignInIntentBuilder()
-                .setAvailableProviders(providers)
-                .build(),
-            CODIGO_SIGNIN
-        )
     }
 
     private fun configurarObservadores() {
