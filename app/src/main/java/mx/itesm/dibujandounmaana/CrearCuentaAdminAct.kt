@@ -44,7 +44,7 @@ class CrearCuentaAdminAct : AppCompatActivity() {
                 val nuevoUsuario = Admin(
                     binding.etCorreo.text.toString(),
                     binding.etNombreUsuario.text.toString(),
-                    binding.etGenero.text.toString(),
+                    binding.etGenero.selectedItem.toString(),
                     binding.etContrsena.text.toString()
                 )
                 viewModel.enviarAdmin(nuevoUsuario)

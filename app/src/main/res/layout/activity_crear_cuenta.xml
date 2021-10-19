@@ -52,45 +52,93 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputLayout
+            <TextView
+                android:id="@+id/textView5"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Fecha de Nacimiento:" />
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/etFechaNacimiento"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Fecha de Nacimiento"
-                    android:inputType="date"
-                    android:textColor="@null"
-                    android:textColorHint="@null" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/etGenero"
-                    android:layout_width="match_parent"
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:hint="Género"
-                    android:textColor="@null"
-                    android:textColorHint="@null" />
-            </com.google.android.material.textfield.TextInputLayout>
+                    android:layout_weight="1">
 
-            <com.google.android.material.textfield.TextInputLayout
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etYearFN"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Año"
+                        android:inputType="number"
+                        android:textColor="@null"
+                        android:textColorHint="@null" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etMesFN"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Mes"
+                        android:inputType="number" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etDiaFN"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Día"
+                        android:inputType="number" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textView9"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Género" />
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/etPais"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="País"
-                    android:textColor="@null"
-                    android:textColorHint="@null" />
-            </com.google.android.material.textfield.TextInputLayout>
+            <Spinner
+                android:id="@+id/etGenero"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:entries="@array/arrGenero"
+                android:hint="Género"
+                android:textColor="@null"
+                android:textColorHint="@null" />
+
+            <TextView
+                android:id="@+id/textView23"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="País:" />
+
+            <Spinner
+                android:id="@+id/etPais"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:entries="@array/arrPaises"
+                android:hint="País"
+                android:textColor="@null"
+                android:textColorHint="@null" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
