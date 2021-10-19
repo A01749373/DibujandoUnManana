@@ -119,10 +119,18 @@
         <action
             android:id="@+id/action_administracion_to_agregarProyecto"
             app:destination="@id/agregarProyecto" />
+        <action
+            android:id="@+id/action_administracion_to_listaUsuarios"
+            app:destination="@id/listaUsuarios" />
     </fragment>
     <fragment
         android:id="@+id/agregarProyecto"
         android:name="mx.itesm.dibujandounmaana.view.AgregarProyecto"
         android:label="Agregar proyecto"
         tools:layout="@layout/agregar_proyecto_fragment" />
+    <fragment
+        android:id="@+id/listaUsuarios"
+        android:name="mx.itesm.dibujandounmaana.ListaUsuarios"
+        android:label="Lista de usuarios"
+        tools:layout="@layout/lista_usuarios_fragment" />
 </navigation>

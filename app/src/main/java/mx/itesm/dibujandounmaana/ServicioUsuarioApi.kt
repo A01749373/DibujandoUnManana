@@ -1,6 +1,7 @@
 package mx.itesm.dibujandounmaana
 
 import mx.itesm.dibujandounmaana.model.*
+import mx.itesm.dibujandounmaana.model.ListaUsuarios
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.POST
@@ -19,6 +20,9 @@ interface ServicioUsuarioApi
 
     @POST("/crearPerfilUsuario/EnviarDonaciones")
     fun verDonaciones(@Body correo: CorreoUsuario): Call<List<Donacion>>
+
+    @POST("/crearPerfilUsuario/VerUsuarios")
+    fun verUsuarios(): Call<List<ListaUsuarios>>
 
     @POST("/Sesion/BuscarUsuario")
     fun iniciarSesion(@Body sesionUsuario: JsonSesionUsuario): Call<String>

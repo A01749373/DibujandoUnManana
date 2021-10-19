@@ -52,7 +52,7 @@ class administracion : Fragment() {
         }
 
         binding.btnListaUsuario.setOnClickListener {
-
+            findNavController().navigate(R.id.action_administracion_to_listaUsuarios)
         }
     }
 }
