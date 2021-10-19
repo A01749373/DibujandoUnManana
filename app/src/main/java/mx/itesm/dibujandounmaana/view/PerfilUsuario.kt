@@ -69,9 +69,9 @@ class perfilUsuario : Fragment() {
             val preferencias = this.requireContext().getSharedPreferences("Usuario", Context.MODE_PRIVATE)
             val correo = preferencias.getString("Correo", "-1")
             if (correo != "-1") {
-                println("Este es el correo del usuario: $correo")
+                println("PerfilView Este es el correo del usuario: $correo")
             } else {
-                println("No funciono")
+                println("PerfilView No funciono")
             }
             val fileName = correo
             val storageReference = FirebaseStorage.getInstance().getReference("Imagenes/$fileName")

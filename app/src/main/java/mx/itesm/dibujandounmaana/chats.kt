@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.setFragmentResult
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.FirebaseApp
@@ -21,6 +22,8 @@ import mx.itesm.dibujandounmaana.databinding.NavChatsBinding
 import mx.itesm.dibujandounmaana.databinding.NavMensajeBinding
 import mx.itesm.dibujandounmaana.model.Chat
 import mx.itesm.dibujandounmaana.view.Mensaje
+import mx.itesm.dibujandounmaana.viewmodel.ChatsVM
+import mx.itesm.dibujandounmaana.viewmodel.ConfiguracionesVM
 import java.util.*
 
 
@@ -29,9 +32,11 @@ class chats : Fragment() {
     companion object {
         fun newInstance() = chats()
     }
+    private val viewModel: ChatsVM by viewModels()
 
     private lateinit var binding: NavChatsBinding
 
+    private var nombre: String = ""
     private var user: String = ""
     private lateinit var db: FirebaseFirestore
 
@@ -54,7 +59,7 @@ class chats : Fragment() {
     }
 
     private fun initViews() {
-        binding.newChatButton.setOnClickListener { newChat() }
+        binding.newChatButton.setOnClickListener { configurarObservadores() }
 
         binding.listaChats.layoutManager = LinearLayoutManager(this.requireContext())
         binding.listaChats.adapter =
@@ -83,17 +88,21 @@ class chats : Fragment() {
     }
 
     private fun chatSelected(chat: Chat) {
-        findNavController().navigate(R.id.action_chats_to_mensaje)
+        val accion = chatsDirections.actionChatsToMensaje(chat.id,user)
+        findNavController().navigate(accion)
     }
 
-    private fun newChat() {
-        val chatId = UUID.randomUUID().toString()
+    private fun configurarObservadores() {
         val otherUser = binding.inputChat.text.toString()
+        viewModel.descargarDatosUsuario(otherUser)
+        viewModel.respuesta.observe(viewLifecycleOwner) { respuesta ->
+            nombre = respuesta.nombre
+        }
+        val chatId = UUID.randomUUID().toString()
         val users = listOf(user, otherUser)
-
         val chat = Chat(
             id = chatId,
-            name= "Chat con $otherUser",
+            name= nombre,
             users = users
         )
 
@@ -111,7 +120,5 @@ class chats : Fragment() {
 
         val accion = chatsDirections.actionChatsToMensaje(chatId,user)
         findNavController().navigate(accion)
-
-
     }
 }

@@ -37,7 +37,7 @@ class MessageAdapter(private val user: String): RecyclerView.Adapter<MessageAdap
         }else {
             holder.itemView.findViewById<TextView>(R.id.tv_message).visibility = View.GONE
             holder.itemView.findViewById<TextView>(R.id.tv_bot_message).visibility = View.VISIBLE
-            holder.itemView.findViewById<TextView>(R.id.tv_message).text = message.message
+            holder.itemView.findViewById<TextView>(R.id.tv_bot_message).text = message.message
         }
     }
 
