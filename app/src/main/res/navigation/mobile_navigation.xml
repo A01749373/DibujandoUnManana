@@ -91,7 +91,7 @@
     <fragment
         android:id="@+id/chats"
         android:name="mx.itesm.dibujandounmaana.chats"
-        android:label="nav_chats"
+        android:label="Mensajes"
         tools:layout="@layout/nav_chats">
         <action
             android:id="@+id/action_chats_to_mensaje"
