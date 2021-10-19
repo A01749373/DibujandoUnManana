@@ -63,8 +63,10 @@ class IniciarSesionAdminAct : AppCompatActivity() {
     private fun cambiarPantalla(respuesta: String) {
         if (respuesta == "Lo sentimos: Usuario o contraseña no válidos") {
             Toast.makeText(this, respuesta + " 😭", Toast.LENGTH_SHORT).show()
+            println(respuesta)
         } else {
             Toast.makeText(this, respuesta + " 😃", Toast.LENGTH_SHORT).show()
+            println(respuesta)
             var menu = bindingMain.navView.menu
             var item = menu.getItem(9)
             println("Tamaño: ${menu.size()}")
