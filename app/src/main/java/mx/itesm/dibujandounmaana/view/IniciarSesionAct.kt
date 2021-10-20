@@ -136,7 +136,20 @@ class IniciarSesionAct : AppCompatActivity() {
                 binding.etUsuario.text.toString(),
                 binding.etContrasena.text.toString()
             )
-            guardarPrederencias(binding.etUsuario.text.toString())
+            val preferencias =
+                this.getSharedPreferences("Usuario", Context.MODE_PRIVATE)
+            preferencias.edit {
+                putString("Correo", binding.etUsuario.text.toString())
+                putString("TipoUsuario", "normal")
+                commit()
+            }
+            // Ver Datos de preferencias
+            val favorito = preferencias.getString("Correo", "-1")
+            if (favorito != "-1") {
+                println("Este es el correo del usuario: $favorito")
+            } else {
+                println("No funciono")
+            }
             viewModel.verificaUsuario(usuarioRegistrado)
         }
         binding.btnCrearCuenta.setOnClickListener {
@@ -194,7 +207,6 @@ class IniciarSesionAct : AppCompatActivity() {
         val preferencias = this.getSharedPreferences("Usuario", Context.MODE_PRIVATE)
         preferencias.edit {
             putString("Correo", correo)
-            putString("TipoUsuario", "normal")
             commit()
         }
     }

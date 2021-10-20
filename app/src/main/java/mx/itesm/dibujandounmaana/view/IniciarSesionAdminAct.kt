@@ -72,22 +72,26 @@ class IniciarSesionAdminAct : AppCompatActivity() {
                 binding.etUsuario.text.toString(),
                 binding.etContrasena.text.toString()
             )
-            guardarPrederencias(binding.etUsuario.text.toString())
+            val preferencias =
+                this.getSharedPreferences("Usuario", Context.MODE_PRIVATE)
+            preferencias.edit {
+                putString("Correo", binding.etUsuario.text.toString())
+                putString("TipoUsuario", "administrador")
+                commit()
+            }
+            // Ver Datos de preferencias
+            val favorito = preferencias.getString("Correo", "-1")
+            if (favorito != "-1") {
+                println("Este es el correo del usuario: $favorito")
+            } else {
+                println("No funciono")
+            }
             viewModel.verificaAdmin(adminRegistrado)
         }
         // Hacer actividad CrearCuentaAdmin
         binding.btnCrearCuenta.setOnClickListener {
             val intentCrearCuentaAdmin = Intent(this, CrearCuentaAdminAct::class.java)
             startActivity(intentCrearCuentaAdmin)
-        }
-    }
-
-    private fun guardarPrederencias(correo: String) {
-        val preferencias = this.getSharedPreferences("Usuario", Context.MODE_PRIVATE)
-        preferencias.edit {
-            putString("Correo", correo)
-            putString("TipoUsuario", "normal")
-            commit()
         }
     }
 
