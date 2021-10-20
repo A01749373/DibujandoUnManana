@@ -1,6 +1,5 @@
 package mx.itesm.dibujandounmaana.view
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import mx.itesm.dibujandounmaana.Adaptadores.AdaptadorListaProyectos
 import mx.itesm.dibujandounmaana.R
 import mx.itesm.dibujandounmaana.databinding.NavProyectosBinding
 import mx.itesm.dibujandounmaana.viewmodel.ProyectosVM

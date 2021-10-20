@@ -1,4 +1,4 @@
-package mx.itesm.dibujandounmaana
+package mx.itesm.dibujandounmaana.view
 
 import android.app.Activity
 import android.content.Context
@@ -13,10 +13,10 @@ import com.facebook.login.LoginResult
 import com.firebase.ui.auth.AuthUI
 import com.firebase.ui.auth.IdpResponse
 import com.google.firebase.auth.FirebaseAuth
+import mx.itesm.dibujandounmaana.MainActivity
 import mx.itesm.dibujandounmaana.databinding.ActivityIniciarSesionBinding
 import mx.itesm.dibujandounmaana.model.SesionUsuario
 import mx.itesm.dibujandounmaana.model.Usuario
-import mx.itesm.dibujandounmaana.view.Ayuda
 import mx.itesm.dibujandounmaana.viewmodel.IniciarSesionVM
 import org.json.JSONObject
 
@@ -52,7 +52,7 @@ class IniciarSesionAct : AppCompatActivity() {
         val tipoUsuario = preferencias.getString("TipoUsuario", "-1")
         if (favorito != "-1") {
             println("si esta $favorito")
-            val Mainact = Intent(this,MainActivity::class.java)
+            val Mainact = Intent(this, MainActivity::class.java)
             startActivity(Mainact)
         } else {
             println("No funciono")
@@ -113,7 +113,7 @@ class IniciarSesionAct : AppCompatActivity() {
     }
 
     private fun abrirActividad() {
-        val intIniciarSe = Intent(this,MainActivity::class.java)
+        val intIniciarSe = Intent(this, MainActivity::class.java)
         startActivity(intIniciarSe)
     }
 
@@ -153,7 +153,7 @@ class IniciarSesionAct : AppCompatActivity() {
             viewModel.verificaUsuario(usuarioRegistrado)
         }
         binding.btnCrearCuenta.setOnClickListener {
-            val intCrear = Intent(this,CrearCuentaAct::class.java)
+            val intCrear = Intent(this, CrearCuentaAct::class.java)
             startActivity(intCrear)
         }
         binding.btnSignInGoogle.setOnClickListener {

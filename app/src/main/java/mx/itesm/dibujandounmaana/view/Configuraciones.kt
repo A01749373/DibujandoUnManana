@@ -1,4 +1,4 @@
-package mx.itesm.dibujandounmaana
+package mx.itesm.dibujandounmaana.view
 
 import android.content.Context
 import android.content.Intent
@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import androidx.core.content.edit
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import mx.itesm.dibujandounmaana.R
 import mx.itesm.dibujandounmaana.databinding.ConfiguracionesFragmentBinding
 import mx.itesm.dibujandounmaana.viewmodel.ConfiguracionesVM
 
@@ -45,7 +46,7 @@ class Configuraciones : Fragment() {
                 putString("Correo", "-1")
                 commit()
             }
-            val intIniciarSe = Intent(this.requireContext(),IniciarSesionAct::class.java)
+            val intIniciarSe = Intent(this.requireContext(), IniciarSesionAct::class.java)
             startActivity(intIniciarSe)
         }
         binding.btnBorrarCuenta.setOnClickListener {
@@ -54,7 +55,7 @@ class Configuraciones : Fragment() {
                 putString("Correo", "-1")
                 commit()
             }
-            val intIniciarSe = Intent(this.requireContext(),tipoUsuario::class.java)
+            val intIniciarSe = Intent(this.requireContext(), tipoUsuario::class.java)
             startActivity(intIniciarSe)
         }
         binding.btnEditarPerfil.setOnClickListener {

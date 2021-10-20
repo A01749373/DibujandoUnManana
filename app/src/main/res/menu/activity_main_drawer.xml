@@ -28,9 +28,6 @@
             android:id="@+id/configuraciones"
             android:title="Configuración" />
         <item
-            android:id="@+id/nav_logout"
-            android:title="Cerrar sesión" />
-        <item
             android:id="@+id/chats"
             android:title="Chats" />
         <item

@@ -1,7 +1,8 @@
-package mx.itesm.dibujandounmaana
+package mx.itesm.dibujandounmaana.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import mx.itesm.dibujandounmaana.RetrofitInstance
 import mx.itesm.dibujandounmaana.model.ListaUsuarios
 import retrofit2.Call
 import retrofit2.Callback
