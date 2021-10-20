@@ -32,7 +32,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
                 android:text="Bienvenido a la app de Dibujando un Mañana"
-                android:fontFamily="@font/palab"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
@@ -42,7 +41,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
                 android:text="Por favor elige que tipo de usuario eres"
-                android:fontFamily="@font/pala"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small" />
 
@@ -53,7 +51,6 @@
                 android:layout_marginLeft="64dp"
                 android:layout_marginTop="24dp"
                 android:layout_marginRight="64dp"
-                android:fontFamily="@font/palab"
                 android:text="Donante" />
 
             <Button
@@ -63,7 +60,6 @@
                 android:layout_marginLeft="64dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginRight="64dp"
-                android:fontFamily="@font/palab"
                 android:text="Empresa" />
 
             <Button
@@ -73,7 +69,6 @@
                 android:layout_marginLeft="64dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginRight="64dp"
-                android:fontFamily="@font/palab"
                 android:text="Administrador" />
 
         </LinearLayout>
