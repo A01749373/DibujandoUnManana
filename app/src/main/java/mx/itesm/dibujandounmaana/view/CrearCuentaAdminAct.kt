@@ -1,10 +1,13 @@
 package mx.itesm.dibujandounmaana.view
 
 import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.navigation.findNavController
+import mx.itesm.dibujandounmaana.MainActivity
 import mx.itesm.dibujandounmaana.R
 import mx.itesm.dibujandounmaana.databinding.ActivityCrearCuentaAdminBinding
 import mx.itesm.dibujandounmaana.model.Admin
@@ -25,13 +28,25 @@ class CrearCuentaAdminAct : AppCompatActivity() {
         configurarEventos()
     }
 
-    private fun configurarEventos() {
+    private fun configurarObservadores() {
         viewModel.respuesta.observe(this) { respuesta ->
             binding.tvEstado.text = respuesta
+            mostrarEstadoRegistro(respuesta)
         }
     }
 
-    private fun configurarObservadores() {
+    private fun mostrarEstadoRegistro(respuesta: String) {
+        if (respuesta == "Nombre de usuario ya existente") {
+            Toast.makeText(this, respuesta + " 👎", Toast.LENGTH_SHORT).show()
+            println(respuesta)
+        } else {
+            Toast.makeText(this, respuesta + " 👍", Toast.LENGTH_SHORT).show()
+            println(respuesta)
+            findNavController(R.id.administracion)
+        }
+    }
+
+    private fun configurarEventos() {
         binding.btnEvniar.setOnClickListener {
             val s1 = binding.etCorreo.text.toString();
             val s2 = "dibujando.org.mx"

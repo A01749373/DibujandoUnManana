@@ -187,7 +187,8 @@
                 android:text="TextView"
                 android:textAlignment="center"
                 android:textAllCaps="false"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:visibility="invisible" />
         </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

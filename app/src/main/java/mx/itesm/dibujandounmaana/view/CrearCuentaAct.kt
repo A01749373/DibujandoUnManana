@@ -3,6 +3,7 @@ package mx.itesm.dibujandounmaana.view
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.viewModels
 import mx.itesm.dibujandounmaana.databinding.ActivityCrearCuentaBinding
 import mx.itesm.dibujandounmaana.model.Usuario
@@ -47,7 +48,7 @@ class CrearCuentaAct : AppCompatActivity() {
                                         )
 
                                         viewModel.enviarUsuario(nuevoUsuario)
-                                        abrirActividad()
+                                        //abrirActividad()
                                     } else {
                                         binding.etconfcontra.setError("Las contraseñas no coinciden")
                                     }
@@ -78,9 +79,21 @@ class CrearCuentaAct : AppCompatActivity() {
         startActivity(intIniciarSe)
     }
 
+    private fun mostrarEstadoRegistro(respuesta: String) {
+        if (respuesta == "Nombre de usuario ya existente") {
+            Toast.makeText(this, respuesta + " 👎", Toast.LENGTH_SHORT).show()
+            println(respuesta)
+        } else {
+            Toast.makeText(this, respuesta + " 👍", Toast.LENGTH_SHORT).show()
+            println(respuesta)
+            abrirActividad()
+        }
+    }
+
     private fun configurarObservadores() {
         viewModel.respuesta.observe(this) { respuesta ->
             binding.tvEstado.text = respuesta
+            mostrarEstadoRegistro(respuesta)
         }
     }
 }

@@ -86,7 +86,7 @@ class IniciarSesionAdminAct : AppCompatActivity() {
         val preferencias = this.getSharedPreferences("Usuario", Context.MODE_PRIVATE)
         preferencias.edit {
             putString("Correo", correo)
-            putString("TipoUsuario", "normal")
+            putString("TipoUsuario", "administrador")
             commit()
         }
     }
