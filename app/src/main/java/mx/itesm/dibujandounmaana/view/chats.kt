@@ -1,15 +1,12 @@
-package mx.itesm.dibujandounmaana
+package mx.itesm.dibujandounmaana.view
 
 
 import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.setFragmentResult
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -19,11 +16,8 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import mx.itesm.dibujandounmaana.Adaptadores.ChatAdapter
 import mx.itesm.dibujandounmaana.databinding.NavChatsBinding
-import mx.itesm.dibujandounmaana.databinding.NavMensajeBinding
 import mx.itesm.dibujandounmaana.model.Chat
-import mx.itesm.dibujandounmaana.view.Mensaje
 import mx.itesm.dibujandounmaana.viewmodel.ChatsVM
-import mx.itesm.dibujandounmaana.viewmodel.ConfiguracionesVM
 import java.util.*
 
 

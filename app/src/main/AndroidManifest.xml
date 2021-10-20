@@ -18,19 +18,19 @@
         android:networkSecurityConfig="@xml/network_security_config">
 
         <activity
-            android:name=".CrearCuentaAdminAct"
+            android:name=".view.CrearCuentaAdminAct"
             android:exported="true" />
         <activity
-            android:name=".IniciarSesionAdminAct"
+            android:name=".view.IniciarSesionAdminAct"
             android:exported="true" />
         <activity
-            android:name=".CrearCuentaAct"
+            android:name=".view.CrearCuentaAct"
             android:exported="true" />
         <activity
-            android:name=".IniciarSesionAct"
+            android:name=".view.IniciarSesionAct"
             android:exported="true" />
         <activity
-            android:name=".tipoUsuario"
+            android:name=".view.tipoUsuario"
             android:exported="true"
             android:theme="@style/SplashTheme">
             <intent-filter>

@@ -1,17 +1,13 @@
-package mx.itesm.dibujandounmaana
+package mx.itesm.dibujandounmaana.view
 
 import android.content.Context
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.findNavController
-import androidx.navigation.fragment.findNavController
+import mx.itesm.dibujandounmaana.R
 import mx.itesm.dibujandounmaana.databinding.ActivityCrearCuentaAdminBinding
-import mx.itesm.dibujandounmaana.databinding.ActivityIniciarSesionAdminBinding
 import mx.itesm.dibujandounmaana.model.Admin
-import mx.itesm.dibujandounmaana.model.Usuario
 import mx.itesm.dibujandounmaana.viewmodel.CrearCuentaAdminVM
 
 class CrearCuentaAdminAct : AppCompatActivity() {

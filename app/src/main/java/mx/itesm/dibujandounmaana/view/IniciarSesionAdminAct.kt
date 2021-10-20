@@ -1,6 +1,5 @@
-package mx.itesm.dibujandounmaana
+package mx.itesm.dibujandounmaana.view
 
-import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -8,21 +7,11 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.core.content.edit
-import androidx.core.view.size
-import com.facebook.*
-import com.facebook.login.LoginResult
-import com.firebase.ui.auth.AuthUI
-import com.firebase.ui.auth.IdpResponse
-import com.google.firebase.auth.FirebaseAuth
+import mx.itesm.dibujandounmaana.MainActivity
 import mx.itesm.dibujandounmaana.databinding.ActivityIniciarSesionAdminBinding
-import mx.itesm.dibujandounmaana.databinding.ActivityIniciarSesionBinding
 import mx.itesm.dibujandounmaana.databinding.ActivityMainBinding
 import mx.itesm.dibujandounmaana.model.SesionAdmin
-import mx.itesm.dibujandounmaana.model.SesionUsuario
-import mx.itesm.dibujandounmaana.model.Usuario
 import mx.itesm.dibujandounmaana.viewmodel.IniciarSesionAdminVM
-import mx.itesm.dibujandounmaana.viewmodel.IniciarSesionVM
-import org.json.JSONObject
 
 class IniciarSesionAdminAct : AppCompatActivity() {
 

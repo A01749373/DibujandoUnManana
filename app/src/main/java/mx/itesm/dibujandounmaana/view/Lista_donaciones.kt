@@ -1,7 +1,6 @@
 package mx.itesm.dibujandounmaana.view
 
 import android.content.Context
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,8 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import mx.itesm.dibujandounmaana.Adaptadores.AdaptadosListaDonaciones
 import mx.itesm.dibujandounmaana.viewmodel.ListaDonacionesVM
-import mx.itesm.dibujandounmaana.R
 import mx.itesm.dibujandounmaana.databinding.ListaDonacionesFragmentBinding
 
 class listaDonaciones : Fragment() {

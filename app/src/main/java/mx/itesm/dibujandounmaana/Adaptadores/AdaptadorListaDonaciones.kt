@@ -1,4 +1,4 @@
-package mx.itesm.dibujandounmaana.view
+package mx.itesm.dibujandounmaana.Adaptadores
 
 import android.view.LayoutInflater
 import android.view.View

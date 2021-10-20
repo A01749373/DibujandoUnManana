@@ -1,16 +1,13 @@
-package mx.itesm.dibujandounmaana
+package mx.itesm.dibujandounmaana.view
 
 import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.activity.viewModels
+import mx.itesm.dibujandounmaana.R
 import mx.itesm.dibujandounmaana.databinding.ActivityTipoUsuarioBinding
-import mx.itesm.dibujandounmaana.viewmodel.TipoUsuarioVM
 
 class tipoUsuario : AppCompatActivity() {
-
-    private val viewModel: TipoUsuarioVM by viewModels()
 
     private lateinit var binding: ActivityTipoUsuarioBinding
 
@@ -26,7 +23,7 @@ class tipoUsuario : AppCompatActivity() {
 
     private fun configurarEventos() {
         binding.btnTipoDonante.setOnClickListener {
-            val intSesion = Intent(this,IniciarSesionAct::class.java)
+            val intSesion = Intent(this, IniciarSesionAct::class.java)
             startActivity(intSesion)
         }
         binding.btnTipoEmpresa.setOnClickListener {

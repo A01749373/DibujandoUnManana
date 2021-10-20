@@ -1,11 +1,7 @@
 package mx.itesm.dibujandounmaana
 
-import android.app.Activity
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.preference.PreferenceManager
-import android.view.Gravity
 import android.view.Menu
 import android.view.MenuItem
 import com.google.android.material.navigation.NavigationView
@@ -21,6 +17,8 @@ import com.facebook.login.LoginManager
 import mx.itesm.dibujandounmaana.databinding.ActivityMainBinding
 import mx.itesm.dibujandounmaana.view.Ayuda
 import com.firebase.ui.auth.AuthUI
+import mx.itesm.dibujandounmaana.view.CrearCuentaAdminAct
+import mx.itesm.dibujandounmaana.view.tipoUsuario
 
 
 class MainActivity : AppCompatActivity() {
@@ -100,7 +98,7 @@ class MainActivity : AppCompatActivity() {
         LoginManager.getInstance().logOut()
         //this.finish()
         println("Este es el correo: ${correo}")
-        val tipo = Intent(this,tipoUsuario::class.java)
+        val tipo = Intent(this, tipoUsuario::class.java)
         startActivity(tipo)
     }
 
