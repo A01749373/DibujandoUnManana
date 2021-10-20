@@ -122,6 +122,9 @@
         <action
             android:id="@+id/action_administracion_to_listaUsuarios"
             app:destination="@id/listaUsuarios" />
+        <action
+            android:id="@+id/action_administracion_to_listaPropuestas"
+            app:destination="@id/listaPropuestas" />
     </fragment>
     <fragment
         android:id="@+id/agregarProyecto"
@@ -133,4 +136,9 @@
         android:name="mx.itesm.dibujandounmaana.ListaUsuarios"
         android:label="Lista de usuarios"
         tools:layout="@layout/lista_usuarios_fragment" />
+    <fragment
+        android:id="@+id/listaPropuestas"
+        android:name="mx.itesm.dibujandounmaana.ListaPropuestas"
+        android:label="Propuestas de usuarios"
+        tools:layout="@layout/lista_propuestas_fragment" />
 </navigation>

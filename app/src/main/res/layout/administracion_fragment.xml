@@ -55,5 +55,12 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             android:text="Ver lista de usuarios" />
+
+        <Button
+            android:id="@+id/btnListaPropuestas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="ver propuestas de usuarios" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
