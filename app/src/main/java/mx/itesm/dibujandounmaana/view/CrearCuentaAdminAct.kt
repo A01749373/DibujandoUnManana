@@ -45,14 +45,16 @@ class CrearCuentaAdminAct : AppCompatActivity() {
                                 if (binding.etContrsena.text.toString().length > 6) {
                                     if (binding.etContrsena.text.toString() == binding.etconfcontra.text.toString()) {
                                         if (comp) {
+                                            val fecha =
+                                                "${binding.etYearFN.text.toString()}-${binding.etMesFN.text.toString()}-${binding.etDiaFN.text.toString()}"
                                             val nuevoUsuario = Admin(
                                                 binding.etCorreo.text.toString(),
                                                 binding.etNombreUsuario.text.toString(),
+                                                fecha,
                                                 binding.etGenero.selectedItem.toString(),
                                                 binding.etContrsena.text.toString()
                                             )
                                             viewModel.enviarAdmin(nuevoUsuario)
-                                            findNavController(R.id.administracion)
                                             } else {
                                                 println(binding.etCorreo.text.toString())
                                                 //println("dibujando.org.mx" in binding.etCorreo.text.toString())

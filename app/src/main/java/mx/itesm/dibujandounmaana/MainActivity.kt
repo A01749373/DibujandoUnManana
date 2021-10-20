@@ -66,15 +66,16 @@ class MainActivity : AppCompatActivity() {
         val tipoUsuario = preferencias.getString("TipoUsuario", "-1")
         var menu = navViewPrueba.menu
 
+
         println("Tipo usuario: $tipoUsuario")
         if (tipoUsuario == "administrador") {
             println("Se verificó el tipo de usuario")
             //menu.removeItem(9)
             //menu.setGroupVisible(0, false)
-            menu.getItem(9).setVisible(true)
+            menu.getItem(8).setVisible(true)
         }
         if (tipoUsuario == "normal") {
-            menu.getItem(9).setVisible(false)
+            menu.getItem(8).setVisible(false)
         }
     }
 

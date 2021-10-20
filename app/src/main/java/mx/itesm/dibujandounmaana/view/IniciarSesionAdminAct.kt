@@ -57,7 +57,7 @@ class IniciarSesionAdminAct : AppCompatActivity() {
             Toast.makeText(this, respuesta + " 😃", Toast.LENGTH_SHORT).show()
             println(respuesta)
             var menu = bindingMain.navView.menu
-            var item = menu.getItem(9)
+            var item = menu.getItem(8)
             println("Tamaño: ${menu.size()}")
             println("Nombre de Item: $item")
             //menu.removeItem(9)

@@ -8,6 +8,8 @@ data class Admin (
     val correo: String,
     @SerializedName("nombre")
     val nombre: String,
+    @SerializedName("fechaNacimiento")
+    val fechaNacimiento: String,
     @SerializedName("genero")
     val genero: String,
     @SerializedName("contrasena")

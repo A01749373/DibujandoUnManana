@@ -25,7 +25,7 @@ object RetrofitInstance {
             // Localhost Amy: 192.168.39.163
             // Localhost Andrea:  192.168.100.28
             // Localhost Ari: 192.168.100.22
-            .baseUrl("https://192.168.137.1:443")  // Localhost de la máquina donde corre el simulador
+            .baseUrl("https://192.168.100.22:443")  // Localhost de la máquina donde corre el simulador
             .client(getUnsafeOkHttpClient())
             .addConverterFactory(ScalarsConverterFactory.create())      // String. Int, etc
             .addConverterFactory(GsonConverterFactory.create())         // Json
