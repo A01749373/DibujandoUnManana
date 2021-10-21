@@ -138,7 +138,7 @@
         tools:layout="@layout/lista_usuarios_fragment" />
     <fragment
         android:id="@+id/listaPropuestas"
-        android:name="mx.itesm.dibujandounmaana.ListaPropuestas"
+        android:name="mx.itesm.dibujandounmaana.view.ListaPropuestas"
         android:label="Propuestas de usuarios"
         tools:layout="@layout/lista_propuestas_fragment" />
 </navigation>

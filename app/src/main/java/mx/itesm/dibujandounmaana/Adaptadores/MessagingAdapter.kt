@@ -1,5 +1,15 @@
+/*
+Autores:
+* Liam Garay Monroy
+* Jorge Chávez Badillo
+* Amy Murakami Tsutsumi
+* Andrea Vianey Díaz Álvarez
+* Ariadna Jocelyn Guzmán Jiménez
+*/
+
 package mx.itesm.dibujandounmaana.Adaptadores
 
+//Librerias
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,7 +24,7 @@ private val View.tv_message: Unit
     get() {}
 
 class MessagingAdapter: RecyclerView.Adapter<MessagingAdapter.MessageViewHolder>() {
-
+    //Creamos una lista con elementos "mensaje" que se actualizará conforme se recuban datos del sistema
     var messagesList = mutableListOf<Message>()
 
     inner class MessageViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
@@ -31,6 +41,7 @@ class MessagingAdapter: RecyclerView.Adapter<MessagingAdapter.MessageViewHolder>
     }
 
     override fun onBindViewHolder(holder: MessageViewHolder, position: Int) {
+        //Se crean los elementos individuales del recycler view de acorde al contenido del mensaje
         val currenMessage = messagesList[position]
         
         when (currenMessage.id) {
@@ -53,10 +64,12 @@ class MessagingAdapter: RecyclerView.Adapter<MessagingAdapter.MessageViewHolder>
     }
 
     override fun getItemCount(): Int {
+        //Asignamos a cada elemento del renglón su correspondiente valor
         return messagesList.size
     }
 
     fun insertMessage(message: Message) {
+        //Obtenemos la cantidad de grupos de datos que estamos obteniendo del servidor
         this.messagesList.add(message)
         notifyItemInserted(messagesList.size)
     }

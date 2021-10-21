@@ -1,6 +1,5 @@
-package mx.itesm.dibujandounmaana
+package mx.itesm.dibujandounmaana.view
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,7 +8,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import mx.itesm.dibujandounmaana.databinding.ListaPropuestasFragmentBinding
-import mx.itesm.dibujandounmaana.view.AdaptadorListaPropuestas
+import mx.itesm.dibujandounmaana.Adaptadores.AdaptadorListaPropuestas
+import mx.itesm.dibujandounmaana.viewmodel.ListaPropuestasVM
 
 
 class ListaPropuestas : Fragment() {

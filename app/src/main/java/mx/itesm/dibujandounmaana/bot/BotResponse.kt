@@ -1,5 +1,14 @@
+/*
+Autores:
+* Liam Garay Monroy
+* Jorge Chávez Badillo
+* Amy Murakami Tsutsumi
+* Andrea Vianey Díaz Álvarez
+* Ariadna Jocelyn Guzmán Jiménez
+*/
 package mx.itesm.dibujandounmaana.bot
 
+//Librerías
 import mx.itesm.dibujandounmaana.bot.Constants.OPEN_GOOGLE
 import mx.itesm.dibujandounmaana.bot.Constants.OPEN_SEARCH
 import java.sql.Timestamp
@@ -7,51 +16,12 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 object BotResponse {
+    //Contiene las respuestas preterminadas para preguntas frecuentes de uso de la app
     fun basicResponses(_mensaje: String): String {
         val random = (0..2).random()
         val mensaje = _mensaje.lowercase()
 
         return when {
-
-            // Math calculations
-            mensaje.contains("solve") -> {
-                val equation: String? = mensaje.substringAfterLast("solve")
-                return try {
-                    val answer = SolveMath.solveMath(equation ?: "0")
-                    "$answer"
-
-                } catch (e: Exception) {
-                    "Sorry, I can't solve that."
-                }
-            }
-
-            // Hello
-            mensaje.contains("hello") -> {
-                when (random) {
-                    0 -> "Hello there!"
-                    1 -> "Sup"
-                    2 -> "Buongiorno!"
-                    else -> "error" }
-            }
-
-            // How are you?
-            mensaje.contains("how are you") -> {
-                when (random) {
-                    0 -> "I'm doing fine, thanks!"
-                    1 -> "I'm hungry..."
-                    2 -> "Pretty good! How about you?"
-                    else -> "error"
-                }
-            }
-
-            // What time is it?
-            mensaje.contains("time") && mensaje.contains("?") -> {
-                val timeStamp = Timestamp(System.currentTimeMillis())
-                val sdf = SimpleDateFormat("dd/MM/yyyy HH:mm")
-                val date = sdf.format(Date(timeStamp.time))
-
-                date.toString()
-            }
 
             // Hola
             mensaje.contains("hola") -> {
@@ -126,15 +96,6 @@ object BotResponse {
                 }
             }
 
-            // Open Google
-            mensaje.contains("open") && mensaje.contains("google") -> {
-                OPEN_GOOGLE
-            }
-
-            // Search on the internet
-            mensaje.contains("search") -> {
-                OPEN_SEARCH
-            }
 
             // Cuando el programa no entiende la entrada de texto
             else -> {

@@ -78,7 +78,7 @@
                     <TextView
                         android:id="@+id/textView18"
                         android:layout_width="match_parent"
-                        android:layout_height="221dp"
+                        android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="Nos dedicamos a impulsar el desarrollo social de niñas, niños y adolescentes en situación de vulnerabilidad en México y Centro América con un modelo de inversión social que entrelaza la voluntad de ayudar de diversos actores y la transforma en programas sociales basados en los derechos humanos que generan impactos positivos a largo plazo."
                         android:textAlignment="center" />
