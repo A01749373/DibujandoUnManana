@@ -9,8 +9,6 @@ Autores:
 package mx.itesm.dibujandounmaana.bot
 
 //Librerías
-import mx.itesm.dibujandounmaana.bot.Constants.OPEN_GOOGLE
-import mx.itesm.dibujandounmaana.bot.Constants.OPEN_SEARCH
 import java.sql.Timestamp
 import java.text.SimpleDateFormat
 import java.util.*

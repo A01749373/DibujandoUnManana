@@ -37,6 +37,7 @@ class Configuraciones : Fragment() {
         configurarEventos()
     }
 
+    // Configuración del listener para los botones de la pantalla de configuración
     private fun configurarEventos() {
         val preferencias = this.requireContext().getSharedPreferences("Usuario", Context.MODE_PRIVATE)
         val correo = preferencias.getString("Correo","-1")

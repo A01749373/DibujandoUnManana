@@ -33,6 +33,8 @@ class administracion : Fragment() {
         configurarEventos()
     }
 
+    // Se configuran los listener de cada botón para la navegación de pantallas cuando el usuario
+    // es de tipo administrador
     private fun configurarEventos() {
         val preferencias = this.requireContext().getSharedPreferences("Usuario", Context.MODE_PRIVATE)
         val correo = preferencias.getString("Correo","-1")

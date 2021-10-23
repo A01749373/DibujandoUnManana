@@ -11,14 +11,12 @@ import androidx.recyclerview.widget.RecyclerView
 import kotlinx.coroutines.*
 import mx.itesm.dibujandounmaana.*
 import mx.itesm.dibujandounmaana.Adaptadores.MessagingAdapter
-import mx.itesm.dibujandounmaana.bot.Constants.OPEN_GOOGLE
-import mx.itesm.dibujandounmaana.bot.Constants.OPEN_SEARCH
 import mx.itesm.dibujandounmaana.bot.Constants.RECEIVE_ID
 import mx.itesm.dibujandounmaana.bot.Constants.SEND_ID
 import mx.itesm.dibujandounmaana.bot.BotResponse
-import mx.itesm.dibujandounmaana.bot.Time
 import mx.itesm.dibujandounmaana.model.Message
 import mx.itesm.dibujandounmaana.viewmodel.AyudaVM
+import mx.itesm.dibujandounmaana.bot.Time
 
 class Ayuda : AppCompatActivity() {
 
@@ -47,12 +45,12 @@ class Ayuda : AppCompatActivity() {
     }
 
     private fun clickEvents() {
-        //Send a message
+        // Enviar un mensaje
         findViewById<Button>(R.id.btn_send).setOnClickListener {
             sendMessage()
         }
 
-        //Scroll back to correct position when user clicks on text view
+        // Desplazarse hacia atrás a la posición correcta cuando el usuario hace clic en la vista de texto
         findViewById<EditText>(R.id.et_message).setOnClickListener {
             GlobalScope.launch {
                 delay(100)
@@ -70,6 +68,7 @@ class Ayuda : AppCompatActivity() {
         findViewById<RecyclerView>(R.id.rv_messages).layoutManager = LinearLayoutManager(applicationContext)
     }
 
+    // Función para envíar un mensaje al bot
     private fun sendMessage() {
         val message = findViewById<EditText>(R.id.et_message).text.toString()
         val timeStamp = Time.timeStamp()
@@ -84,6 +83,7 @@ class Ayuda : AppCompatActivity() {
         }
     }
 
+    // Función que consiste en la obtencion de la respuesta del bot
     private fun botResponse(message: String) {
         val timeStamp = Time.timeStamp()
 
@@ -94,20 +94,6 @@ class Ayuda : AppCompatActivity() {
 
                 adapter.insertMessage(Message(response, RECEIVE_ID, timeStamp))
                 findViewById<RecyclerView>(R.id.rv_messages).scrollToPosition(adapter.itemCount-1)
-
-                when (response) {
-                    OPEN_GOOGLE -> {
-                        val site = Intent(Intent.ACTION_VIEW)
-                        site.data = Uri.parse("https://google.com/")
-                        startActivity(site)
-                    }
-                    OPEN_SEARCH -> {
-                        val site = Intent(Intent.ACTION_VIEW)
-                        val searchTerm: String? = message.substringAfter("search")
-                        site.data = Uri.parse("https://www.google.com/search?&q=$searchTerm")
-                        startActivity(site)
-                    }
-                }
             }
         }
     }

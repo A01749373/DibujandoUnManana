@@ -36,7 +36,8 @@ class Contactanos : Fragment() {
         configurarEventos()
     }
 
-
+    // Configuración del listener para los botones que llevan al usuario a las diferentes redes sociales
+    // de la Fundación Dibujando un Mañana
     private fun configurarEventos(){
         val facebook= "https://www.facebook.com/DibujandoUnManana/"
         val twitter = "https://twitter.com/FDibujando"

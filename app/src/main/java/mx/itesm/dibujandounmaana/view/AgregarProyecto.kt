@@ -37,6 +37,7 @@ class AgregarProyecto: Fragment() {
         configurarEventos()
     }
 
+    // Configuración del listener para agregar un nuevo proyecto a la base de datos
     private fun configurarEventos(){
         binding.btnAgregar.setOnClickListener{
             val nombre = binding.etNombreProyecto.text.toString()

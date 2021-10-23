@@ -34,6 +34,7 @@ class cambiarNombre : Fragment() {
         configurarObservadores()
         configurarEventos()
     }
+    // Configuración del listener para que el usuario edite los datos de nombre y contraseña
     private fun configurarEventos() {
         val preferencias = this.requireContext().getSharedPreferences("Usuario", Context.MODE_PRIVATE)
         val correo = preferencias.getString("Correo","-1")

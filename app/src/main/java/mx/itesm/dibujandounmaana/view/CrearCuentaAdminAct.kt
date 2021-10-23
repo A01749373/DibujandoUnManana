@@ -35,6 +35,8 @@ class CrearCuentaAdminAct : AppCompatActivity() {
         }
     }
 
+    // Función que muestra si el registro fue exitoso o si el usuario ya existe en la base de datos
+    // para posteriormente pasar a la pantalla de administración
     private fun mostrarEstadoRegistro(respuesta: String) {
         if (respuesta == "Nombre de usuario ya existente") {
             Toast.makeText(this, respuesta + " 👎", Toast.LENGTH_SHORT).show()
@@ -46,6 +48,8 @@ class CrearCuentaAdminAct : AppCompatActivity() {
         }
     }
 
+    // Configuración del listener de crear cuenta administrador, además de la verificación de que todos los datos
+    // sean ingresados correctamente
     private fun configurarEventos() {
         binding.btnEvniar.setOnClickListener {
             val s1 = binding.etCorreo.text.toString();
@@ -100,8 +104,7 @@ class CrearCuentaAdminAct : AppCompatActivity() {
             }
         }
 
-
-
+    // Función que obtiene las preferencias del usuario en la app
     private fun cargarPreferencias() {
         val preferencias = this.getSharedPreferences("Usuario", Context.MODE_PRIVATE)
         val favorito = preferencias.getString("Correo", "-1")

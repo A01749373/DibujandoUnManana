@@ -46,6 +46,7 @@ class IniciarSesionAct : AppCompatActivity() {
         configurarEventos()
     }
 
+    // Se obtienen las preferecnias del usuario guardadas en la app
     private fun cargarPreferencias() {
         val preferencias = this.getSharedPreferences("Usuario", Context.MODE_PRIVATE)
         val favorito = preferencias.getString("Correo", "-1")
@@ -64,6 +65,8 @@ class IniciarSesionAct : AppCompatActivity() {
         }
     }
 
+    // Verifica la respuesta del servidor y en caso de que el inicio de sesión sea exitoso, se
+    // empieza la actividad principal de la aplicación
     private fun cambiarPantalla(respuesta: String) {
         if (respuesta == "Lo sentimos: Usuario o contraseña no válidos") {
             Toast.makeText(this, respuesta + " 😭", Toast.LENGTH_SHORT).show()
@@ -112,6 +115,7 @@ class IniciarSesionAct : AppCompatActivity() {
         }
     }
 
+    // Se le da inicio a la actividad principal de la aplicación
     private fun abrirActividad() {
         val intIniciarSe = Intent(this, MainActivity::class.java)
         startActivity(intIniciarSe)
@@ -130,6 +134,7 @@ class IniciarSesionAct : AppCompatActivity() {
         
     }
 
+    // Configuración del listener de los botones de inicio de sesión
     private fun configurarEventos() {
         binding.btnIniciarSesion.setOnClickListener {
             val usuarioRegistrado = SesionUsuario(
@@ -190,6 +195,7 @@ class IniciarSesionAct : AppCompatActivity() {
         })
     }
 
+    // Función que guarda las preferencias del usuario, como el correo y el tipo de usuario
     private fun guardarPrederencias(correo: String) {
         val preferencias = this.getSharedPreferences("Usuario", Context.MODE_PRIVATE)
         preferencias.edit {
