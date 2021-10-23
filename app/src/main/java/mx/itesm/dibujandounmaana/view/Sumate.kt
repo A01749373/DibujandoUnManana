@@ -1,5 +1,16 @@
+/*
+Autores:
+* Liam Garay Monroy
+* Jorge Chávez Badillo
+* Amy Murakami Tsutsumi
+* Andrea Vianey Díaz Álvarez
+* Ariadna Jocelyn Guzmán Jiménez
+*/
+
+
 package mx.itesm.dibujandounmaana.view
 
+//Librerías
 import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -28,21 +39,22 @@ class Sumate : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        //return inflater.inflate(R.layout.nav_sumate, container, false)
+        //Crea la vista de acuerdo al xml asignado
         binding = NavSumateBinding.inflate(layoutInflater)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        /* Asegura que la vista esté completamente creada y manda a llamar a las funciones
+        a los elementos correspondientes */
         super.onViewCreated(view, savedInstanceState)
-
         viewModel2.descargarDatosProyecto()
         configurarObservadores()
-        //val lista2 = arrayListOf<String>("1","2","3")
         configurarEventos()
     }
 
     private fun configurarEventos() {
+        //Carga las preferencias del usuario para conocer el contacto de quien envía la propuesta
         val preferencias =
             this.requireContext().getSharedPreferences("Usuario", Context.MODE_PRIVATE)
         val usuarioCorreo = preferencias.getString("Correo", "-1")
@@ -57,6 +69,7 @@ class Sumate : Fragment() {
     }
 
     private fun configurarObservadores() {
+        //Observa las respuestas del servidor y adapta las opciones del spinner
         viewModel.respuesta.observe(viewLifecycleOwner) { respuesta ->
             binding.tvEstad.text = respuesta
         }
@@ -64,18 +77,11 @@ class Sumate : Fragment() {
             Lista.forEach { proyecto ->
                 val nombre = proyecto.proyecto
                 lista.add(nombre)
-                //println(nombre)
             }
             val adaptador = ArrayAdapter(this.requireContext(), android.R.layout.simple_spinner_item, lista)
             adaptador.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line)
             binding.spinner.adapter = adaptador
         }
     }
-    /*
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(SumateVM::class.java)
 
-
-    }*/
 }

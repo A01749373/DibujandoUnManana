@@ -1,5 +1,16 @@
+/*
+Autores:
+* Liam Garay Monroy
+* Jorge Chávez Badillo
+* Amy Murakami Tsutsumi
+* Andrea Vianey Díaz Álvarez
+* Ariadna Jocelyn Guzmán Jiménez
+*/
+
+
 package mx.itesm.dibujandounmaana.view
 
+//Librerías
 import android.app.Activity.RESULT_OK
 import android.content.Context
 import android.os.Bundle
@@ -45,12 +56,14 @@ class perfilUsuario : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        //Crea la vista de acuerdo al xml asignado
         binding = PerfilUsuarioFragmentBinding.inflate(layoutInflater)
 
         return binding.root
     }
 
     private fun pickImageGallery(){
+        //Realiza la actividad para que el usuario escoja una foto de perfil de su dispositivo
         val intent = Intent(Intent.ACTION_PICK)
         intent.type = "image/*"
         startActivityForResult(intent, IMAGE_REQUEST_CODE)
@@ -97,12 +110,15 @@ class perfilUsuario : Fragment() {
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        /* Asegura que la vista esté completamente creada y manda a llamar a las funciones
+        a los elementos correspondientes */
         super.onViewCreated(view, savedInstanceState)
         configurarObservadores()
         configurarEventos()
     }
 
     private fun configurarEventos() {
+        //Configura las acciones de los botones de acuerdo a lo que el usuario quiera interactuar en el perfil
         val preferencias = this.requireContext().getSharedPreferences("Usuario", Context.MODE_PRIVATE)
         val correo = preferencias.getString("Correo","-1")
         viewModel.descargarDatosUsuario(correo.toString())
@@ -119,6 +135,7 @@ class perfilUsuario : Fragment() {
     }
 
     private fun configurarObservadores() {
+        //Observa las respuestas obtenidas del servidor y configura elementos del xml
         viewModel.respuesta.observe(viewLifecycleOwner) { respuesta ->
             binding.tvNombre.text = respuesta.nombre
             binding.tvCorreo.text = respuesta.correo

@@ -1,5 +1,16 @@
+/*
+Autores:
+* Liam Garay Monroy
+* Jorge Chávez Badillo
+* Amy Murakami Tsutsumi
+* Andrea Vianey Díaz Álvarez
+* Ariadna Jocelyn Guzmán Jiménez
+*/
+
+
 package mx.itesm.dibujandounmaana.view
 
+//Librerías
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -27,11 +38,15 @@ class ListaPropuestas : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        //Crea la vista de acuerlo al xml asignado
         binding = ListaPropuestasFragmentBinding.inflate(layoutInflater)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        /* Asegura que la vista esté completamente creada y manda a llamar a las funciones
+        a los elementos correspondientes */
+
         super.onViewCreated(view, savedInstanceState)
 
         configurarObservadores()
@@ -40,6 +55,7 @@ class ListaPropuestas : Fragment() {
     }
 
     private fun configurarRecyclerView() {
+        //Configura el recycler view de acuerdo a los valores de entrada
         binding.rvListaPropuestas.apply {
             layoutManager = LinearLayoutManager(context)
             adapter = adaptadorListaPropuestas
@@ -47,11 +63,12 @@ class ListaPropuestas : Fragment() {
     }
 
     private fun configurarEventos() {
-
-        viewModel.leerDatos() //Evento Boton
+        //Lee los datos que se reciben del servidor
+        viewModel.leerDatos()
     }
 
     private fun configurarObservadores() {
+        //Observa las respuestas del servidor
         viewModel.arrPropuestas.observe(viewLifecycleOwner){ Lista ->
             adaptadorListaPropuestas.actualizar(Lista)
         }

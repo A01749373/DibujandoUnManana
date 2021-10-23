@@ -1,5 +1,16 @@
+/*
+Autores:
+* Liam Garay Monroy
+* Jorge Chávez Badillo
+* Amy Murakami Tsutsumi
+* Andrea Vianey Díaz Álvarez
+* Ariadna Jocelyn Guzmán Jiménez
+*/
+
+
 package mx.itesm.dibujandounmaana.view
 
+//Librerías
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
@@ -31,12 +42,12 @@ class IniciarSesionAct : AppCompatActivity() {
     lateinit var callbackManager: CallbackManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        //Crea la vista de acuerdo al xml asignado y carga las funciones y preferencias configuradas
         super.onCreate(savedInstanceState)
         binding = ActivityIniciarSesionBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.loginButton.setReadPermissions("email")
 
-        //saber si hay un token de login
         val accessToken = AccessToken.getCurrentAccessToken()
         val isLoggedIn = accessToken != null && !accessToken.isExpired
         println("logeado $isLoggedIn")
@@ -47,6 +58,7 @@ class IniciarSesionAct : AppCompatActivity() {
     }
 
     private fun cargarPreferencias() {
+        //Verfica la existencia del usuario para dejarlo acceder a la aplicación
         val preferencias = this.getSharedPreferences("Usuario", Context.MODE_PRIVATE)
         val favorito = preferencias.getString("Correo", "-1")
         val tipoUsuario = preferencias.getString("TipoUsuario", "-1")
@@ -65,6 +77,7 @@ class IniciarSesionAct : AppCompatActivity() {
     }
 
     private fun cambiarPantalla(respuesta: String) {
+        //Si la respuesta del servidor es válida, lo deja entrar a la aplicación
         if (respuesta == "Lo sentimos: Usuario o contraseña no válidos") {
             Toast.makeText(this, respuesta + " 😭", Toast.LENGTH_SHORT).show()
         } else {
@@ -75,6 +88,7 @@ class IniciarSesionAct : AppCompatActivity() {
 
     override fun onActivityResult(requestCode: Int, resultCode:
     Int, data: Intent?) {
+        //Se le da una respuesta al usuario de verificación si inicia sesión con google
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == CODIGO_SIGNIN) {
             when (resultCode) {
@@ -113,11 +127,13 @@ class IniciarSesionAct : AppCompatActivity() {
     }
 
     private fun abrirActividad() {
+        //Abre la aplicación si el usuario es validad
         val intIniciarSe = Intent(this, MainActivity::class.java)
         startActivity(intIniciarSe)
     }
 
     private fun autenticar() {
+        //Autentica a un usuario si inicia sesión con google
         val providers =
             arrayListOf(AuthUI.IdpConfig.GoogleBuilder().build())
         startActivityForResult(
@@ -131,6 +147,7 @@ class IniciarSesionAct : AppCompatActivity() {
     }
 
     private fun configurarEventos() {
+        //Dependiendo del método de  inicio de sesión, se le da una respuesta al usuario (inicio de sesión normal y con facebook)
         binding.btnIniciarSesion.setOnClickListener {
             val usuarioRegistrado = SesionUsuario(
                 binding.etUsuario.text.toString(),
@@ -174,7 +191,6 @@ class IniciarSesionAct : AppCompatActivity() {
 
                 val parameters = Bundle()
                 parameters.putString("fields", "email, name, gender")//birthday)
-                //println(parameters)
                 request.setParameters(parameters)
                 request.executeAsync()
                 abrirActividad()
@@ -191,6 +207,7 @@ class IniciarSesionAct : AppCompatActivity() {
     }
 
     private fun guardarPrederencias(correo: String) {
+        //Guarda las preferencias del usuario (correo y tipo de usuario)
         val preferencias = this.getSharedPreferences("Usuario", Context.MODE_PRIVATE)
         preferencias.edit {
             putString("Correo", correo)
@@ -200,6 +217,7 @@ class IniciarSesionAct : AppCompatActivity() {
     }
 
     private fun configurarObservadores() {
+        //Observa la respuesta que se obtiene del servidor
         viewModel.respuesta.observe(this) { respuesta ->
             binding.tvEstado.text = respuesta
             cambiarPantalla(respuesta)

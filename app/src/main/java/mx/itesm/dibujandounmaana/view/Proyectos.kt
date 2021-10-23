@@ -1,5 +1,16 @@
+/*
+Autores:
+* Liam Garay Monroy
+* Jorge Chávez Badillo
+* Amy Murakami Tsutsumi
+* Andrea Vianey Díaz Álvarez
+* Ariadna Jocelyn Guzmán Jiménez
+*/
+
+
 package mx.itesm.dibujandounmaana.view
 
+//Librerías
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -29,12 +40,14 @@ class Proyectos : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        //return inflater.inflate(R.layout.nav_proyectos, container, false)
+        //Crea la vista de acuerdo al xml asignado
         binding = NavProyectosBinding.inflate(layoutInflater)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        /* Asegura que la vista esté completamente creada y manda a llamar a las funciones
+        a los elementos correspondientes */
         super.onViewCreated(view, savedInstanceState)
         configurarObservadores()
         configurarEventos()
@@ -49,6 +62,7 @@ class Proyectos : Fragment() {
     }
 
     private fun configurarEventos() {
+        //Configura las acciones de los botones que se encuentran en la pantalla
         binding.btnDonar.setOnClickListener{
             findNavController().navigate(R.id.action_nav_proyectos_to_donar)
         }
@@ -59,17 +73,10 @@ class Proyectos : Fragment() {
     }
 
     private fun configurarObservadores() {
+        //Observa las respuestas del servidor
         viewModel.arrProyectos.observe(viewLifecycleOwner){Lista ->
             adaptadorListaProyectos.actualizar(Lista)
         }
     }
-    /*
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(ProyectosVM::class.java)
-        // TODO: Use the ViewModel
-    }
-    
-     */
 
 }

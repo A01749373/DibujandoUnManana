@@ -1,5 +1,16 @@
+/*
+Autores:
+* Liam Garay Monroy
+* Jorge Chávez Badillo
+* Amy Murakami Tsutsumi
+* Andrea Vianey Díaz Álvarez
+* Ariadna Jocelyn Guzmán Jiménez
+*/
+
 package mx.itesm.dibujandounmaana.view
 
+
+//Librerías
 import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -20,6 +31,7 @@ class CrearCuentaAdminAct : AppCompatActivity() {
     private lateinit var binding: ActivityCrearCuentaAdminBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        //Crea la vista de inicio de acuerdo al xml asignado
         super.onCreate(savedInstanceState)
         binding = ActivityCrearCuentaAdminBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -29,6 +41,7 @@ class CrearCuentaAdminAct : AppCompatActivity() {
     }
 
     private fun configurarObservadores() {
+        //Observa las respuestas del servidor
         viewModel.respuesta.observe(this) { respuesta ->
             binding.tvEstado.text = respuesta
             mostrarEstadoRegistro(respuesta)
@@ -36,6 +49,7 @@ class CrearCuentaAdminAct : AppCompatActivity() {
     }
 
     private fun mostrarEstadoRegistro(respuesta: String) {
+        //Entera al usuario si es un usuario ya existente o no
         if (respuesta == "Nombre de usuario ya existente") {
             Toast.makeText(this, respuesta + " 👎", Toast.LENGTH_SHORT).show()
             println(respuesta)
@@ -47,6 +61,7 @@ class CrearCuentaAdminAct : AppCompatActivity() {
     }
 
     private fun configurarEventos() {
+        //Evalúa que al envíar los datos del usuario estos sean correspondienres y los adecuados para guardar en la base de datos
         binding.btnEvniar.setOnClickListener {
             val s1 = binding.etCorreo.text.toString();
             val s2 = "dibujando.org.mx"
@@ -103,6 +118,7 @@ class CrearCuentaAdminAct : AppCompatActivity() {
 
 
     private fun cargarPreferencias() {
+        //Guarda las preferencias del usuario
         val preferencias = this.getSharedPreferences("Usuario", Context.MODE_PRIVATE)
         val favorito = preferencias.getString("Correo", "-1")
         if (favorito != "-1") {

@@ -1,5 +1,16 @@
+/*
+Autores:
+* Liam Garay Monroy
+* Jorge Chávez Badillo
+* Amy Murakami Tsutsumi
+* Andrea Vianey Díaz Álvarez
+* Ariadna Jocelyn Guzmán Jiménez
+*/
+
+
 package mx.itesm.dibujandounmaana.view
 
+//Liberías
 import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -28,11 +39,15 @@ class listaDonaciones : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        //Crea la vista de acuerdo al xml asignado
         binding = ListaDonacionesFragmentBinding.inflate(layoutInflater)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        /* Asegura que la vista esté completamente creada y manda a llamar a las funciones
+        a los elementos correspondientes */
+
         super.onViewCreated(view, savedInstanceState)
 
         configurarObservadores()
@@ -41,6 +56,7 @@ class listaDonaciones : Fragment() {
     }
 
     private fun configurarRecyclerView() {
+        //Configura el recycler view de acuerdo a los valores de entrada
         binding.rvListaDonaciones.apply {
             layoutManager = LinearLayoutManager(context)
             adapter = adaptadorListaDonaciones
@@ -48,6 +64,7 @@ class listaDonaciones : Fragment() {
     }
 
     private fun configurarEventos() {
+        //Lee las preferencias del usuario, así como sus datos
         val preferencias = this.requireContext().getSharedPreferences("Usuario", Context.MODE_PRIVATE)
         val correo = preferencias.getString("Correo", "-1")
         if (correo != "-1") {
@@ -60,6 +77,7 @@ class listaDonaciones : Fragment() {
     }
 
     private fun configurarObservadores() {
+        //Observa las respuestas del servidor
         viewModel.arrDonaciones.observe(viewLifecycleOwner){ Lista ->
             adaptadorListaDonaciones.actualizar(Lista)
         }

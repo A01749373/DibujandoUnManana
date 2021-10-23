@@ -1,5 +1,16 @@
+/*
+Autores:
+* Liam Garay Monroy
+* Jorge Chávez Badillo
+* Amy Murakami Tsutsumi
+* Andrea Vianey Díaz Álvarez
+* Ariadna Jocelyn Guzmán Jiménez
+*/
+
+
 package mx.itesm.dibujandounmaana.view
 
+//Librerías
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -31,11 +42,14 @@ class Mensaje : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        //Crea la vista de acuerdo al xml asignado
         binding = NavMensajeBinding.inflate(layoutInflater)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        /* Asegura que la vista esté completamente creada y manda a llamar a las funciones
+        a los elementos correspondientes */
         super.onViewCreated(view, savedInstanceState)
         chatId = args.chatId
         user = args.user
@@ -43,6 +57,7 @@ class Mensaje : Fragment() {
     }
 
     private fun initViews(){
+        //Adapta el recycler view de acuerdo al número de chats que tiene el usuario
         binding.mensajeRecyclerView.layoutManager = LinearLayoutManager(this.requireContext())
         binding.mensajeRecyclerView.adapter = MessageAdapter(user)
 
@@ -74,6 +89,7 @@ class Mensaje : Fragment() {
     }
 
     private fun sendMessage(){
+        //Manda el mensaje a otro usuario
         val message = Mensaje(
             message = binding.campoMensaje.text.toString(),
             from = user

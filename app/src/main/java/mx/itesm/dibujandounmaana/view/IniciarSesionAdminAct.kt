@@ -1,5 +1,16 @@
+/*
+Autores:
+* Liam Garay Monroy
+* Jorge Chávez Badillo
+* Amy Murakami Tsutsumi
+* Andrea Vianey Díaz Álvarez
+* Ariadna Jocelyn Guzmán Jiménez
+*/
+
+
 package mx.itesm.dibujandounmaana.view
 
+//Librerías
 import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -24,6 +35,7 @@ class IniciarSesionAdminAct : AppCompatActivity() {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        //Crea la vista de acuerdo al xml asignado y carga las funciones configuradas
         super.onCreate(savedInstanceState)
         binding = ActivityIniciarSesionAdminBinding.inflate(layoutInflater)
         bindingMain = ActivityMainBinding.inflate(layoutInflater)
@@ -34,6 +46,7 @@ class IniciarSesionAdminAct : AppCompatActivity() {
     }
 
     private fun cargarPreferencias() {
+        //Carga las preferencias del usuario para validarlo
         val preferencias = this.getSharedPreferences("Usuario", Context.MODE_PRIVATE)
         val favorito = preferencias.getString("Correo", "-1")
         val tipoUsuario = preferencias.getString("TipoUsuario", "-1")
@@ -50,6 +63,7 @@ class IniciarSesionAdminAct : AppCompatActivity() {
     }
 
     private fun cambiarPantalla(respuesta: String) {
+        //Valida y cambia la pantalla en caso de que el usuario sea correcto
         if (respuesta == "Lo sentimos: Usuario o contraseña no válidos") {
             Toast.makeText(this, respuesta + " 😭", Toast.LENGTH_SHORT).show()
             println(respuesta)
@@ -67,6 +81,7 @@ class IniciarSesionAdminAct : AppCompatActivity() {
     }
 
     private fun configurarEventos() {
+        //Verific si el usuario existe en la base de datos para iniciar sesión
         binding.btnIniciarSesion.setOnClickListener {
             val adminRegistrado = SesionAdmin(
                 binding.etUsuario.text.toString(),
@@ -83,6 +98,7 @@ class IniciarSesionAdminAct : AppCompatActivity() {
     }
 
     private fun guardarPrederencias(correo: String) {
+        //Guarda las preferencias del usuario
         val preferencias = this.getSharedPreferences("Usuario", Context.MODE_PRIVATE)
         preferencias.edit {
             putString("Correo", correo)
@@ -92,6 +108,7 @@ class IniciarSesionAdminAct : AppCompatActivity() {
     }
 
     private fun configurarObservadores() {
+        //Observa las respuestas del servidor
         viewModel.respuesta.observe(this) { respuesta ->
             binding.tvEstado.text = respuesta
             cambiarPantalla(respuesta)

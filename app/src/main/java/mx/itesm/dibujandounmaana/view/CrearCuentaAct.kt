@@ -1,5 +1,16 @@
+/*
+Autores:
+* Liam Garay Monroy
+* Jorge Chávez Badillo
+* Amy Murakami Tsutsumi
+* Andrea Vianey Díaz Álvarez
+* Ariadna Jocelyn Guzmán Jiménez
+*/
+
+
 package mx.itesm.dibujandounmaana.view
 
+//Librerías
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -16,6 +27,7 @@ class CrearCuentaAct : AppCompatActivity() {
     private lateinit var binding: ActivityCrearCuentaBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        //Crea la vista de inicio de acuerdo al xml asignado
         super.onCreate(savedInstanceState)
         binding = ActivityCrearCuentaBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -24,6 +36,7 @@ class CrearCuentaAct : AppCompatActivity() {
     }
 
     private fun configurarEventos() {
+        //Evalúa que al envíar los datos del usuario estos sean correspondienres y los adecuados para guardar en la base de datos
         binding.btnEvniar.setOnClickListener {
             if (binding.etCorreo.text.toString().isNotEmpty()) {
                 if (binding.etNombreUsuario.text.toString().isNotEmpty()) {
@@ -75,11 +88,13 @@ class CrearCuentaAct : AppCompatActivity() {
         println(binding.etContrsena.text.toString())
     }
     private fun abrirActividad() {
+        //Si es validado el usuario, se inicia la pantalla de Iniciar Sesión
         val intIniciarSe = Intent(this, IniciarSesionAct::class.java)
         startActivity(intIniciarSe)
     }
 
     private fun mostrarEstadoRegistro(respuesta: String) {
+        //Entera al usuario si es un usuario ya existente o no
         if (respuesta == "Nombre de usuario ya existente") {
             Toast.makeText(this, respuesta + " 👎", Toast.LENGTH_SHORT).show()
             println(respuesta)
@@ -91,6 +106,7 @@ class CrearCuentaAct : AppCompatActivity() {
     }
 
     private fun configurarObservadores() {
+        //Observa las respuestas del servidor
         viewModel.respuesta.observe(this) { respuesta ->
             binding.tvEstado.text = respuesta
             mostrarEstadoRegistro(respuesta)

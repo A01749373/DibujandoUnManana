@@ -1,6 +1,16 @@
+/*
+Autores:
+* Liam Garay Monroy
+* Jorge Chávez Badillo
+* Amy Murakami Tsutsumi
+* Andrea Vianey Díaz Álvarez
+* Ariadna Jocelyn Guzmán Jiménez
+*/
+
+
 package mx.itesm.dibujandounmaana.view
 
-
+//Librerías
 import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -38,6 +48,7 @@ class chats : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        //Crea la vista de inicio de acuerdo al xml asignado
         binding = NavChatsBinding.inflate(layoutInflater)
         FirebaseApp.initializeApp(this.requireContext())
         db = Firebase.firestore
@@ -82,11 +93,13 @@ class chats : Fragment() {
     }
 
     private fun chatSelected(chat: Chat) {
+        //Manda al usuario a la pantalla de conversasión con el otro usuario
         val accion = chatsDirections.actionChatsToMensaje(chat.id,user)
         findNavController().navigate(accion)
     }
 
     private fun configurarObservadores() {
+        //Verifica los componentes del chat y asigna valores de acuerdo a el comportamiento del usuario
         val otherUser = binding.inputChat.text.toString()
         viewModel.descargarDatosUsuario(otherUser)
         viewModel.respuesta.observe(viewLifecycleOwner) { respuesta ->
@@ -104,13 +117,6 @@ class chats : Fragment() {
         db.collection("users").document(user).collection("chats").document(chatId).set(chat)
         db.collection("users").document(otherUser).collection("chats").document(chatId).set(chat)
 
-        /* PREGUNTAR COMO SE ENVÍA
-        setFragmentResult("ChatUsuario", bundleOf("usuario" to user, "chatId" to chatId))
-        findNavController().navigate(R.id.action_chats_to_mensaje)
-
-        println("si me imprimo $chatId")
-
-         */
 
         val accion = chatsDirections.actionChatsToMensaje(chatId,user)
         findNavController().navigate(accion)

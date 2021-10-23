@@ -1,5 +1,15 @@
+/*
+Autores:
+* Liam Garay Monroy
+* Jorge Chávez Badillo
+* Amy Murakami Tsutsumi
+* Andrea Vianey Díaz Álvarez
+* Ariadna Jocelyn Guzmán Jiménez
+*/
+
 package mx.itesm.dibujandounmaana.view
 
+//Librerias
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -31,13 +41,15 @@ class Ayuda : AppCompatActivity() {
     private val botList = listOf("Jorge", "Amy", "Ariadna", "Andrea", "Liam")
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        /* Crea la vista de la actividad y manda a llamar a las funciones asignadas a los
+         elementos de la misma */
         super.onCreate(savedInstanceState)
         setContentView(R.layout.ayuda_fragment)
 
         recyclerView()
-
         clickEvents()
 
+        //Crea los mensajes de entrada que se le desplegaran al usuario cuando ingrese a la actividad
         val random = (0..3).random()
         customMessage("Hola! Estás hablando con ${botList[random]}, ¿cómo puedo ayudarte?", 500)
         customMessage("Envía el número de la pregunta que necesites realizar:\n" +
@@ -47,12 +59,11 @@ class Ayuda : AppCompatActivity() {
     }
 
     private fun clickEvents() {
-        //Send a message
+        //Configura el boton de enviar para mandar los mensajes
         findViewById<Button>(R.id.btn_send).setOnClickListener {
             sendMessage()
         }
 
-        //Scroll back to correct position when user clicks on text view
         findViewById<EditText>(R.id.et_message).setOnClickListener {
             GlobalScope.launch {
                 delay(100)
@@ -65,12 +76,14 @@ class Ayuda : AppCompatActivity() {
     }
 
     private fun recyclerView() {
+        //Adapta el tamaño y lugat correspondiente de los mensajes que se van enviando
         adapter = MessagingAdapter()
         findViewById<RecyclerView>(R.id.rv_messages).adapter = adapter
         findViewById<RecyclerView>(R.id.rv_messages).layoutManager = LinearLayoutManager(applicationContext)
     }
 
     private fun sendMessage() {
+        //Manda los mensajes y evalúa posibles situaciones
         val message = findViewById<EditText>(R.id.et_message).text.toString()
         val timeStamp = Time.timeStamp()
 
@@ -85,6 +98,8 @@ class Ayuda : AppCompatActivity() {
     }
 
     private fun botResponse(message: String) {
+
+        //Utiliza y manda las respuestas asignadas para contestar al usuario automáticamente
         val timeStamp = Time.timeStamp()
 
         GlobalScope.launch {
@@ -113,6 +128,7 @@ class Ayuda : AppCompatActivity() {
     }
 
     override fun onStart() {
+        //Despliega los textos de acuerdo al recycler view
         super.onStart()
         GlobalScope.launch {
             delay(1000)
@@ -124,6 +140,7 @@ class Ayuda : AppCompatActivity() {
 
 
     private fun customMessage(message: String, retardo: Long) {
+        //Configura el mensaje de acuerdo al contenido
         GlobalScope.launch {
             delay(retardo)
             withContext(Dispatchers.Main) {

@@ -1,5 +1,16 @@
+/*
+Autores:
+* Liam Garay Monroy
+* Jorge Chávez Badillo
+* Amy Murakami Tsutsumi
+* Andrea Vianey Díaz Álvarez
+* Ariadna Jocelyn Guzmán Jiménez
+*/
+
+
 package mx.itesm.dibujandounmaana.view
 
+//Librerías
 import android.content.Context
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -46,6 +57,7 @@ class Donar : Fragment() {
 
 
     override fun onCreateView(
+        //Crea la vista de inicio de acuerdo al xml asignado
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
@@ -55,8 +67,9 @@ class Donar : Fragment() {
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        /* Asegura que la vista esté completamente creada y manda a llamar a las funciones
+        a los elementos correspondientes */
         super.onViewCreated(view, savedInstanceState)
-        //val  payPalButton = findViewById<PayPalButton>(R.id.payPalButton)
         val preferencias = this.requireContext().getSharedPreferences("Usuario", Context.MODE_PRIVATE)
         val usuarioCorreo = preferencias.getString("Correo", "-1")
         viewModel2.descargarDatosProyecto()
@@ -119,6 +132,7 @@ class Donar : Fragment() {
     }
 
     private fun configurarObservadores() {
+        //Asigna a cada rv un proyecto de la base de datos con su respectiva información
         viewModel2.arrProyectos.observe(viewLifecycleOwner) { Lista ->
             Lista.forEach { proyecto ->
                 val nombre = proyecto.proyecto
@@ -132,21 +146,5 @@ class Donar : Fragment() {
             binding.spinner2.adapter = adaptador
         }
     }
-/*
-    private fun configurarEventos() {
-        binding.payPalButton.setOnClickListener {
-            val nuevaDonacion= Donar(binding.spinner2.selectedItem.toString(),
-                binding.etCantidad.text.toString())
 
-            viewModel.enviarDonacion(nuevaDonacion)
-        }
-    }*/
-
-/*
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(DonarVM::class.java)
-        // TODO: Use the ViewModel
-    }
-*/
 }

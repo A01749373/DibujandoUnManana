@@ -1,5 +1,15 @@
+/*
+Autores:
+* Liam Garay Monroy
+* Jorge Chávez Badillo
+* Amy Murakami Tsutsumi
+* Andrea Vianey Díaz Álvarez
+* Ariadna Jocelyn Guzmán Jiménez
+*/
+
 package mx.itesm.dibujandounmaana.view
 
+//Librerías
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -21,6 +31,7 @@ class Contactanos : Fragment() {
     }
 
     override fun onCreateView(
+        //Crea la vista de inicio de acuerdo al xml asignado
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
@@ -30,14 +41,16 @@ class Contactanos : Fragment() {
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        /* Asegura que la vista esté completamente creada y manda a llamar a las funciones
+        a los elementos correspondientes */
         super.onViewCreated(view, savedInstanceState)
 
-        //configurarObservadores()
         configurarEventos()
     }
 
 
     private fun configurarEventos(){
+        //Configura las opciones de cada uno de los botones de imagen para mandarlos a la url de contacto de la fundación
         val facebook= "https://www.facebook.com/DibujandoUnManana/"
         val twitter = "https://twitter.com/FDibujando"
         val instagram = "https://www.instagram.com/fdibujando/"
