@@ -57,6 +57,7 @@ class IniciarSesionAct : AppCompatActivity() {
         configurarEventos()
     }
 
+    // Se obtienen las preferecnias del usuario guardadas en la app
     private fun cargarPreferencias() {
         //Verfica la existencia del usuario para dejarlo acceder a la aplicación
         val preferencias = this.getSharedPreferences("Usuario", Context.MODE_PRIVATE)
@@ -76,6 +77,8 @@ class IniciarSesionAct : AppCompatActivity() {
         }
     }
 
+    // Verifica la respuesta del servidor y en caso de que el inicio de sesión sea exitoso, se
+    // empieza la actividad principal de la aplicación
     private fun cambiarPantalla(respuesta: String) {
         //Si la respuesta del servidor es válida, lo deja entrar a la aplicación
         if (respuesta == "Lo sentimos: Usuario o contraseña no válidos") {
@@ -126,6 +129,7 @@ class IniciarSesionAct : AppCompatActivity() {
         }
     }
 
+    // Se le da inicio a la actividad principal de la aplicación
     private fun abrirActividad() {
         //Abre la aplicación si el usuario es validad
         val intIniciarSe = Intent(this, MainActivity::class.java)
@@ -146,6 +150,7 @@ class IniciarSesionAct : AppCompatActivity() {
         
     }
 
+    // Configuración del listener de los botones de inicio de sesión
     private fun configurarEventos() {
         //Dependiendo del método de  inicio de sesión, se le da una respuesta al usuario (inicio de sesión normal y con facebook)
         binding.btnIniciarSesion.setOnClickListener {
@@ -206,6 +211,7 @@ class IniciarSesionAct : AppCompatActivity() {
         })
     }
 
+    // Función que guarda las preferencias del usuario, como el correo y el tipo de usuario
     private fun guardarPrederencias(correo: String) {
         //Guarda las preferencias del usuario (correo y tipo de usuario)
         val preferencias = this.getSharedPreferences("Usuario", Context.MODE_PRIVATE)

@@ -51,6 +51,7 @@ class Configuraciones : Fragment() {
         configurarEventos()
     }
 
+    // Configuración del listener para los botones de la pantalla de configuración
     private fun configurarEventos() {
         //Asigna las acciones que realizaran cada uno de los botones que se encuentran en la pantalla
         val preferencias = this.requireContext().getSharedPreferences("Usuario", Context.MODE_PRIVATE)

@@ -47,6 +47,8 @@ class administracion : Fragment() {
         configurarEventos()
     }
 
+    // Se configuran los listener de cada botón para la navegación de pantallas cuando el usuario
+    // es de tipo administrador
     private fun configurarEventos() {
         //Configura las funciones de los botones correspondientes a la vista
         val preferencias = this.requireContext().getSharedPreferences("Usuario", Context.MODE_PRIVATE)

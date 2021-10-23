@@ -49,6 +49,7 @@ class AgregarProyecto: Fragment() {
         configurarEventos()
     }
 
+    // Configuración del listener para agregar un nuevo proyecto a la base de datos
     private fun configurarEventos(){
         //Configura las funciones de los botones correspondientes a la vista
         binding.btnAgregar.setOnClickListener{

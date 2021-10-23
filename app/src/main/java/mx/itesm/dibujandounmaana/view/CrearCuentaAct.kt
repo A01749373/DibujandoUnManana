@@ -35,6 +35,8 @@ class CrearCuentaAct : AppCompatActivity() {
         configurarEventos()
     }
 
+    // Configuración del listener de crear cuenta, además de la verificación de que todos los datos
+    // sean ingresados correctamente
     private fun configurarEventos() {
         //Evalúa que al envíar los datos del usuario estos sean correspondienres y los adecuados para guardar en la base de datos
         binding.btnEvniar.setOnClickListener {
@@ -87,12 +89,16 @@ class CrearCuentaAct : AppCompatActivity() {
         println(binding.etCorreo.text.toString())
         println(binding.etContrsena.text.toString())
     }
+
+    // Se le da inicio a la actividad de iniciar sesión
     private fun abrirActividad() {
         //Si es validado el usuario, se inicia la pantalla de Iniciar Sesión
         val intIniciarSe = Intent(this, IniciarSesionAct::class.java)
         startActivity(intIniciarSe)
     }
 
+    // Función que muestra si el registro fue exitoso o si el usuario ya existe en la base de datos
+    // para posteriormente pasar a la pantalla de inicio de sesión
     private fun mostrarEstadoRegistro(respuesta: String) {
         //Entera al usuario si es un usuario ya existente o no
         if (respuesta == "Nombre de usuario ya existente") {

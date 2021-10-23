@@ -12,6 +12,7 @@ import retrofit2.Response
 class ChatsVM : ViewModel() {
     val respuesta = MutableLiveData<crearPefilUsuario>()
 
+    // Descarga los datos del usuario de la base de datos
     fun descargarDatosUsuario(correo: String) {
         val call = RetrofitInstance.servicioUsuarioApi.verUsuario(CorreoUsuario(correo))
 

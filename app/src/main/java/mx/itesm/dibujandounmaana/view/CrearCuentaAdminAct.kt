@@ -48,6 +48,8 @@ class CrearCuentaAdminAct : AppCompatActivity() {
         }
     }
 
+    // Función que muestra si el registro fue exitoso o si el usuario ya existe en la base de datos
+    // para posteriormente pasar a la pantalla de administración
     private fun mostrarEstadoRegistro(respuesta: String) {
         //Entera al usuario si es un usuario ya existente o no
         if (respuesta == "Nombre de usuario ya existente") {
@@ -60,6 +62,8 @@ class CrearCuentaAdminAct : AppCompatActivity() {
         }
     }
 
+    // Configuración del listener de crear cuenta administrador, además de la verificación de que todos los datos
+    // sean ingresados correctamente
     private fun configurarEventos() {
         //Evalúa que al envíar los datos del usuario estos sean correspondienres y los adecuados para guardar en la base de datos
         binding.btnEvniar.setOnClickListener {
@@ -115,8 +119,7 @@ class CrearCuentaAdminAct : AppCompatActivity() {
             }
         }
 
-
-
+    // Función que obtiene las preferencias del usuario en la app
     private fun cargarPreferencias() {
         //Guarda las preferencias del usuario
         val preferencias = this.getSharedPreferences("Usuario", Context.MODE_PRIVATE)

@@ -48,7 +48,8 @@ class Contactanos : Fragment() {
         configurarEventos()
     }
 
-
+    // Configuración del listener para los botones que llevan al usuario a las diferentes redes sociales
+    // de la Fundación Dibujando un Mañana
     private fun configurarEventos(){
         //Configura las opciones de cada uno de los botones de imagen para mandarlos a la url de contacto de la fundación
         val facebook= "https://www.facebook.com/DibujandoUnManana/"
