@@ -1,5 +1,16 @@
+/*
+Autores:
+* Liam Garay Monroy
+* Jorge Chávez Badillo
+* Amy Murakami Tsutsumi
+* Andrea Vianey Díaz Álvarez
+* Ariadna Jocelyn Guzmán Jiménez
+*/
+
+
 package mx.itesm.dibujandounmaana.viewmodel
 
+//Librerías
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.google.gson.Gson
@@ -15,6 +26,7 @@ class CrearCuentaAdminVM : ViewModel()
     val respuesta = MutableLiveData<String>()
 
     fun enviarAdmin(admin: Admin) {
+        //Envía los datos de un administrador al servidor para crear una cuenta
         println(Gson().toJson(JsonAdmin(admin)))
         val call = RetrofitInstance.servicioUsuarioApi.enviarAdmin(JsonAdmin(admin))
         call.enqueue(object: Callback<String> {

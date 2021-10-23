@@ -1,5 +1,16 @@
+/*
+Autores:
+* Liam Garay Monroy
+* Jorge Chávez Badillo
+* Amy Murakami Tsutsumi
+* Andrea Vianey Díaz Álvarez
+* Ariadna Jocelyn Guzmán Jiménez
+*/
+
+
 package mx.itesm.dibujandounmaana.viewmodel
 
+//Librerías
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.google.gson.Gson
@@ -15,7 +26,9 @@ class ConfiguracionesVM : ViewModel() {
 
     val respuesta = MutableLiveData<String>()
 
+
     fun borrarUsuario(correo: String) {
+        //Se comunica con el servidor para borrar al usuario de la base de datos
         val call = RetrofitInstance.servicioUsuarioApi.borrarCuenta(Correo(correo))
         call.enqueue(object: Callback<String> {
             override fun onResponse(call: Call<String>, response: Response<String>) {
@@ -34,7 +47,7 @@ class ConfiguracionesVM : ViewModel() {
         })
     }
     fun editarnombre(datos: Datos){
-
+        //Se comunica con el servidor para cambiar el nombre del usuario en la base de datos
         val call = RetrofitInstance.servicioUsuarioApi.editarNombre(Nombre(datos))
         call.enqueue(object: Callback<String> {
             override fun onResponse(call: Call<String>, response: Response<String>) {
@@ -53,6 +66,7 @@ class ConfiguracionesVM : ViewModel() {
         })
     }
     fun editarcontrasena(datos: Datos){
+        //Se comunica con el servidor para cambiar la contraseña del usuario en la base de datos
         val call = RetrofitInstance.servicioUsuarioApi.editarContrasena(Nombre(datos))
         call.enqueue(object: Callback<String> {
             override fun onResponse(call: Call<String>, response: Response<String>) {

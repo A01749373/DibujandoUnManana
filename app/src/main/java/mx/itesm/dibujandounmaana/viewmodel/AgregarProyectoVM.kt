@@ -1,6 +1,16 @@
+/*
+Autores:
+* Liam Garay Monroy
+* Jorge Chávez Badillo
+* Amy Murakami Tsutsumi
+* Andrea Vianey Díaz Álvarez
+* Ariadna Jocelyn Guzmán Jiménez
+*/
+
+
 package mx.itesm.dibujandounmaana.viewmodel
 
-import androidx.lifecycle.LiveData
+//Librerías
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.google.gson.Gson
@@ -15,6 +25,7 @@ class AgregarProyectoVM : ViewModel(){
     val respuesta = MutableLiveData<String>()
 
     fun enviarProyecto(proyectos: Proyectos){
+        //Agrega los proyectos recibidos del servidor como respuesta a la clase view AgregarProyecto
         println(Gson().toJson(JsonProyecto(proyectos)))
         val call = RetrofitInstance.servicioUsuarioApi.agregarProyecto(JsonProyecto(proyectos))
         call.enqueue(object: Callback<String> {

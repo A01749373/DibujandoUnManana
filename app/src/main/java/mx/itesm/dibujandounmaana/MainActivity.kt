@@ -1,5 +1,16 @@
+/*
+Autores:
+* Liam Garay Monroy
+* Jorge Chávez Badillo
+* Amy Murakami Tsutsumi
+* Andrea Vianey Díaz Álvarez
+* Ariadna Jocelyn Guzmán Jiménez
+*/
+
+
 package mx.itesm.dibujandounmaana
 
+//Librerías
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
@@ -29,6 +40,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var drawerLayoutPrueba: DrawerLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        //Abre la aplicación con el tema iniciar y configura las acciones de los elementos de entrada
         Thread.sleep(2000)
         setTheme(R.style.Theme_DibujandoUnMañana_NoActionBar)
         super.onCreate(savedInstanceState)
@@ -61,6 +73,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun verificaTipoUsuario() {
+        //Habilita o deshabilita el item de administrador de acuerdo al tipo de usuario
         val preferencias = this.getSharedPreferences("Usuario", MODE_PRIVATE)
         val correo = preferencias.getString("Correo","-1")
         val tipoUsuario = preferencias.getString("TipoUsuario", "-1")
@@ -80,12 +93,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
+        //Crea el menu de opciones
         menuInflater.inflate(R.menu.main, menu)
         return true
     }
 
     private fun logout(){
+        //Método para cerrar sesión en cualquier tipo de inicio de sesión
         println("Sesion cerrada")
         val preferencias = this.getSharedPreferences("Usuario", MODE_PRIVATE)
         val correo = preferencias.getString("Correo","-1")
@@ -97,7 +111,6 @@ class MainActivity : AppCompatActivity() {
         AuthUI.getInstance().signOut(this)
         //Facebook
         LoginManager.getInstance().logOut()
-        //this.finish()
         println("Este es el correo: ${correo}")
         val tipo = Intent(this, tipoUsuario::class.java)
         startActivity(tipo)
@@ -114,6 +127,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
+        //Configura el botón de cerrar sesión en la aplicación
         R.id.btnLogout -> {
             println("Hacer logout")
             logout()

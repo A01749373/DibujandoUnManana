@@ -1,6 +1,16 @@
+/*
+Autores:
+* Liam Garay Monroy
+* Jorge Chávez Badillo
+* Amy Murakami Tsutsumi
+* Andrea Vianey Díaz Álvarez
+* Ariadna Jocelyn Guzmán Jiménez
+*/
+
+
 package mx.itesm.dibujandounmaana
 
-import com.squareup.okhttp.ResponseBody
+//Librerías
 import okhttp3.OkHttpClient
 import retrofit2.Callback
 import retrofit2.Retrofit
@@ -18,6 +28,7 @@ import javax.net.ssl.X509TrustManager
 
 object RetrofitInstance {
     private val retrofit: Retrofit by lazy {
+        //Comunicación con el servidor
 
         Retrofit.Builder()
             // Localhost Liam: 172.17.80.1
@@ -37,6 +48,7 @@ object RetrofitInstance {
     }
 
     private fun getUnsafeOkHttpClient(): OkHttpClient? {
+        //Habilitar el puerto 443 y autenticar el certificado autofirmado
         return try {
             // Create a trust manager that does not validate certificate chains
             val trustAllCerts = arrayOf<TrustManager>(

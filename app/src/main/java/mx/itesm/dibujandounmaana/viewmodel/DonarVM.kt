@@ -1,5 +1,16 @@
+/*
+Autores:
+* Liam Garay Monroy
+* Jorge Chávez Badillo
+* Amy Murakami Tsutsumi
+* Andrea Vianey Díaz Álvarez
+* Ariadna Jocelyn Guzmán Jiménez
+*/
+
+
 package mx.itesm.dibujandounmaana.viewmodel
 
+//Librerías
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.google.gson.Gson
@@ -13,6 +24,7 @@ class DonarVM : ViewModel() {
     val respuesta = MutableLiveData<String>()
 
     fun enviarDonacion(donacion: Donar) {
+        //Registra los datos de una donación en la base de datos
         println(Gson().toJson(JsonDonacion(donacion)))
         val call = RetrofitInstance.servicioUsuarioApi.enviarDonacion(JsonDonacion(donacion))
         call.enqueue(object: Callback<String> {

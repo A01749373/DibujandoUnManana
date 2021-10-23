@@ -1,5 +1,16 @@
+/*
+Autores:
+* Liam Garay Monroy
+* Jorge Chávez Badillo
+* Amy Murakami Tsutsumi
+* Andrea Vianey Díaz Álvarez
+* Ariadna Jocelyn Guzmán Jiménez
+*/
+
+
 package mx.itesm.dibujandounmaana.viewmodel
 
+//Librerías
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.google.gson.Gson
@@ -14,6 +25,7 @@ class SumateVM : ViewModel() {
     val respuesta = MutableLiveData<String>()
 
     fun enviarPropuesta(nuevapropuesta: NuevaPropuesta) {
+        //Envía la propuesta dada por el usuario activo en la aplicación a la base de datos
         println(Gson().toJson(JsonPropuesta(nuevapropuesta)))
         val call = RetrofitInstance.servicioUsuarioApi.enviarPropuesta(JsonPropuesta(nuevapropuesta))
         call.enqueue(object: Callback<String> {

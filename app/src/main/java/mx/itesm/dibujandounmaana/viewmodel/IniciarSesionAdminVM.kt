@@ -1,5 +1,16 @@
+/*
+Autores:
+* Liam Garay Monroy
+* Jorge Chávez Badillo
+* Amy Murakami Tsutsumi
+* Andrea Vianey Díaz Álvarez
+* Ariadna Jocelyn Guzmán Jiménez
+*/
+
+
 package mx.itesm.dibujandounmaana.viewmodel
 
+//Librerías
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.google.gson.Gson
@@ -13,6 +24,7 @@ class IniciarSesionAdminVM : ViewModel() {
     val respuesta = MutableLiveData<String>()
     
     fun verificaAdmin(sesionAdmin: SesionAdmin){
+        //Verificar con el servidor si el administrador existe en la base de datos
         println(Gson().toJson(JsonSesionAdmin(sesionAdmin)))
         val call = RetrofitInstance.servicioUsuarioApi.iniciarSesionAdmin(JsonSesionAdmin(sesionAdmin))
 
@@ -33,6 +45,7 @@ class IniciarSesionAdminVM : ViewModel() {
     }
 
     fun enviarUsuario(usuario: Usuario) {
+        //Envía un usuario nuevo a la base de datos
         println(Gson().toJson(JsonUsuario(usuario)))
         val call = RetrofitInstance.servicioUsuarioApi.enviarUsuario(JsonUsuario(usuario))
         call.enqueue(object: Callback<String> {

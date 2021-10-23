@@ -1,12 +1,23 @@
+/*
+Autores:
+* Liam Garay Monroy
+* Jorge Chávez Badillo
+* Amy Murakami Tsutsumi
+* Andrea Vianey Díaz Álvarez
+* Ariadna Jocelyn Guzmán Jiménez
+*/
+
+
 package mx.itesm.dibujandounmaana
 
+//Librerías
 import mx.itesm.dibujandounmaana.model.*
 import mx.itesm.dibujandounmaana.model.ListaUsuarios
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.POST
 
-// Servicios
+// Servicios y contacto con el servidor
 interface ServicioUsuarioApi
 {
     @POST("/Usuario/CrearCuenta")

@@ -1,5 +1,16 @@
+/*
+Autores:
+* Liam Garay Monroy
+* Jorge Chávez Badillo
+* Amy Murakami Tsutsumi
+* Andrea Vianey Díaz Álvarez
+* Ariadna Jocelyn Guzmán Jiménez
+*/
+
+
 package mx.itesm.dibujandounmaana.viewmodel
 
+//Librerías
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import mx.itesm.dibujandounmaana.RetrofitInstance
@@ -12,10 +23,12 @@ class ProyectosVM : ViewModel() {
     val arrProyectos = MutableLiveData<List<Proyecto>>()
 
     fun leerDatos(){
+        //Lee los datos de los proyectos existentes en la base de datos
         descargarDatosProyecto()
     }
 
     fun descargarDatosProyecto() {
+        //Descarga el json de los datos recibidos del servidor
         val call = RetrofitInstance.servicioUsuarioApi.verProyecto()
 
         call.enqueue(object: Callback<List<Proyecto>> {
